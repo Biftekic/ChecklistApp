@@ -12,13 +12,7 @@ import { useCustomizationStore } from '@/lib/stores/customization-store';
 import { templateEngine } from '@/lib/services/template-engine';
 import { GeneratedChecklist } from '@/lib/types/template';
 
-export interface ChecklistMetadataType {
-  clientName: string;
-  location: string;
-  serviceDate: string;
-  assignedStaff: string[];
-  notes: string;
-}
+import { ChecklistMetadataType } from '@/lib/types/checklist';
 
 export default function PreviewPage() {
   const params = useParams();
@@ -29,7 +23,7 @@ export default function PreviewPage() {
     selectedTasks, 
     customTasks, 
     editedTasks,
-    currentStep,
+    _currentStep,
     setCurrentStep 
   } = useCustomizationStore();
   

@@ -4,11 +4,10 @@ import { useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { GeneratedChecklist } from '@/lib/types/template';
-import { ChecklistMetadataType } from '@/app/templates/[id]/preview/page';
+import { ChecklistMetadataType } from '@/lib/types/checklist';
 import { templateEngine } from '@/lib/services/template-engine';
 import { 
   Download, 
-  FileText, 
   Table, 
   Printer,
   Copy,

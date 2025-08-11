@@ -7,7 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { ChecklistMetadataType } from '@/app/templates/[id]/preview/page';
+import { ChecklistMetadataType } from '@/lib/types/checklist';
 import { X, Plus, Save } from 'lucide-react';
 
 interface ChecklistMetadataProps {
@@ -21,7 +21,7 @@ export function ChecklistMetadata({ metadata, onUpdate }: ChecklistMetadataProps
   const [hasChanges, setHasChanges] = useState(false);
 
   const handleInputChange = (field: keyof ChecklistMetadataType, value: any) => {
-    setLocalMetadata(prev => ({
+    setLocalMetadata((prev: ChecklistMetadataType) => ({
       ...prev,
       [field]: value
     }));
@@ -37,7 +37,7 @@ export function ChecklistMetadata({ metadata, onUpdate }: ChecklistMetadataProps
   };
 
   const handleRemoveStaff = (index: number) => {
-    const updatedStaff = localMetadata.assignedStaff.filter((_, i) => i !== index);
+    const updatedStaff = localMetadata.assignedStaff.filter((_: string, i: number) => i !== index);
     handleInputChange('assignedStaff', updatedStaff);
   };
 
@@ -116,7 +116,7 @@ export function ChecklistMetadata({ metadata, onUpdate }: ChecklistMetadataProps
             </div>
             {localMetadata.assignedStaff.length > 0 && (
               <div className="mt-2 flex flex-wrap gap-2">
-                {localMetadata.assignedStaff.map((staff, index) => (
+                {localMetadata.assignedStaff.map((staff: string, index: number) => (
                   <Badge key={index} variant="secondary" className="px-2 py-1">
                     {staff}
                     <button
