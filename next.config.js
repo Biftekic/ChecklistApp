@@ -9,13 +9,13 @@ const nextConfig = {
   },
   experimental: {
     // React 19 and Next.js 15.1 features
-    ppr: true, // Partial Prerendering
-    reactCompiler: true, // React Compiler optimization
+    // ppr: true, // Partial Prerendering (canary only)
+    // reactCompiler: true, // React Compiler optimization (requires additional setup)
     serverActions: {
       bodySizeLimit: '2mb', // For photo uploads
       allowedOrigins: ['localhost:3000', 'app.checklistapp.com'],
     },
-    optimizeCss: true,
+    // optimizeCss: true, // Requires critters to be configured
     optimizePackageImports: [
       '@radix-ui/react-*',
       'dexie',

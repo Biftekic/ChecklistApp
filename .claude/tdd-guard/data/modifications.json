@@ -1,0 +1,11 @@
+{
+  "session_id": "caa9d0d8-0411-4182-bce5-c6dd565e0065",
+  "transcript_path": "/home/tinpavlic1/.claude/projects/-home-tinpavlic1-claude-projects-ChecklistApp/caa9d0d8-0411-4182-bce5-c6dd565e0065.jsonl",
+  "hook_event_name": "PreToolUse",
+  "tool_name": "Edit",
+  "tool_input": {
+    "file_path": "/home/tinpavlic1/claude-projects/ChecklistApp/next.config.js",
+    "old_string": "  experimental: {\n    // React 19 and Next.js 15.1 features\n    ppr: true, // Partial Prerendering\n    reactCompiler: true, // React Compiler optimization",
+    "new_string": "  experimental: {\n    // React 19 and Next.js 15.1 features\n    // ppr: true, // Partial Prerendering (canary only)\n    // reactCompiler: true, // React Compiler optimization (requires additional setup)"
+  }
+}
