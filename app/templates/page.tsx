@@ -117,7 +117,7 @@ export default function TemplatesPage() {
                     </div>
                   )}
                   
-                  <Link href={`/customize?template=${template.id}`} className="block p-6">
+                  <Link href={`/templates/${template.id}/rooms`} className="block p-6">
                     <div className="mb-4 flex items-start gap-4">
                       <div className={`${template.color} rounded-lg p-3 text-white`}>
                         <Icon className="h-6 w-6" />

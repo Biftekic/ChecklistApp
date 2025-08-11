@@ -241,4 +241,74 @@
     @apply truncate-lines;
     -webkit-line-clamp: 3;
   }
-}
+}  /* Print styles */
+  @media print {
+    body {
+      @apply bg-white text-black;
+    }
+    
+    .print\:hidden {
+      display: none !important;
+    }
+    
+    .print\:block {
+      display: block !important;
+    }
+    
+    .print\:bg-white {
+      background-color: white !important;
+    }
+    
+    .print\:text-black {
+      color: black !important;
+    }
+    
+    .print\:border-2 {
+      border-width: 2px !important;
+    }
+    
+    .print\:px-0 {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+    
+    /* Prevent page breaks inside elements */
+    .break-inside-avoid {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    
+    /* Ensure checkboxes are visible in print */
+    input[type="checkbox"] {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      color-adjust: exact;
+    }
+    
+    /* Remove shadows and unnecessary styling */
+    * {
+      box-shadow: none !important;
+      text-shadow: none !important;
+    }
+    
+    /* Ensure good contrast */
+    .text-muted-foreground {
+      color: #666 !important;
+    }
+    
+    /* Page margins */
+    @page {
+      margin: 1cm;
+    }
+    
+    /* Headers and footers */
+    h1, h2, h3, h4, h5, h6 {
+      page-break-after: avoid;
+    }
+    
+    /* Keep content together */
+    p, ul, ol, dl {
+      orphans: 3;
+      widows: 3;
+    }
+  }

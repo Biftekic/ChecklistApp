@@ -39,7 +39,7 @@ export class TemplateEngine {
 
   // Generate a checklist from selections
   generateChecklist(state: TemplateSelectionState): GeneratedChecklist {
-    if (\!state.selectedTemplate) {
+    if (!state.selectedTemplate) {
       throw new Error("No template selected");
     }
 
@@ -78,7 +78,7 @@ export class TemplateEngine {
           // Add custom tasks to counts
           if (roomCopy.customTasks) {
             roomCopy.customTasks.forEach(task => {
-              if (task.isSelected \!== false) {
+              if (task.isSelected !== false) {
                 selectedTasks++;
                 estimatedTime += task.estimatedTime;
                 allCustomTasks.push(task);
@@ -109,7 +109,7 @@ export class TemplateEngine {
 
   // Calculate estimated time for selected tasks
   calculateEstimatedTime(state: TemplateSelectionState): number {
-    if (\!state.selectedTemplate) return 0;
+    if (!state.selectedTemplate) return 0;
 
     let totalTime = 0;
 
@@ -127,7 +127,7 @@ export class TemplateEngine {
           const customTasks = state.customTasks[room.id];
           if (customTasks) {
             customTasks.forEach(task => {
-              if (task.isSelected \!== false) {
+              if (task.isSelected !== false) {
                 totalTime += task.estimatedTime;
               }
             });
@@ -198,13 +198,13 @@ export class TemplateEngine {
             task.description || "",
             task.estimatedTime.toString(),
             task.priority || "medium",
-            task.isSelected \!== false ? "Yes" : "No"
+            task.isSelected !== false ? "Yes" : "No"
           ]);
         });
       }
     });
 
-    return rows.map(row => row.map(cell => `"${cell}"`).join(",")).join("\\n");
+    return rows.map(row => row.map(cell => `"${cell}"`).join(",")).join("\n");
   }
 }
 
