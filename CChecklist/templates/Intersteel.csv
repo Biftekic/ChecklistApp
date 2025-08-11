@@ -1,0 +1,340 @@
+Task Name,Rooms (drop down)
+Tiles,Factory changeroom Toilets
+Toilet doors,Factory changeroom Toilets
+Window sill,Factory changeroom Toilets
+Light switch,Factory changeroom Toilets
+Window inside,Factory changeroom Toilets
+Refill Toilet paper,Factory changeroom Toilets
+Toilet,Factory changeroom Toilets
+Urinal,Factory changeroom Toilets
+Hand dryer,Factory changeroom Toilets
+Sill above toilet and urinal,Factory changeroom Toilets
+Sink,Factory changeroom Toilets
+Toilet buttons,Factory changeroom Toilets
+Broom floor,Factory changeroom Toilets
+Mop Floor,Factory changeroom Toilets
+Wipe lockers,Factory changeroom Lockers
+Wash showers,Factory changeroom Lockers
+Wash bench,Factory changeroom Lockers
+Throw garbage,Factory changeroom Lockers
+Broom floors,Factory changeroom Lockers
+Mop floors,Factory changeroom Lockers
+Clean light switches,Factory changeroom Kitchen
+Tables,Factory changeroom Kitchen
+Vacuum or sweep floors,Factory changeroom Kitchen
+Cobwebs,Factory changeroom Kitchen
+Garbage,Factory changeroom Kitchen
+Mop floors,Factory changeroom Kitchen
+Wash windows inside,Entry office
+Wash windows outside,Entry office
+Clean blinds and window ledges,Entry office
+Tables,Entry office
+"Clean dusty furnitures, lamps and furnitures",Entry office
+"Clean the baseboards, and chair rails",Entry office
+Electronics dust,Entry office
+Clean light switches,Entry office
+Cobwebs,Entry office
+Mop floors,Entry office
+Remove all the trash,Entry office
+Clean glass doors & handles,Entry office
+Clean doors & handles,Entry office
+Vacuum or sweep floors,Entry office
+Tiles,Male toilet ground floor
+Window outside,Male toilet ground floor
+Clean blinds and window ledges,Male toilet ground floor
+Window inside,Male toilet ground floor
+Mirror,Male toilet ground floor
+Sill above toilet and urinal,Male toilet ground floor
+Light switch,Male toilet ground floor
+Hand dryer,Male toilet ground floor
+Window sill,Male toilet ground floor
+Temperature switch,Male toilet ground floor
+Cabinet,Male toilet ground floor
+Mop Floor,Male toilet ground floor
+Broom floor,Male toilet ground floor
+Refill Soap,Male toilet ground floor
+Toilet buttons,Male toilet ground floor
+Toilet doors,Male toilet ground floor
+Refill Toilet paper,Male toilet ground floor
+Sink,Male toilet ground floor
+Urinal,Male toilet ground floor
+Toilet,Male toilet ground floor
+Tiles,Female toilet ground floor
+Clean blinds and window ledges,Female toilet ground floor
+Window outside,Female toilet ground floor
+Window inside,Female toilet ground floor
+Mirror,Female toilet ground floor
+Light switch,Female toilet ground floor
+Hand dryer,Female toilet ground floor
+Temperature switch,Female toilet ground floor
+Window sill,Female toilet ground floor
+Sill above toilet and urinal,Female toilet ground floor
+Mop Floor,Female toilet ground floor
+Broom floor,Female toilet ground floor
+Cabinet,Female toilet ground floor
+Refill Soap,Female toilet ground floor
+Toilet doors,Female toilet ground floor
+Sink,Female toilet ground floor
+Refill Toilet paper,Female toilet ground floor
+Toilet,Female toilet ground floor
+Toilet buttons,Female toilet ground floor
+Garbage,Female toilet ground floor
+Clean blinds and window ledges,Office with green chair
+Clean light switches,Office with green chair
+Wash windows inside,Office with green chair
+Wash windows outside,Office with green chair
+Tables,Office with green chair
+"Clean the baseboards, and chair rails",Office with green chair
+"Clean dusty furnitures, lamps and furnitures",Office with green chair
+Vacuum or sweep floors,Office with green chair
+Mop floors,Office with green chair
+Remove all the trash,Office with green chair
+Cobwebs,Office with green chair
+Clean glass doors & handles,Office with green chair
+Clean blinds and window ledges,Big office
+Wash windows outside,Big office
+Wash windows inside,Big office
+Clean light switches,Big office
+Clean glass doors & handles,Big office
+Tables,Big office
+Electronics dust,Big office
+"Clean the baseboards, and chair rails",Big office
+"Clean dusty furnitures, lamps and furnitures",Big office
+Vacuum or sweep floors,Big office
+Cobwebs,Big office
+Remove all the trash,Big office
+Mop floors,Big office
+Wash windows inside,Small office
+Clean glass doors & handles,Small office
+Wash windows outside,Small office
+Clean blinds and window ledges,Small office
+Clean light switches,Small office
+"Clean the baseboards, and chair rails",Small office
+Electronics dust,Small office
+"Clean dusty furnitures, lamps and furnitures",Small office
+Tables,Small office
+Vacuum or sweep floors,Small office
+Remove all the trash,Small office
+Cobwebs,Small office
+Mop floors,Small office
+Wash windows inside,Office on corner
+Wash windows outside,Office on corner
+Clean glass doors & handles,Office on corner
+Clean blinds and window ledges,Office on corner
+Clean light switches,Office on corner
+"Clean the baseboards, and chair rails",Office on corner
+Electronics dust,Office on corner
+"Clean dusty furnitures, lamps and furnitures",Office on corner
+Tables,Office on corner
+Vacuum or sweep floors,Office on corner
+Mop floors,Office on corner
+Remove all the trash,Office on corner
+Cobwebs,Office on corner
+Outside enterance,Enterance
+Inside enterance,Enterance
+Fire estinguisher,Enterance
+Alarm & Light switches,Enterance
+Broom floor,Enterance
+Mop floor,Enterance
+Moon shaped glass table,Enterance
+Glass wall on fence,Staircase
+Temperature switch,Staircase
+Staircase broom,Staircase
+Fence,Staircase
+Staircase mop,Staircase
+Wash windows outside,Big kitchen
+Wash windows inside,Big kitchen
+Clean glass doors & handles,Big kitchen
+Wipe garbage can,Big kitchen
+Wipe fingerprints on cabinets,Big kitchen
+Clean light switches,Big kitchen
+Clean the refrigerator's and freezer's drawers and shelves.,Big kitchen
+"Remove stale or expired food from the refrigerator, freezer, and pantry.",Big kitchen
+Clean doormat and carpets,Big kitchen
+Clean blinds and window ledges,Big kitchen
+Tables,Big kitchen
+Vacuum or sweep floors,Big kitchen
+"Clean dusty furnitures, lamps and furnitures",Big kitchen
+Garbage,Big kitchen
+Put dirty dishes in Dishwasher,Big kitchen
+Cobwebs,Big kitchen
+"Clean the baseboards, and chair rails",Big kitchen
+Mop floors,Big kitchen
+Clean and degrease the kitchen sink's drain.,Big kitchen
+Clean countertops,Big kitchen
+Clean blinds and window ledges,Room for meetings
+Clean glass doors & handles,Room for meetings
+Clean light switches,Room for meetings
+Vacuum or sweep floors,Room for meetings
+Tables,Room for meetings
+"Clean the baseboards, and chair rails",Room for meetings
+"Clean dusty furnitures, lamps and furnitures",Room for meetings
+Cobwebs,Room for meetings
+Mop floors,Room for meetings
+Wash windows inside,Room for meetings
+Wash windows outside,Room for meetings
+Clean the refrigerator's and freezer's drawers and shelves.,Small Kitchen
+Clean light switches,Small Kitchen
+Vacuum or sweep floors,Small Kitchen
+Clean blinds and window ledges,Small Kitchen
+Clean glass doors & handles,Small Kitchen
+Wash windows inside,Small Kitchen
+Wash windows outside,Small Kitchen
+"Remove stale or expired food from the refrigerator, freezer, and pantry.",Small Kitchen
+Wipe garbage can,Small Kitchen
+Tables,Small Kitchen
+Clean countertops,Small Kitchen
+Mop floors,Small Kitchen
+Garbage,Small Kitchen
+Cobwebs,Small Kitchen
+Clean and degrease the kitchen sink's drain.,Small Kitchen
+Put dirty dishes in Dishwasher,Small Kitchen
+Tiles,Male toilet first floor
+Sill above toilet and urinal,Male toilet first floor
+Light switch,Male toilet first floor
+Mirror,Male toilet first floor
+Temperature switch,Male toilet first floor
+Cabinet,Male toilet first floor
+Refill Soap,Male toilet first floor
+Toilet buttons,Male toilet first floor
+Sink,Male toilet first floor
+Refill Toilet paper,Male toilet first floor
+Toilet doors,Male toilet first floor
+Window sill,Male toilet first floor
+Clean blinds and window ledges,Male toilet first floor
+Hand dryer,Male toilet first floor
+Window inside,Male toilet first floor
+Mop Floor,Male toilet first floor
+Broom floor,Male toilet first floor
+Urinal,Male toilet first floor
+Toilet,Male toilet first floor
+Window outside,Male toilet first floor
+Tiles,Female toilet first floor
+Temperature switch,Female toilet first floor
+Hand dryer,Female toilet first floor
+Sill above toilet and urinal,Female toilet first floor
+Toilet doors,Female toilet first floor
+Light switch,Female toilet first floor
+Mirror,Female toilet first floor
+Cabinet,Female toilet first floor
+Refill Soap,Female toilet first floor
+Toilet buttons,Female toilet first floor
+Sink,Female toilet first floor
+Toilet,Female toilet first floor
+Refill Toilet paper,Female toilet first floor
+Garbage,Female toilet first floor
+Broom floor,Female toilet first floor
+Mop Floor,Female toilet first floor
+Vacuum sofa and chairs,Boss office
+Tables,Boss office
+"Clean the baseboards, and chair rails",Boss office
+"Clean dusty furnitures, lamps and furnitures",Boss office
+Electronics dust,Boss office
+Clean light switches,Boss office
+Vacuum or sweep floors,Boss office
+Cobwebs,Boss office
+Mop floors,Boss office
+Clean blinds and window ledges,Boss office
+Wash windows inside,Boss office
+Clean glass doors & handles,Boss office
+Wash windows outside,Boss office
+Clean blinds and window ledges,Office 1
+Tables,Office 1
+"Clean the baseboards, and chair rails",Office 1
+"Clean dusty furnitures, lamps and furnitures",Office 1
+Electronics dust,Office 1
+Clean glass doors & handles,Office 1
+Clean light switches,Office 1
+Vacuum or sweep floors,Office 1
+Remove all the trash,Office 1
+Cobwebs,Office 1
+Mop floors,Office 1
+Wash windows inside,Office 1
+Wash windows outside,Office 1
+Clean blinds and window ledges,Office 2 small
+Clean light switches,Office 2 small
+Tables,Office 2 small
+"Clean the baseboards, and chair rails",Office 2 small
+Electronics dust,Office 2 small
+"Clean dusty furnitures, lamps and furnitures",Office 2 small
+Vacuum or sweep floors,Office 2 small
+Cobwebs,Office 2 small
+Mop floors,Office 2 small
+Remove all the trash,Office 2 small
+Wash windows inside,Office 2 small
+Clean glass doors & handles,Office 2 small
+Wash windows outside,Office 2 small
+Clean blinds and window ledges,Office 3 with many windows
+Clean glass doors & handles,Office 3 with many windows
+Clean light switches,Office 3 with many windows
+Tables,Office 3 with many windows
+"Clean the baseboards, and chair rails",Office 3 with many windows
+"Clean dusty furnitures, lamps and furnitures",Office 3 with many windows
+Electronics dust,Office 3 with many windows
+Wash windows inside,Office 3 with many windows
+Vacuum or sweep floors,Office 3 with many windows
+Cobwebs,Office 3 with many windows
+Remove all the trash,Office 3 with many windows
+Mop floors,Office 3 with many windows
+Wash windows outside,Office 3 with many windows
+Clean blinds and window ledges,Office 4 end of hallway
+Clean glass doors & handles,Office 4 end of hallway
+Clean light switches,Office 4 end of hallway
+Tables,Office 4 end of hallway
+"Clean dusty furnitures, lamps and furnitures",Office 4 end of hallway
+"Clean the baseboards, and chair rails",Office 4 end of hallway
+Electronics dust,Office 4 end of hallway
+Vacuum or sweep floors,Office 4 end of hallway
+Mop floors,Office 4 end of hallway
+Cobwebs,Office 4 end of hallway
+Remove all the trash,Office 4 end of hallway
+Wash windows inside,Office 4 end of hallway
+Wash windows outside,Office 4 end of hallway
+Clean glass doors & handles,Office 5 at the left
+Clean blinds and window ledges,Office 5 at the left
+Clean light switches,Office 5 at the left
+Tables,Office 5 at the left
+"Clean the baseboards, and chair rails",Office 5 at the left
+"Clean dusty furnitures, lamps and furnitures",Office 5 at the left
+Electronics dust,Office 5 at the left
+Vacuum or sweep floors,Office 5 at the left
+Cobwebs,Office 5 at the left
+Remove all the trash,Office 5 at the left
+Mop floors,Office 5 at the left
+Wash windows inside,Office 5 at the left
+Wash windows outside,Office 5 at the left
+Clean blinds and window ledges,Other side Office
+Wash windows inside,Other side Office
+Wash windows outside,Other side Office
+Vacuum or sweep floors,Other side Office
+Tables,Other side Office
+Cobwebs,Other side Office
+Clean light switches,Other side Office
+Mop floors,Other side Office
+"Clean the baseboards, and chair rails",Other side Office
+Electronics dust,Other side Office
+Remove all the trash,Other side Office
+Light switch,Other side Office toilet
+Tiles,Other side Office toilet
+Toilet doors,Other side Office toilet
+Temperature switch,Other side Office toilet
+Sill above toilet and urinal,Other side Office toilet
+Refill Toilet paper,Other side Office toilet
+Toilet,Other side Office toilet
+Urinal,Other side Office toilet
+Toilet buttons,Other side Office toilet
+Sink,Other side Office toilet
+Broom floor,Other side Office toilet
+Mop Floor,Other side Office toilet
+Tiles,Truck guys toilet
+Sill above toilet and urinal,Truck guys toilet
+Light switch,Truck guys toilet
+Toilet doors,Truck guys toilet
+Temperature switch,Truck guys toilet
+Toilet,Truck guys toilet
+Sink,Truck guys toilet
+Urinal,Truck guys toilet
+Toilet buttons,Truck guys toilet
+Refill Toilet paper,Truck guys toilet
+Mop Floor,Truck guys toilet
+Broom floor,Truck guys toilet

@@ -1,0 +1,18 @@
+# Ignore artifacts:
+build
+coverage
+.next
+out
+dist
+public
+
+# Ignore all min files
+*.min.js
+*.min.css
+
+# Ignore files:
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+.DS_Store
+*.log
