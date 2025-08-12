@@ -12,7 +12,7 @@ describe('Checkbox', () => {
   it('should handle checked state', () => {
     const { rerender } = render(<Checkbox checked={false} />);
     expect(screen.getByRole('checkbox')).toHaveAttribute('data-state', 'unchecked');
-    
+
     rerender(<Checkbox checked={true} />);
     expect(screen.getByRole('checkbox')).toHaveAttribute('data-state', 'checked');
   });
@@ -25,18 +25,18 @@ describe('Checkbox', () => {
   it('should call onCheckedChange when clicked', async () => {
     const handleChange = vi.fn();
     const user = userEvent.setup();
-    
+
     render(<Checkbox onCheckedChange={handleChange} />);
-    
+
     await user.click(screen.getByRole('checkbox'));
-    
+
     expect(handleChange).toHaveBeenCalledTimes(1);
     expect(handleChange).toHaveBeenCalledWith(true);
   });
 
   it('should be disabled when disabled prop is true', () => {
     render(<Checkbox disabled />);
-    
+
     const checkbox = screen.getByRole('checkbox');
     expect(checkbox).toHaveAttribute('data-disabled');
     expect(checkbox).toHaveClass('disabled:cursor-not-allowed', 'disabled:opacity-50');
@@ -54,8 +54,8 @@ describe('Checkbox', () => {
   });
 
   it('should show minus icon when indeterminate', () => {
-    const { container } = render(<Checkbox indeterminate={true} />);
-    const minusIcon = container.querySelector('.lucide-minus');
+    const { container } = render(<Checkbox indeterminate={true} checked={true} />);
+    const minusIcon = container.querySelector('[data-state="indeterminate"] svg');
     expect(minusIcon).toBeInTheDocument();
   });
 });

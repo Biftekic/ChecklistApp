@@ -1,11 +1,23 @@
 {
-  "session_id": "566115cb-e333-47f1-9a65-154eca311a80",
-  "transcript_path": "/home/tinpavlic1/.claude/projects/-home-tinpavlic1-claude-projects-ChecklistApp/566115cb-e333-47f1-9a65-154eca311a80.jsonl",
+  "session_id": "ba33b8a1-8ab4-44fb-89d5-8f20aee48f58",
+  "transcript_path": "/home/tinpavlic1/.claude/projects/-home-tinpavlic1-claude-projects-ChecklistApp/ba33b8a1-8ab4-44fb-89d5-8f20aee48f58.jsonl",
   "hook_event_name": "PreToolUse",
-  "tool_name": "Edit",
+  "tool_name": "MultiEdit",
   "tool_input": {
-    "file_path": "/home/tinpavlic1/claude-projects/ChecklistApp/app/templates/[id]/preview/page.tsx",
-    "old_string": "    currentStep,",
-    "new_string": "    currentStep: _currentStep,"
+    "file_path": "/home/tinpavlic1/claude-projects/ChecklistApp/components/ui/__tests__/button.test.tsx",
+    "edits": [
+      {
+        "old_string": "    expect(screen.getByRole('button')).toHaveClass('h-10');",
+        "new_string": "    expect(screen.getByRole('button')).toHaveClass('h-11');"
+      },
+      {
+        "old_string": "    expect(screen.getByRole('button')).toHaveClass('h-11');",
+        "new_string": "    expect(screen.getByRole('button')).toHaveClass('h-12');"
+      },
+      {
+        "old_string": "    expect(screen.getByRole('button')).toHaveClass('h-10', 'w-10');",
+        "new_string": "    expect(screen.getByRole('button')).toHaveClass('h-11', 'w-11');"
+      }
+    ]
   }
 }

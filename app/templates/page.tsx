@@ -2,17 +2,17 @@ import { PageWrapper } from '@/components/layout/page-wrapper';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { 
-  Home, 
-  Building2, 
-  Sparkles, 
+import {
+  Home,
+  Building2,
+  Sparkles,
   Wrench,
   Hotel,
   ShoppingBag,
   GraduationCap,
   Heart,
   Truck,
-  ChevronRight
+  ChevronRight,
 } from 'lucide-react';
 
 const templates = [
@@ -95,8 +95,8 @@ export default function TemplatesPage() {
               Choose Your Template
             </h1>
             <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-              Select an industry template to get started. Each template is fully customizable 
-              to match your specific needs.
+              Select an industry template to get started. Each template is fully customizable to
+              match your specific needs.
             </p>
           </div>
 
@@ -105,8 +105,8 @@ export default function TemplatesPage() {
             {templates.map((template) => {
               const Icon = template.icon;
               return (
-                <Card 
-                  key={template.id} 
+                <Card
+                  key={template.id}
                   className="group relative overflow-hidden transition-all hover:shadow-lg"
                 >
                   {template.popular && (
@@ -116,7 +116,7 @@ export default function TemplatesPage() {
                       </span>
                     </div>
                   )}
-                  
+
                   <Link href={`/templates/${template.id}/rooms`} className="block p-6">
                     <div className="mb-4 flex items-start gap-4">
                       <div className={`${template.color} rounded-lg p-3 text-white`}>
@@ -126,12 +126,10 @@ export default function TemplatesPage() {
                         <h3 className="mb-2 font-semibold group-hover:text-primary">
                           {template.name}
                         </h3>
-                        <p className="text-sm text-muted-foreground">
-                          {template.description}
-                        </p>
+                        <p className="text-sm text-muted-foreground">{template.description}</p>
                       </div>
                     </div>
-                    
+
                     <div className="flex items-center text-sm font-medium text-primary">
                       Customize Template
                       <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -154,21 +152,17 @@ export default function TemplatesPage() {
                   </div>
                   <div className="flex-1">
                     <h3 className="mb-2 text-xl font-semibold">
-                      Can't find what you're looking for?
+                      Can&apos;t find what you&apos;re looking for?
                     </h3>
                     <p className="mb-4 text-muted-foreground">
                       Create a custom checklist from scratch or use our AI to analyze your space
                     </p>
                     <div className="flex flex-col gap-3 sm:flex-row">
                       <Button asChild>
-                        <Link href="/customize">
-                          Create Custom Checklist
-                        </Link>
+                        <Link href="/customize">Create Custom Checklist</Link>
                       </Button>
                       <Button variant="outline" asChild>
-                        <Link href="/ai-analysis">
-                          Use AI Photo Analysis
-                        </Link>
+                        <Link href="/ai-analysis">Use AI Photo Analysis</Link>
                       </Button>
                     </div>
                   </div>

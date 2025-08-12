@@ -17,16 +17,15 @@ import { ChecklistMetadataType } from '@/lib/types/checklist';
 export default function PreviewPage() {
   const params = useParams();
   const router = useRouter();
-  const { 
-    selectedTemplate, 
-    selectedRooms, 
-    selectedTasks, 
-    customTasks, 
+  const {
+    selectedTemplate,
+    selectedRooms,
+    selectedTasks,
+    customTasks,
     editedTasks,
-    _currentStep,
-    setCurrentStep 
+    setCurrentStep,
   } = useCustomizationStore();
-  
+
   const [generatedChecklist, setGeneratedChecklist] = useState<GeneratedChecklist | null>(null);
   const [metadata, setMetadata] = useState<ChecklistMetadataType>({
     clientName: '',
@@ -45,7 +44,7 @@ export default function PreviewPage() {
         selectedRooms,
         selectedTasks,
         customTasks,
-        editedTasks
+        editedTasks,
       });
       setGeneratedChecklist(checklist);
     }
@@ -77,9 +76,7 @@ export default function PreviewPage() {
             <p className="mb-4 text-muted-foreground">
               Please complete the template customization first.
             </p>
-            <Button onClick={() => router.push('/templates')}>
-              Go to Templates
-            </Button>
+            <Button onClick={() => router.push('/templates')}>Go to Templates</Button>
           </div>
         </div>
       </PageWrapper>
@@ -94,17 +91,11 @@ export default function PreviewPage() {
           <div className="mb-8 print:hidden">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-4">
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={handleBackClick}
-                >
+                <Button variant="ghost" size="icon" onClick={handleBackClick}>
                   <ArrowLeft className="h-5 w-5" />
                 </Button>
                 <div>
-                  <h1 className="text-3xl font-bold tracking-tight">
-                    Preview & Export
-                  </h1>
+                  <h1 className="text-3xl font-bold tracking-tight">Preview & Export</h1>
                   <p className="mt-1 text-muted-foreground">
                     Review your customized checklist and export in your preferred format
                   </p>
@@ -126,10 +117,7 @@ export default function PreviewPage() {
             <div className="lg:col-span-2">
               {/* Metadata Form */}
               <div className="mb-8 print:hidden">
-                <ChecklistMetadata
-                  metadata={metadata}
-                  onUpdate={handleMetadataUpdate}
-                />
+                <ChecklistMetadata metadata={metadata} onUpdate={handleMetadataUpdate} />
               </div>
 
               {/* Checklist Preview */}

@@ -12,44 +12,51 @@ export default function Error({
   reset: () => void;
 }) {
   useEffect(() => {
-    // Log the error to an error reporting service
-    console.error(error);
+    console.error('Application error:', error);
   }, [error]);
 
   return (
-    <div className="flex min-h-[50vh] flex-col items-center justify-center px-4">
-      <div className="text-center">
-        <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-destructive/10">
-          <AlertTriangle className="h-8 w-8 text-destructive" />
+    <div className="flex min-h-screen flex-col items-center justify-center p-8">
+      <div className="flex flex-col items-center gap-6 text-center">
+        <AlertTriangle className="h-16 w-16 text-destructive" />
+        <div className="space-y-3">
+          <h1 className="text-3xl font-bold">Something went wrong!</h1>
+          <p className="text-muted-foreground max-w-md text-lg">
+            We encountered an unexpected error. Don&apos;t worry, your data is safe.
+          </p>
+          {process.env.NODE_ENV === 'development' && (
+            <details className="mt-6 max-w-2xl text-left">
+              <summary className="cursor-pointer text-sm text-muted-foreground hover:text-foreground">
+                Show error details (Development only)
+              </summary>
+              <div className="mt-4 space-y-2">
+                <pre className="whitespace-pre-wrap text-xs bg-muted p-4 rounded-lg border">
+                  <strong>Message:</strong> {error.message}
+                </pre>
+                {error.stack && (
+                  <pre className="whitespace-pre-wrap text-xs bg-muted p-4 rounded-lg border overflow-auto max-h-64">
+                    <strong>Stack:</strong>
+                    {'\n'}
+                    {error.stack}
+                  </pre>
+                )}
+                {error.digest && (
+                  <p className="text-xs text-muted-foreground">
+                    <strong>Error ID:</strong> {error.digest}
+                  </p>
+                )}
+              </div>
+            </details>
+          )}
         </div>
-        
-        <h2 className="mb-2 text-2xl font-bold">Something went wrong\!</h2>
-        
-        <p className="mb-6 max-w-md text-muted-foreground">
-          We encountered an error while processing your request. 
-          Please try again or contact support if the problem persists.
-        </p>
-        
-        <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
+        <div className="flex gap-4 mt-4">
           <Button onClick={reset} size="lg">
-            Try Again
+            Try again
           </Button>
-          <Button variant="outline" size="lg" onClick={() => window.location.href = '/'}>
-            Go Home
+          <Button variant="outline" size="lg" onClick={() => (window.location.href = '/')}>
+            Go home
           </Button>
         </div>
-        
-        {process.env.NODE_ENV === 'development' && (
-          <details className="mt-8 max-w-2xl text-left">
-            <summary className="cursor-pointer text-sm text-muted-foreground">
-              Error details (development only)
-            </summary>
-            <pre className="mt-2 overflow-auto rounded-lg bg-muted p-4 text-xs">
-              {error.message}
-              {error.stack}
-            </pre>
-          </details>
-        )}
       </div>
     </div>
   );

@@ -4,16 +4,16 @@ import { useState } from 'react';
 import { PageWrapper } from '@/components/layout/page-wrapper';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { 
-  Download, 
-  FileText, 
-  Table, 
+import {
+  Download,
+  FileText,
+  Table,
   Printer,
   Mail,
   Share2,
   CheckCircle2,
   Copy,
-  ExternalLink
+  ExternalLink,
 } from 'lucide-react';
 
 export default function ExportPage() {
@@ -31,14 +31,18 @@ export default function ExportPage() {
       name: 'PDF Document',
       description: 'Professional PDF with your branding',
       icon: FileText,
-      action: () => console.log('Export to PDF'),
+      action: () => {
+        /* TODO: Implement PDF export */
+      },
     },
     {
       id: 'csv',
       name: 'CSV File',
       description: 'Import into spreadsheets or databases',
       icon: Table,
-      action: () => console.log('Export to CSV'),
+      action: () => {
+        /* TODO: Implement CSV export */
+      },
     },
     {
       id: 'print',
@@ -52,7 +56,9 @@ export default function ExportPage() {
       name: 'Email',
       description: 'Send via email',
       icon: Mail,
-      action: () => console.log('Send via email'),
+      action: () => {
+        /* TODO: Implement email sending */
+      },
     },
   ];
 
@@ -92,7 +98,7 @@ export default function ExportPage() {
                   Your checklist is ready!
                 </h3>
                 <p className="mt-1 text-sm text-green-700 dark:text-green-300">
-                  Choose how you'd like to export or share your customized checklist.
+                  Choose how you&apos;d like to export or share your customized checklist.
                 </p>
               </div>
             </div>
@@ -106,16 +112,20 @@ export default function ExportPage() {
             <div className="p-6">
               <h3 className="mb-4 text-xl font-bold">Office Cleaning Checklist</h3>
               <div className="space-y-3">
-                {['Reception Area', 'Meeting Rooms', 'Workstations', 'Kitchen/Break Room', 'Restrooms'].map((item) => (
+                {[
+                  'Reception Area',
+                  'Meeting Rooms',
+                  'Workstations',
+                  'Kitchen/Break Room',
+                  'Restrooms',
+                ].map((item) => (
                   <div key={item} className="flex items-center gap-3">
                     <div className="h-5 w-5 rounded border-2 border-muted-foreground/30" />
                     <span className="text-sm">{item}</span>
                   </div>
                 ))}
               </div>
-              <p className="mt-4 text-sm text-muted-foreground">
-                ... and 15 more items
-              </p>
+              <p className="mt-4 text-sm text-muted-foreground">... and 15 more items</p>
             </div>
           </Card>
 
@@ -126,7 +136,7 @@ export default function ExportPage() {
               {exportOptions.map((option) => {
                 const Icon = option.icon;
                 return (
-                  <Card 
+                  <Card
                     key={option.id}
                     className="cursor-pointer transition-all hover:shadow-lg"
                     onClick={option.action}
@@ -138,9 +148,7 @@ export default function ExportPage() {
                         </div>
                         <div className="flex-1">
                           <h3 className="mb-1 font-medium">{option.name}</h3>
-                          <p className="text-sm text-muted-foreground">
-                            {option.description}
-                          </p>
+                          <p className="text-sm text-muted-foreground">{option.description}</p>
                         </div>
                         <Download className="h-4 w-4 text-muted-foreground" />
                       </div>
@@ -156,14 +164,8 @@ export default function ExportPage() {
             <h2 className="mb-4 text-xl font-semibold">Share</h2>
             <Card className="p-6">
               <div className="mb-4 flex items-center justify-between rounded-lg bg-muted p-3">
-                <span className="text-sm font-mono">
-                  app.checklistapp.com/s/abc123xyz
-                </span>
-                <Button
-                  size="sm"
-                  variant="ghost"
-                  onClick={() => handleCopy('link')}
-                >
+                <span className="text-sm font-mono">app.checklistapp.com/s/abc123xyz</span>
+                <Button size="sm" variant="ghost" onClick={() => handleCopy('link')}>
                   {copiedFormat === 'link' ? (
                     <CheckCircle2 className="h-4 w-4 text-green-600" />
                   ) : (
@@ -193,14 +195,9 @@ export default function ExportPage() {
                   <div className="flex items-center justify-between">
                     <div>
                       <h3 className="font-medium">{integration.name}</h3>
-                      <p className="text-sm text-muted-foreground">
-                        {integration.description}
-                      </p>
+                      <p className="text-sm text-muted-foreground">{integration.description}</p>
                     </div>
-                    <Button
-                      size="sm"
-                      variant={integration.connected ? 'secondary' : 'outline'}
-                    >
+                    <Button size="sm" variant={integration.connected ? 'secondary' : 'outline'}>
                       {integration.connected ? 'Connected' : 'Connect'}
                     </Button>
                   </div>
@@ -214,9 +211,7 @@ export default function ExportPage() {
             <Button variant="outline" size="lg">
               Edit Checklist
             </Button>
-            <Button size="lg">
-              Create Another
-            </Button>
+            <Button size="lg">Create Another</Button>
           </div>
         </div>
       </div>

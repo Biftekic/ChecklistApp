@@ -1,52 +1,6 @@
 {
   "testModules": [
     {
-      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/components/ui/__tests__/button.test.tsx",
-      "tests": [
-        {
-          "name": "should render button with text",
-          "fullName": "Button > should render button with text",
-          "state": "passed"
-        },
-        {
-          "name": "should handle click events",
-          "fullName": "Button > should handle click events",
-          "state": "passed"
-        },
-        {
-          "name": "should render with different variants",
-          "fullName": "Button > should render with different variants",
-          "state": "passed"
-        },
-        {
-          "name": "should render with different sizes",
-          "fullName": "Button > should render with different sizes",
-          "state": "failed",
-          "errors": [
-            {
-              "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).toHaveClass(\u001b[22m\u001b[32m\u001b[32m\"h-10\"\u001b[32m\u001b[39m\u001b[2m)\u001b[22m\n\nExpected the element to have class:\n\u001b[32m  h-10\u001b[39m\nReceived:\n\u001b[31m  inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 touch-manipulation bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-4 py-2 min-h-[44px]\u001b[39m\n    at Proxy.expectWrapper (file:///home/tinpavlic1/claude-projects/ChecklistApp/node_modules/@vitest/expect/dist/index.js:1745:12)\n    at Proxy.<anonymous> (file:///home/tinpavlic1/claude-projects/ChecklistApp/node_modules/@vitest/expect/dist/index.js:1029:14)\n    at Proxy.methodWrapper (file:///home/tinpavlic1/claude-projects/ChecklistApp/node_modules/chai/chai.js:1706:25)\n    at /home/tinpavlic1/claude-projects/ChecklistApp/components/ui/__tests__/button.test.tsx:45:40\n    at file:///home/tinpavlic1/claude-projects/ChecklistApp/node_modules/@vitest/runner/dist/chunk-hooks.js:155:11\n    at file:///home/tinpavlic1/claude-projects/ChecklistApp/node_modules/@vitest/runner/dist/chunk-hooks.js:752:26\n    at file:///home/tinpavlic1/claude-projects/ChecklistApp/node_modules/@vitest/runner/dist/chunk-hooks.js:1897:20\n    at new Promise (<anonymous>)\n    at runWithTimeout (file:///home/tinpavlic1/claude-projects/ChecklistApp/node_modules/@vitest/runner/dist/chunk-hooks.js:1863:10)\n    at runTest (file:///home/tinpavlic1/claude-projects/ChecklistApp/node_modules/@vitest/runner/dist/chunk-hooks.js:1574:12)",
-              "message": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).toHaveClass(\u001b[22m\u001b[32m\u001b[32m\"h-10\"\u001b[32m\u001b[39m\u001b[2m)\u001b[22m\n\nExpected the element to have class:\n\u001b[32m  h-10\u001b[39m\nReceived:\n\u001b[31m  inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 touch-manipulation bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-4 py-2 min-h-[44px]\u001b[39m",
-              "actual": "undefined",
-              "expected": "undefined",
-              "constructor": "Function<JestExtendError>",
-              "name": "Error",
-              "toString": "Function<toString>"
-            }
-          ]
-        },
-        {
-          "name": "should be disabled when disabled prop is true",
-          "fullName": "Button > should be disabled when disabled prop is true",
-          "state": "passed"
-        },
-        {
-          "name": "should render as child component when asChild is true",
-          "fullName": "Button > should render as child component when asChild is true",
-          "state": "passed"
-        }
-      ]
-    },
-    {
       "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/components/ui/__tests__/checkbox.test.tsx",
       "tests": [
         {
@@ -87,100 +41,46 @@
         {
           "name": "should show minus icon when indeterminate",
           "fullName": "Checkbox > should show minus icon when indeterminate",
-          "state": "failed",
-          "errors": [
-            {
-              "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).toBeInTheDocument()\u001b[22m\n\n\u001b[31mreceived\u001b[39m value must be an HTMLElement or an SVGElement.\nReceived has type:  Null\nReceived has value: \u001b[31mnull\u001b[39m\n    at Proxy.expectWrapper (file:///home/tinpavlic1/claude-projects/ChecklistApp/node_modules/@vitest/expect/dist/index.js:1734:36)\n    at Proxy.<anonymous> (file:///home/tinpavlic1/claude-projects/ChecklistApp/node_modules/@vitest/expect/dist/index.js:1029:14)\n    at Proxy.methodWrapper (file:///home/tinpavlic1/claude-projects/ChecklistApp/node_modules/chai/chai.js:1706:25)\n    at /home/tinpavlic1/claude-projects/ChecklistApp/components/ui/__tests__/checkbox.test.tsx:59:23\n    at file:///home/tinpavlic1/claude-projects/ChecklistApp/node_modules/@vitest/runner/dist/chunk-hooks.js:155:11\n    at file:///home/tinpavlic1/claude-projects/ChecklistApp/node_modules/@vitest/runner/dist/chunk-hooks.js:752:26\n    at file:///home/tinpavlic1/claude-projects/ChecklistApp/node_modules/@vitest/runner/dist/chunk-hooks.js:1897:20\n    at new Promise (<anonymous>)\n    at runWithTimeout (file:///home/tinpavlic1/claude-projects/ChecklistApp/node_modules/@vitest/runner/dist/chunk-hooks.js:1863:10)\n    at runTest (file:///home/tinpavlic1/claude-projects/ChecklistApp/node_modules/@vitest/runner/dist/chunk-hooks.js:1574:12)",
-              "message": "\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).toBeInTheDocument()\u001b[22m\n\n\u001b[31mreceived\u001b[39m value must be an HTMLElement or an SVGElement.\nReceived has type:  Null\nReceived has value: \u001b[31mnull\u001b[39m",
-              "constructor": "Function<HtmlElementTypeError>",
-              "name": "Error",
-              "toString": "Function<toString>"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/lib/stores/__tests__/customization-store.test.ts",
-      "tests": [
-        {
-          "name": "should set and clear selected template",
-          "fullName": "useCustomizationStore > should set and clear selected template",
-          "state": "passed"
-        },
-        {
-          "name": "should toggle room selection",
-          "fullName": "useCustomizationStore > should toggle room selection",
-          "state": "passed"
-        },
-        {
-          "name": "should select and deselect all rooms",
-          "fullName": "useCustomizationStore > should select and deselect all rooms",
-          "state": "passed"
-        },
-        {
-          "name": "should toggle task selection",
-          "fullName": "useCustomizationStore > should toggle task selection",
-          "state": "passed"
-        },
-        {
-          "name": "should calculate total estimated time",
-          "fullName": "useCustomizationStore > should calculate total estimated time",
-          "state": "passed"
-        },
-        {
-          "name": "should navigate through steps",
-          "fullName": "useCustomizationStore > should navigate through steps",
           "state": "passed"
         }
       ]
     },
     {
-      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/hooks/__tests__/use-viewport.test.ts",
+      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/components/ui/__tests__/button.test.tsx",
       "tests": [
         {
-          "name": "should return initial viewport size",
-          "fullName": "useViewport > should return initial viewport size",
+          "name": "should render button with text",
+          "fullName": "Button > should render button with text",
           "state": "passed"
         },
         {
-          "name": "should detect mobile viewport",
-          "fullName": "useViewport > should detect mobile viewport",
+          "name": "should handle click events",
+          "fullName": "Button > should handle click events",
           "state": "passed"
         },
         {
-          "name": "should detect tablet viewport",
-          "fullName": "useViewport > should detect tablet viewport",
+          "name": "should render with different variants",
+          "fullName": "Button > should render with different variants",
           "state": "passed"
         },
         {
-          "name": "should update on window resize",
-          "fullName": "useViewport > should update on window resize",
+          "name": "should render with different sizes",
+          "fullName": "Button > should render with different sizes",
           "state": "passed"
         },
         {
-          "name": "should clean up event listener on unmount",
-          "fullName": "useViewport > should clean up event listener on unmount",
-          "state": "passed"
-        }
-      ]
-    },
-    {
-      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/tests/example.test.ts",
-      "tests": [
-        {
-          "name": "should pass a basic test",
-          "fullName": "Example Test Suite > should pass a basic test",
+          "name": "should be disabled when disabled prop is true",
+          "fullName": "Button > should be disabled when disabled prop is true",
           "state": "passed"
         },
         {
-          "name": "should handle boolean values",
-          "fullName": "Example Test Suite > should handle boolean values",
+          "name": "should render as child component when asChild is true",
+          "fullName": "Button > should render as child component when asChild is true",
           "state": "passed"
         }
       ]
     }
   ],
   "unhandledErrors": [],
-  "reason": "failed"
+  "reason": "passed"
 }

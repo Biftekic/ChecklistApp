@@ -3,10 +3,10 @@
 import { useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { 
-  Bed, 
-  Users, 
-  ChefHat, 
+import {
+  Bed,
+  Users,
+  ChefHat,
   Car,
   Building,
   Dumbbell,
@@ -18,7 +18,7 @@ import {
   CheckSquare,
   ChevronDown,
   ChevronRight,
-  ListTodo
+  ListTodo,
 } from 'lucide-react';
 import { TemplateCategory, TemplateRoom } from '@/lib/types/template';
 import { useCustomizationStore } from '@/lib/stores/customization-store';
@@ -35,8 +35,8 @@ const categoryIcons: Record<string, any> = {
   'clinical-areas': Bath,
   'patient-areas': Home,
   'sales-floor': Building,
-  'warehouse': Building,
-  'default': Home
+  warehouse: Building,
+  default: Home,
 };
 
 interface RoomCardProps {
@@ -49,12 +49,12 @@ interface RoomCardProps {
 function RoomCard({ room, isSelected, onToggle, selectedTaskCount }: RoomCardProps) {
   const totalTasks = room.tasks.length;
   const totalTime = room.tasks.reduce((acc, task) => acc + task.estimatedTime, 0);
-  
+
   return (
-    <Card 
+    <Card
       className={cn(
-        "relative cursor-pointer transition-all hover:shadow-md",
-        isSelected && "ring-2 ring-primary ring-offset-2"
+        'relative cursor-pointer transition-all hover:shadow-md',
+        isSelected && 'ring-2 ring-primary ring-offset-2'
       )}
       onClick={onToggle}
     >
@@ -67,24 +67,22 @@ function RoomCard({ room, isSelected, onToggle, selectedTaskCount }: RoomCardPro
             <Square className="h-5 w-5 text-muted-foreground" />
           )}
         </div>
-        
+
         {/* Room info */}
         <h4 className="mb-2 pr-8 font-semibold">{room.name}</h4>
-        
+
         {/* Stats */}
         <div className="space-y-1 text-sm text-muted-foreground">
           <div className="flex items-center gap-2">
             <ListTodo className="h-4 w-4" />
-            <span>
-              {isSelected ? `${selectedTaskCount}/${totalTasks}` : totalTasks} tasks
-            </span>
+            <span>{isSelected ? `${selectedTaskCount}/${totalTasks}` : totalTasks} tasks</span>
           </div>
           <div className="flex items-center gap-2">
             <Clock className="h-4 w-4" />
             <span>~{Math.round(totalTime)} min</span>
           </div>
         </div>
-        
+
         {/* Selected indicator */}
         {isSelected && (
           <div className="mt-3 flex items-center gap-1 text-sm font-medium text-primary">
@@ -105,21 +103,20 @@ interface CategorySectionProps {
   onToggleCategory: () => void;
 }
 
-function CategorySection({ 
-  category, 
-  selectedRooms, 
+function CategorySection({
+  category,
+  selectedRooms,
   selectedTasks,
   onToggleRoom,
-  onToggleCategory 
+  onToggleCategory,
 }: CategorySectionProps) {
   const [isExpanded, setIsExpanded] = useState(true);
   const Icon = categoryIcons[category.id] || categoryIcons.default;
-  
-  const categoryRoomIds = category.rooms.map(r => r.id);
-  const selectedCount = categoryRoomIds.filter(id => selectedRooms.includes(id)).length;
+
+  const categoryRoomIds = category.rooms.map((r) => r.id);
+  const selectedCount = categoryRoomIds.filter((id) => selectedRooms.includes(id)).length;
   const isFullySelected = selectedCount === category.rooms.length && category.rooms.length > 0;
-  const isPartiallySelected = selectedCount > 0 && selectedCount < category.rooms.length;
-  
+
   return (
     <div className="space-y-3">
       {/* Category header */}
@@ -141,10 +138,10 @@ function CategorySection({
             </p>
           </div>
         </button>
-        
+
         <Button
           size="sm"
-          variant={isFullySelected ? "default" : "outline"}
+          variant={isFullySelected ? 'default' : 'outline'}
           onClick={(e) => {
             e.stopPropagation();
             onToggleCategory();
@@ -154,7 +151,7 @@ function CategorySection({
           {isFullySelected ? 'Deselect All' : 'Select All'}
         </Button>
       </div>
-      
+
       {/* Room cards */}
       {isExpanded && (
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -184,9 +181,9 @@ export function RoomSelector() {
     selectRoomsByCategory,
     deselectRoomsByCategory,
     getTotalEstimatedTime,
-    getTotalSelectedTasks
+    getTotalSelectedTasks,
   } = useCustomizationStore();
-  
+
   if (!selectedTemplate) {
     return (
       <div className="text-center text-muted-foreground">
@@ -194,26 +191,23 @@ export function RoomSelector() {
       </div>
     );
   }
-  
-  const totalRooms = selectedTemplate.categories.reduce(
-    (acc, cat) => acc + cat.rooms.length, 
-    0
-  );
-  
+
+  const totalRooms = selectedTemplate.categories.reduce((acc, cat) => acc + cat.rooms.length, 0);
+
   const handleToggleCategory = (categoryId: string) => {
-    const category = selectedTemplate.categories.find(cat => cat.id === categoryId);
+    const category = selectedTemplate.categories.find((cat) => cat.id === categoryId);
     if (!category) return;
-    
-    const categoryRoomIds = category.rooms.map(r => r.id);
-    const selectedCount = categoryRoomIds.filter(id => selectedRooms.includes(id)).length;
-    
+
+    const categoryRoomIds = category.rooms.map((r) => r.id);
+    const selectedCount = categoryRoomIds.filter((id) => selectedRooms.includes(id)).length;
+
     if (selectedCount === category.rooms.length) {
       deselectRoomsByCategory(categoryId);
     } else {
       selectRoomsByCategory(categoryId);
     }
   };
-  
+
   return (
     <div className="space-y-6">
       {/* Header stats */}
@@ -221,7 +215,9 @@ export function RoomSelector() {
         <div className="flex flex-wrap gap-4 text-sm">
           <div>
             <span className="text-muted-foreground">Selected Rooms:</span>{' '}
-            <span className="font-semibold">{selectedRooms.length}/{totalRooms}</span>
+            <span className="font-semibold">
+              {selectedRooms.length}/{totalRooms}
+            </span>
           </div>
           <div>
             <span className="text-muted-foreground">Total Tasks:</span>{' '}
@@ -235,7 +231,7 @@ export function RoomSelector() {
           </div>
         </div>
       </div>
-      
+
       {/* Global actions */}
       <div className="flex gap-2">
         <Button
@@ -255,7 +251,7 @@ export function RoomSelector() {
           Deselect All
         </Button>
       </div>
-      
+
       {/* Categories and rooms */}
       <div className="space-y-6">
         {selectedTemplate.categories.map((category) => (

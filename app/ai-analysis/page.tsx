@@ -4,15 +4,7 @@ import { useState } from 'react';
 import { PageWrapper } from '@/components/layout/page-wrapper';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { 
-  Camera, 
-  Upload, 
-  Image as ImageIcon,
-  Sparkles,
-  ChevronRight,
-  X,
-  AlertCircle
-} from 'lucide-react';
+import { Camera, Upload, Image as ImageIcon, Sparkles, X, AlertCircle } from 'lucide-react';
 
 export default function AIAnalysisPage() {
   const [selectedImage, setSelectedImage] = useState<File | null>(null);
@@ -43,7 +35,7 @@ export default function AIAnalysisPage() {
 
   const handleAnalyze = async () => {
     if (!selectedImage) return;
-    
+
     setIsAnalyzing(true);
     // Simulate API call
     setTimeout(() => {
@@ -61,12 +53,10 @@ export default function AIAnalysisPage() {
             <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
               <Camera className="h-8 w-8 text-primary" />
             </div>
-            <h1 className="mb-4 text-3xl font-bold sm:text-4xl">
-              AI Photo Analysis
-            </h1>
+            <h1 className="mb-4 text-3xl font-bold sm:text-4xl">AI Photo Analysis</h1>
             <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-              Take or upload a photo of your space, and our AI will generate a 
-              customized checklist based on what it sees
+              Take or upload a photo of your space, and our AI will generate a customized checklist
+              based on what it sees
             </p>
           </div>
 
@@ -78,21 +68,19 @@ export default function AIAnalysisPage() {
                   <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-muted">
                     <ImageIcon className="h-8 w-8 text-muted-foreground" />
                   </div>
-                  
-                  <h3 className="mb-2 text-lg font-semibold">
-                    Upload or Capture an Image
-                  </h3>
-                  
+
+                  <h3 className="mb-2 text-lg font-semibold">Upload or Capture an Image</h3>
+
                   <p className="mb-6 text-sm text-muted-foreground">
                     Take a photo of the space you need a checklist for
                   </p>
-                  
+
                   <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
                     <Button onClick={handleCameraCapture} size="lg">
                       <Camera className="mr-2 h-4 w-4" />
                       Take Photo
                     </Button>
-                    
+
                     <Button variant="outline" size="lg" asChild>
                       <label htmlFor="file-upload" className="cursor-pointer">
                         <Upload className="mr-2 h-4 w-4" />
@@ -106,7 +94,7 @@ export default function AIAnalysisPage() {
                         />
                       </label>
                     </Button>
-                    
+
                     <input
                       id="camera-input"
                       type="file"
@@ -116,7 +104,7 @@ export default function AIAnalysisPage() {
                       onChange={handleImageSelect}
                     />
                   </div>
-                  
+
                   <div className="mt-6 text-xs text-muted-foreground">
                     Supported formats: JPG, PNG, WEBP (Max 5MB)
                   </div>
@@ -138,7 +126,7 @@ export default function AIAnalysisPage() {
                   <X className="h-4 w-4" />
                 </button>
               </div>
-              
+
               <div className="p-6">
                 <div className="mb-6">
                   <h3 className="mb-2 font-semibold">Image Ready for Analysis</h3>
@@ -146,13 +134,8 @@ export default function AIAnalysisPage() {
                     {selectedImage?.name} ({(selectedImage?.size || 0 / 1024 / 1024).toFixed(2)} MB)
                   </p>
                 </div>
-                
-                <Button 
-                  onClick={handleAnalyze} 
-                  disabled={isAnalyzing}
-                  size="lg"
-                  className="w-full"
-                >
+
+                <Button onClick={handleAnalyze} disabled={isAnalyzing} size="lg" className="w-full">
                   {isAnalyzing ? (
                     <>
                       <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-primary-foreground/20 border-t-primary-foreground" />
@@ -184,7 +167,7 @@ export default function AIAnalysisPage() {
                 </div>
               </div>
             </Card>
-            
+
             <Card className="p-4">
               <div className="flex gap-3">
                 <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/30">
@@ -198,7 +181,7 @@ export default function AIAnalysisPage() {
                 </div>
               </div>
             </Card>
-            
+
             <Card className="p-4">
               <div className="flex gap-3">
                 <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-purple-100 dark:bg-purple-900/30">
