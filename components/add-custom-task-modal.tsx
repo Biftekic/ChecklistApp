@@ -31,7 +31,7 @@ interface AddCustomTaskModalProps {
   onAdd: (task: TemplateTask) => void;
 }
 
-export function AddCustomTaskModal({ roomId, isOpen, onClose, onAdd }: AddCustomTaskModalProps) {
+export function AddCustomTaskModal({ isOpen, onClose, onAdd }: AddCustomTaskModalProps) {
   const [newTask, setNewTask] = useState<Partial<TemplateTask>>({
     name: '',
     description: '',
@@ -39,10 +39,10 @@ export function AddCustomTaskModal({ roomId, isOpen, onClose, onAdd }: AddCustom
     priority: 'medium',
     supplies: [],
     notes: '',
-    isCustom: true
+    isCustom: true,
   });
   const [supplyInput, setSupplyInput] = useState('');
-  
+
   const handleAdd = () => {
     if (newTask.name?.trim()) {
       const task: TemplateTask = {
@@ -53,13 +53,13 @@ export function AddCustomTaskModal({ roomId, isOpen, onClose, onAdd }: AddCustom
         priority: newTask.priority as 'low' | 'medium' | 'high' | undefined,
         supplies: newTask.supplies || [],
         notes: newTask.notes || undefined,
-        isCustom: true
+        isCustom: true,
       };
       onAdd(task);
       resetForm();
     }
   };
-  
+
   const resetForm = () => {
     setNewTask({
       name: '',
@@ -68,43 +68,41 @@ export function AddCustomTaskModal({ roomId, isOpen, onClose, onAdd }: AddCustom
       priority: 'medium',
       supplies: [],
       notes: '',
-      isCustom: true
+      isCustom: true,
     });
     setSupplyInput('');
   };
-  
+
   const handleClose = () => {
     resetForm();
     onClose();
   };
-  
+
   const addSupply = () => {
     if (supplyInput.trim()) {
       setNewTask({
         ...newTask,
-        supplies: [...(newTask.supplies || []), supplyInput.trim()]
+        supplies: [...(newTask.supplies || []), supplyInput.trim()],
       });
       setSupplyInput('');
     }
   };
-  
+
   const removeSupply = (index: number) => {
     setNewTask({
       ...newTask,
-      supplies: newTask.supplies?.filter((_, i) => i !== index)
+      supplies: newTask.supplies?.filter((_, i) => i !== index),
     });
   };
-  
+
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
       <DialogContent className="max-w-2xl">
         <DialogHeader>
           <DialogTitle>Add Custom Task</DialogTitle>
-          <DialogDescription>
-            Create a new task for this room
-          </DialogDescription>
+          <DialogDescription>Create a new task for this room</DialogDescription>
         </DialogHeader>
-        
+
         <div className="grid gap-4 py-4">
           <div className="grid gap-2">
             <Label htmlFor="name">Task Name *</Label>
@@ -115,7 +113,7 @@ export function AddCustomTaskModal({ roomId, isOpen, onClose, onAdd }: AddCustom
               placeholder="e.g., Clean light fixtures"
             />
           </div>
-          
+
           <div className="grid gap-2">
             <Label htmlFor="description">Description</Label>
             <Textarea
@@ -126,7 +124,7 @@ export function AddCustomTaskModal({ roomId, isOpen, onClose, onAdd }: AddCustom
               rows={3}
             />
           </div>
-          
+
           <div className="grid grid-cols-2 gap-4">
             <div className="grid gap-2">
               <Label htmlFor="time">Estimated Time (minutes)</Label>
@@ -135,21 +133,25 @@ export function AddCustomTaskModal({ roomId, isOpen, onClose, onAdd }: AddCustom
                 type="number"
                 min="1"
                 value={newTask.estimatedTime || 15}
-                onChange={(e) => setNewTask({ 
-                  ...newTask, 
-                  estimatedTime: parseInt(e.target.value) || 1 
-                })}
+                onChange={(e) =>
+                  setNewTask({
+                    ...newTask,
+                    estimatedTime: parseInt(e.target.value) || 1,
+                  })
+                }
               />
             </div>
-            
+
             <div className="grid gap-2">
               <Label htmlFor="priority">Priority</Label>
               <Select
                 value={newTask.priority || 'medium'}
-                onValueChange={(value) => setNewTask({ 
-                  ...newTask, 
-                  priority: value as 'low' | 'medium' | 'high' 
-                })}
+                onValueChange={(value) =>
+                  setNewTask({
+                    ...newTask,
+                    priority: value as 'low' | 'medium' | 'high',
+                  })
+                }
               >
                 <SelectTrigger id="priority">
                   <SelectValue />
@@ -162,7 +164,7 @@ export function AddCustomTaskModal({ roomId, isOpen, onClose, onAdd }: AddCustom
               </Select>
             </div>
           </div>
-          
+
           <div className="grid gap-2">
             <Label>Required Supplies</Label>
             <div className="flex gap-2">
@@ -192,7 +194,7 @@ export function AddCustomTaskModal({ roomId, isOpen, onClose, onAdd }: AddCustom
               </div>
             )}
           </div>
-          
+
           <div className="grid gap-2">
             <Label htmlFor="notes">Additional Notes</Label>
             <Textarea
@@ -204,15 +206,12 @@ export function AddCustomTaskModal({ roomId, isOpen, onClose, onAdd }: AddCustom
             />
           </div>
         </div>
-        
+
         <DialogFooter>
           <Button variant="outline" onClick={handleClose}>
             Cancel
           </Button>
-          <Button 
-            onClick={handleAdd}
-            disabled={!newTask.name?.trim()}
-          >
+          <Button onClick={handleAdd} disabled={!newTask.name?.trim()}>
             Add Task
           </Button>
         </DialogFooter>

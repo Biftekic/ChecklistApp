@@ -21,17 +21,16 @@ export default function TaskSelectionPage() {
   const router = useRouter();
   const templateId = params.id as string;
   const { isMobile } = useViewport();
-  
-  const [editingTask, setEditingTask] = useState<{task: TemplateTask, roomId: string} | null>(null);
+
+  const [editingTask, setEditingTask] = useState<{ task: TemplateTask; roomId: string } | null>(
+    null
+  );
   const [addingTaskToRoom, setAddingTaskToRoom] = useState<string | null>(null);
-  
+
   const {
     selectedTemplate,
     setSelectedTemplate,
     selectedRooms,
-    selectedTasks,
-    customTasks,
-    editedTasks,
     setCurrentStep,
     goToNextStep,
     goToPreviousStep,
@@ -40,13 +39,13 @@ export default function TaskSelectionPage() {
     editTask,
     addCustomTask,
     removeCustomTask,
-    editCustomTask
+    editCustomTask,
   } = useCustomizationStore();
-  
+
   // Load template if not already loaded
   useEffect(() => {
     if (!selectedTemplate || selectedTemplate.id !== templateId) {
-      const template = templates.find(t => t.id === templateId);
+      const template = templates.find((t) => t.id === templateId);
       if (template) {
         setSelectedTemplate(template);
         setCurrentStep('tasks');
@@ -57,14 +56,14 @@ export default function TaskSelectionPage() {
       setCurrentStep('tasks');
     }
   }, [templateId, selectedTemplate, setSelectedTemplate, setCurrentStep, router]);
-  
+
   // Redirect if no rooms selected
   useEffect(() => {
     if (selectedTemplate && selectedRooms.length === 0) {
       router.push(`/templates/\${templateId}/rooms`);
     }
   }, [selectedRooms, selectedTemplate, templateId, router]);
-  
+
   const handleContinue = () => {
     const totalTasks = getTotalSelectedTasks();
     if (totalTasks === 0) {
@@ -74,16 +73,16 @@ export default function TaskSelectionPage() {
     goToNextStep();
     router.push(`/templates/\${templateId}/preview`);
   };
-  
+
   const handleBack = () => {
     goToPreviousStep();
     router.push(`/templates/\${templateId}/rooms`);
   };
-  
+
   const handleEditTask = (task: TemplateTask, roomId: string) => {
     setEditingTask({ task, roomId });
   };
-  
+
   const handleSaveTaskEdit = (updates: Partial<TemplateTask>) => {
     if (editingTask) {
       if (editingTask.task.isCustom) {
@@ -94,21 +93,21 @@ export default function TaskSelectionPage() {
       setEditingTask(null);
     }
   };
-  
+
   const handleAddCustomTask = (task: TemplateTask) => {
     if (addingTaskToRoom) {
       addCustomTask(addingTaskToRoom, task);
       setAddingTaskToRoom(null);
     }
   };
-  
+
   const handleDeleteCustomTask = (roomId: string, taskId: string) => {
     removeCustomTask(roomId, taskId);
   };
-  
+
   const totalEstimatedTime = getTotalEstimatedTime();
   const totalSelectedTasks = getTotalSelectedTasks();
-  
+
   if (!selectedTemplate) {
     return (
       <PageWrapper>
@@ -120,7 +119,7 @@ export default function TaskSelectionPage() {
       </PageWrapper>
     );
   }
-  
+
   return (
     <PageWrapper>
       <div className="px-4 py-8 sm:px-6 sm:py-12">
@@ -133,7 +132,7 @@ export default function TaskSelectionPage() {
                   { id: 'template', label: 'Template' },
                   { id: 'rooms', label: 'Rooms' },
                   { id: 'tasks', label: 'Tasks' },
-                  { id: 'review', label: 'Review' }
+                  { id: 'review', label: 'Review' },
                 ]}
                 currentStep="tasks"
                 completedSteps={['template', 'rooms']}
@@ -144,24 +143,22 @@ export default function TaskSelectionPage() {
                   { id: 'template', label: 'Template', description: 'Choose base template' },
                   { id: 'rooms', label: 'Rooms', description: 'Select areas to clean' },
                   { id: 'tasks', label: 'Tasks', description: 'Customize tasks' },
-                  { id: 'review', label: 'Review', description: 'Finalize checklist' }
+                  { id: 'review', label: 'Review', description: 'Finalize checklist' },
                 ]}
                 currentStep="tasks"
                 completedSteps={['template', 'rooms']}
               />
             )}
           </div>
-          
+
           {/* Header */}
           <div className="mb-8 text-center">
-            <h1 className="mb-2 text-3xl font-bold sm:text-4xl">
-              Customize Your Tasks
-            </h1>
+            <h1 className="mb-2 text-3xl font-bold sm:text-4xl">Customize Your Tasks</h1>
             <p className="text-lg text-muted-foreground">
               Select and customize tasks for each room in your checklist
             </p>
           </div>
-          
+
           {/* Summary Cards */}
           <div className="mb-8 grid gap-4 sm:grid-cols-3">
             <Card>
@@ -175,7 +172,7 @@ export default function TaskSelectionPage() {
                 </div>
               </CardContent>
             </Card>
-            
+
             <Card>
               <CardContent className="flex items-center gap-3 p-4">
                 <div className="rounded-lg bg-primary/10 p-2">
@@ -187,7 +184,7 @@ export default function TaskSelectionPage() {
                 </div>
               </CardContent>
             </Card>
-            
+
             <Card>
               <CardContent className="flex items-center gap-3 p-4">
                 <div className="rounded-lg bg-primary/10 p-2">
@@ -202,14 +199,14 @@ export default function TaskSelectionPage() {
               </CardContent>
             </Card>
           </div>
-          
+
           {/* Task selector */}
-          <TaskSelector 
+          <TaskSelector
             onEditTask={handleEditTask}
             onAddCustomTask={setAddingTaskToRoom}
             onDeleteCustomTask={handleDeleteCustomTask}
           />
-          
+
           {/* Edit Task Modal */}
           {editingTask && (
             <TaskEditModal
@@ -219,7 +216,7 @@ export default function TaskSelectionPage() {
               onSave={handleSaveTaskEdit}
             />
           )}
-          
+
           {/* Add Custom Task Modal */}
           {addingTaskToRoom && (
             <AddCustomTaskModal
@@ -229,29 +226,22 @@ export default function TaskSelectionPage() {
               onAdd={handleAddCustomTask}
             />
           )}
-          
+
           {/* Action buttons */}
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-between">
-            <Button
-              variant="outline"
-              onClick={handleBack}
-              className="sm:w-auto"
-            >
+            <Button variant="outline" onClick={handleBack} className="sm:w-auto">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Rooms
             </Button>
-            
+
             <div className="flex gap-3">
-              <Button
-                variant="outline"
-                asChild
-              >
+              <Button variant="outline" asChild>
                 <Link href="/">
                   <Home className="mr-2 h-4 w-4" />
                   Home
                 </Link>
               </Button>
-              
+
               <Button
                 onClick={handleContinue}
                 disabled={totalSelectedTasks === 0}

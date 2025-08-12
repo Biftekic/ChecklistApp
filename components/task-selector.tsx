@@ -45,7 +45,7 @@ export function TaskSelector({
   const [expandedRooms, setExpandedRooms] = useState<Set<string>>(new Set(selectedRooms));
   const [searchQuery, setSearchQuery] = useState('');
   
-  if (\!selectedTemplate) return null;
+  if (!selectedTemplate) return null;
   
   const toggleRoomExpansion = (roomId: string) => {
     const newExpanded = new Set(expandedRooms);
@@ -128,7 +128,7 @@ export function TaskSelector({
                 <div className="flex items-center gap-2">
                   <Checkbox
                     checked={allTasksSelected}
-                    indeterminate={\!allTasksSelected && someTasksSelected}
+                    indeterminate={!allTasksSelected && someTasksSelected}
                     onCheckedChange={(checked) => {
                       if (checked) {
                         selectAllTasksInRoom(room.id);
@@ -158,7 +158,7 @@ export function TaskSelector({
                   {roomTasks.map(task => {
                     const taskWithEdits = getTaskWithEdits(task);
                     const isSelected = selectedTaskIds.includes(task.id);
-                    const hasEdits = \!\!editedTasks[task.id];
+                    const hasEdits = !!editedTasks[task.id];
                     
                     return (
                       <div
@@ -305,4 +305,3 @@ export function TaskSelector({
     </div>
   );
 }
-ENDFILE < /dev/null

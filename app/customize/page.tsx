@@ -6,15 +6,14 @@ import { PageWrapper } from '@/components/layout/page-wrapper';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { 
-  ChevronRight, 
-  ChevronLeft, 
+import {
+  ChevronRight,
+  ChevronLeft,
   Building2,
-  MapPin,
   Clock,
   Users,
   Sparkles,
-  CheckCircle2
+  CheckCircle2,
 } from 'lucide-react';
 
 function CustomizeContent() {
@@ -102,7 +101,7 @@ function CustomizeContent() {
   };
 
   const handleInputChange = (id: string, value: string) => {
-    setAnswers(prev => ({ ...prev, [id]: value }));
+    setAnswers((prev) => ({ ...prev, [id]: value }));
   };
 
   return (
@@ -112,11 +111,13 @@ function CustomizeContent() {
           {/* Progress Bar */}
           <div className="mb-8">
             <div className="flex items-center justify-between text-sm text-muted-foreground">
-              <span>Step {currentStep} of {steps.length}</span>
+              <span>
+                Step {currentStep} of {steps.length}
+              </span>
               <span>{Math.round((currentStep / steps.length) * 100)}% Complete</span>
             </div>
             <div className="mt-2 h-2 overflow-hidden rounded-full bg-muted">
-              <div 
+              <div
                 className="h-full bg-primary transition-all duration-300"
                 style={{ width: `${(currentStep / steps.length) * 100}%` }}
               />
@@ -128,9 +129,7 @@ function CustomizeContent() {
             <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
               <Icon className="h-8 w-8 text-primary" />
             </div>
-            <h1 className="mb-2 text-2xl font-bold sm:text-3xl">
-              {currentStepData.title}
-            </h1>
+            <h1 className="mb-2 text-2xl font-bold sm:text-3xl">{currentStepData.title}</h1>
             {template && (
               <p className="text-sm text-muted-foreground">
                 Customizing: {template.charAt(0).toUpperCase() + template.slice(1)} Template
@@ -143,10 +142,8 @@ function CustomizeContent() {
             <div className="space-y-6">
               {currentStepData.questions.map((question) => (
                 <div key={question.id}>
-                  <label className="mb-2 block text-sm font-medium">
-                    {question.label}
-                  </label>
-                  
+                  <label className="mb-2 block text-sm font-medium">{question.label}</label>
+
                   {question.type === 'select' && (
                     <div className="grid gap-2 sm:grid-cols-2">
                       {question.options?.map((option) => (
@@ -169,7 +166,7 @@ function CustomizeContent() {
                       ))}
                     </div>
                   )}
-                  
+
                   {question.type === 'input' && (
                     <Input
                       placeholder={question.placeholder}
@@ -178,7 +175,7 @@ function CustomizeContent() {
                       className="h-12"
                     />
                   )}
-                  
+
                   {question.type === 'textarea' && (
                     <textarea
                       placeholder={question.placeholder}
@@ -204,11 +201,7 @@ function CustomizeContent() {
               <ChevronLeft className="mr-2 h-4 w-4" />
               Previous
             </Button>
-            <Button
-              size="lg"
-              onClick={handleNext}
-              className="flex-1"
-            >
+            <Button size="lg" onClick={handleNext} className="flex-1">
               {currentStep === steps.length ? (
                 <>
                   Generate Checklist

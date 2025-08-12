@@ -1,0 +1,86 @@
+{
+  "testModules": [
+    {
+      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/components/ui/__tests__/checkbox.test.tsx",
+      "tests": [
+        {
+          "name": "should render checkbox",
+          "fullName": "Checkbox > should render checkbox",
+          "state": "passed"
+        },
+        {
+          "name": "should handle checked state",
+          "fullName": "Checkbox > should handle checked state",
+          "state": "passed"
+        },
+        {
+          "name": "should handle indeterminate state",
+          "fullName": "Checkbox > should handle indeterminate state",
+          "state": "passed"
+        },
+        {
+          "name": "should call onCheckedChange when clicked",
+          "fullName": "Checkbox > should call onCheckedChange when clicked",
+          "state": "passed"
+        },
+        {
+          "name": "should be disabled when disabled prop is true",
+          "fullName": "Checkbox > should be disabled when disabled prop is true",
+          "state": "passed"
+        },
+        {
+          "name": "should apply custom className",
+          "fullName": "Checkbox > should apply custom className",
+          "state": "passed"
+        },
+        {
+          "name": "should show check icon when checked",
+          "fullName": "Checkbox > should show check icon when checked",
+          "state": "passed"
+        },
+        {
+          "name": "should show minus icon when indeterminate",
+          "fullName": "Checkbox > should show minus icon when indeterminate",
+          "state": "passed"
+        }
+      ]
+    },
+    {
+      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/components/ui/__tests__/button.test.tsx",
+      "tests": [
+        {
+          "name": "should render button with text",
+          "fullName": "Button > should render button with text",
+          "state": "passed"
+        },
+        {
+          "name": "should handle click events",
+          "fullName": "Button > should handle click events",
+          "state": "passed"
+        },
+        {
+          "name": "should render with different variants",
+          "fullName": "Button > should render with different variants",
+          "state": "passed"
+        },
+        {
+          "name": "should render with different sizes",
+          "fullName": "Button > should render with different sizes",
+          "state": "passed"
+        },
+        {
+          "name": "should be disabled when disabled prop is true",
+          "fullName": "Button > should be disabled when disabled prop is true",
+          "state": "passed"
+        },
+        {
+          "name": "should render as child component when asChild is true",
+          "fullName": "Button > should render as child component when asChild is true",
+          "state": "passed"
+        }
+      ]
+    }
+  ],
+  "unhandledErrors": [],
+  "reason": "passed"
+}

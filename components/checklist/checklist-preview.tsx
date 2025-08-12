@@ -4,7 +4,7 @@ import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Checkbox } from '@/components/ui/checkbox';
 import { GeneratedChecklist, ChecklistTemplate } from '@/lib/types/template';
-import { ChecklistMetadataType } from '@/app/templates/[id]/preview/page';
+import { ChecklistMetadataType } from '@/lib/types/checklist';
 import { Clock, MapPin, Calendar, Users, FileText, Hash, Sparkles } from 'lucide-react';interface ChecklistPreviewProps {
   checklist: GeneratedChecklist;
   template: ChecklistTemplate;
