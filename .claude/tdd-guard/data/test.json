@@ -76,41 +76,6 @@
       ]
     },
     {
-      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/components/ui/__tests__/button.test.tsx",
-      "tests": [
-        {
-          "name": "should render button with text",
-          "fullName": "Button > should render button with text",
-          "state": "passed"
-        },
-        {
-          "name": "should handle click events",
-          "fullName": "Button > should handle click events",
-          "state": "passed"
-        },
-        {
-          "name": "should render with different variants",
-          "fullName": "Button > should render with different variants",
-          "state": "passed"
-        },
-        {
-          "name": "should render with different sizes",
-          "fullName": "Button > should render with different sizes",
-          "state": "passed"
-        },
-        {
-          "name": "should be disabled when disabled prop is true",
-          "fullName": "Button > should be disabled when disabled prop is true",
-          "state": "passed"
-        },
-        {
-          "name": "should render as child component when asChild is true",
-          "fullName": "Button > should render as child component when asChild is true",
-          "state": "passed"
-        }
-      ]
-    },
-    {
       "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/components/ui/__tests__/checkbox.test.tsx",
       "tests": [
         {
@@ -156,31 +121,36 @@
       ]
     },
     {
-      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/hooks/__tests__/use-viewport.test.ts",
+      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/components/ui/__tests__/button.test.tsx",
       "tests": [
         {
-          "name": "should return initial viewport size",
-          "fullName": "useViewport > should return initial viewport size",
+          "name": "should render button with text",
+          "fullName": "Button > should render button with text",
           "state": "passed"
         },
         {
-          "name": "should detect mobile viewport",
-          "fullName": "useViewport > should detect mobile viewport",
+          "name": "should handle click events",
+          "fullName": "Button > should handle click events",
           "state": "passed"
         },
         {
-          "name": "should detect tablet viewport",
-          "fullName": "useViewport > should detect tablet viewport",
+          "name": "should render with different variants",
+          "fullName": "Button > should render with different variants",
           "state": "passed"
         },
         {
-          "name": "should update on window resize",
-          "fullName": "useViewport > should update on window resize",
+          "name": "should render with different sizes",
+          "fullName": "Button > should render with different sizes",
           "state": "passed"
         },
         {
-          "name": "should clean up event listener on unmount",
-          "fullName": "useViewport > should clean up event listener on unmount",
+          "name": "should be disabled when disabled prop is true",
+          "fullName": "Button > should be disabled when disabled prop is true",
+          "state": "passed"
+        },
+        {
+          "name": "should render as child component when asChild is true",
+          "fullName": "Button > should render as child component when asChild is true",
           "state": "passed"
         }
       ]
@@ -216,6 +186,36 @@
         {
           "name": "should navigate through steps",
           "fullName": "useCustomizationStore > should navigate through steps",
+          "state": "passed"
+        }
+      ]
+    },
+    {
+      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/hooks/__tests__/use-viewport.test.ts",
+      "tests": [
+        {
+          "name": "should return initial viewport size",
+          "fullName": "useViewport > should return initial viewport size",
+          "state": "passed"
+        },
+        {
+          "name": "should detect mobile viewport",
+          "fullName": "useViewport > should detect mobile viewport",
+          "state": "passed"
+        },
+        {
+          "name": "should detect tablet viewport",
+          "fullName": "useViewport > should detect tablet viewport",
+          "state": "passed"
+        },
+        {
+          "name": "should update on window resize",
+          "fullName": "useViewport > should update on window resize",
+          "state": "passed"
+        },
+        {
+          "name": "should clean up event listener on unmount",
+          "fullName": "useViewport > should clean up event listener on unmount",
           "state": "passed"
         }
       ]
@@ -381,61 +381,6 @@
       ]
     },
     {
-      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/lib/services/__tests__/template-service.test.ts",
-      "tests": [
-        {
-          "name": "should create a new template",
-          "fullName": "TemplateService > createTemplate > should create a new template",
-          "state": "passed"
-        },
-        {
-          "name": "should return default templates for service and property type",
-          "fullName": "TemplateService > getDefaultTemplates > should return default templates for service and property type",
-          "state": "passed"
-        },
-        {
-          "name": "should return empty array for unknown combination",
-          "fullName": "TemplateService > getDefaultTemplates > should return empty array for unknown combination",
-          "state": "passed"
-        },
-        {
-          "name": "should retrieve a template by id",
-          "fullName": "TemplateService > getTemplate > should retrieve a template by id",
-          "state": "passed"
-        },
-        {
-          "name": "should return undefined for non-existent template",
-          "fullName": "TemplateService > getTemplate > should return undefined for non-existent template",
-          "state": "passed"
-        },
-        {
-          "name": "should update template properties",
-          "fullName": "TemplateService > updateTemplate > should update template properties",
-          "state": "passed"
-        },
-        {
-          "name": "should add items to template",
-          "fullName": "TemplateService > updateTemplate > should add items to template",
-          "state": "passed"
-        },
-        {
-          "name": "should delete a template",
-          "fullName": "TemplateService > deleteTemplate > should delete a template",
-          "state": "passed"
-        },
-        {
-          "name": "should not delete default templates",
-          "fullName": "TemplateService > deleteTemplate > should not delete default templates",
-          "state": "passed"
-        },
-        {
-          "name": "should return all templates including defaults",
-          "fullName": "TemplateService > getAllTemplates > should return all templates including defaults",
-          "state": "passed"
-        }
-      ]
-    },
-    {
       "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/lib/services/__tests__/checklist-service.test.ts",
       "tests": [
         {
@@ -491,6 +436,71 @@
         {
           "name": "should delete a checklist",
           "fullName": "ChecklistService > deleteChecklist > should delete a checklist",
+          "state": "passed"
+        }
+      ]
+    },
+    {
+      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/lib/services/__tests__/template-service.test.ts",
+      "tests": [
+        {
+          "name": "should create a new template",
+          "fullName": "TemplateService > createTemplate > should create a new template",
+          "state": "passed"
+        },
+        {
+          "name": "should return default templates for service and property type",
+          "fullName": "TemplateService > getDefaultTemplates > should return default templates for service and property type",
+          "state": "passed"
+        },
+        {
+          "name": "should return empty array for unknown combination",
+          "fullName": "TemplateService > getDefaultTemplates > should return empty array for unknown combination",
+          "state": "passed"
+        },
+        {
+          "name": "should retrieve a template by id",
+          "fullName": "TemplateService > getTemplate > should retrieve a template by id",
+          "state": "passed"
+        },
+        {
+          "name": "should return undefined for non-existent template",
+          "fullName": "TemplateService > getTemplate > should return undefined for non-existent template",
+          "state": "passed"
+        },
+        {
+          "name": "should update template properties",
+          "fullName": "TemplateService > updateTemplate > should update template properties",
+          "state": "passed"
+        },
+        {
+          "name": "should add items to template",
+          "fullName": "TemplateService > updateTemplate > should add items to template",
+          "state": "passed"
+        },
+        {
+          "name": "should delete a template",
+          "fullName": "TemplateService > deleteTemplate > should delete a template",
+          "state": "passed"
+        },
+        {
+          "name": "should not delete default templates",
+          "fullName": "TemplateService > deleteTemplate > should not delete default templates",
+          "state": "passed"
+        },
+        {
+          "name": "should return all templates including defaults",
+          "fullName": "TemplateService > getAllTemplates > should return all templates including defaults",
+          "state": "passed"
+        }
+      ]
+    },
+    {
+      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/lib/services/__tests__/template-engine.test.ts",
+      "tests": [
+        {
+          "name": "should load all industry templates",
+          "fullName": "Template Engine > Template Loading > should load all industry templates",
           "state": "passed"
         }
       ]
