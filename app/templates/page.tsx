@@ -159,6 +159,9 @@ export default function TemplatesPage() {
                     </p>
                     <div className="flex flex-col gap-3 sm:flex-row">
                       <Button asChild>
+                        <Link href="/qa">Interactive Q&A Builder</Link>
+                      </Button>
+                      <Button variant="outline" asChild>
                         <Link href="/customize">Create Custom Checklist</Link>
                       </Button>
                       <Button variant="outline" asChild>

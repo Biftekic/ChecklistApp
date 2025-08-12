@@ -36,8 +36,14 @@ export default function HomePage() {
           
           <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
             <Button size="lg" className="h-12 px-8 text-lg" asChild>
+              <Link href="/qa">
+                Interactive Q&A
+                <MessageSquare className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+            <Button size="lg" variant="outline" className="h-12 px-8 text-lg" asChild>
               <Link href="/templates">
-                Get Started
+                Browse Templates
                 <Zap className="ml-2 h-5 w-5" />
               </Link>
             </Button>

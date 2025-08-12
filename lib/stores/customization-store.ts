@@ -9,9 +9,11 @@ import {
 
 interface CustomizationStore extends TemplateSelectionState {
   currentStep: 'template' | 'rooms' | 'tasks' | 'review';
+  qaSessionId?: string;
   
   setSelectedTemplate: (template: ChecklistTemplate) => void;
   clearSelectedTemplate: () => void;
+  setQASessionId: (sessionId: string) => void;
   
   toggleRoom: (roomId: string) => void;
   selectAllRooms: () => void;
@@ -63,6 +65,8 @@ export const useCustomizationStore = create<CustomizationStore>()(
       }),
       
       clearSelectedTemplate: () => set(initialState),
+      
+      setQASessionId: (sessionId) => set({ qaSessionId: sessionId }),
       
       toggleRoom: (roomId) => set((state) => {
         const isSelected = state.selectedRooms.includes(roomId);
