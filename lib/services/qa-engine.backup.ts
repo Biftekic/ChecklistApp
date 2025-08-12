@@ -151,8 +151,6 @@ export class QAEngine {
 
     if (allRequiredAnswered) {
       session.isComplete = true;
-      session.updatedAt = new Date();
-      this.sessions.set(sessionId, session);
     }
 
     return undefined;
@@ -178,11 +176,6 @@ export class QAEngine {
     }
 
     const question = session.questions.find(q => q.id === questionId);
-
-    // For rooms question, set dynamic options based on property type
-    if (questionId === 'rooms' && question) {
-      question.options = this.getRoomOptions(session.answers['property_type'] as PropertyType);
-    }
     if (!question) {
       return { success: false, error: 'Question not found' };
     }
@@ -196,7 +189,6 @@ export class QAEngine {
     // Store answer
     session.answers[questionId] = answer;
     session.updatedAt = new Date();
-    this.sessions.set(sessionId, session);
 
     // Check if session is complete by calling getCurrentQuestion
     // This will also update session.isComplete if all questions are answered
@@ -253,7 +245,7 @@ export class QAEngine {
     }
 
     if (answeredIds.length > 0) {
-      // Remove only the last answered question
+      // Remove the last answered question
       const lastAnsweredId = answeredIds[answeredIds.length - 1];
       delete session.answers[lastAnsweredId];
       session.isComplete = false;
@@ -344,8 +336,7 @@ export class QAEngine {
     if (session.answers['rooms'] !== undefined) answeredCount++;
 
     const current = Math.min(answeredCount + 1, totalQuestions);
-    // Calculate percentage based on current position, not just answered
-    const percentage = totalQuestions > 0 ? Math.round((current / totalQuestions) * 100) : 0;
+    const percentage = Math.round((answeredCount / totalQuestions) * 100);
 
     return {
       current,

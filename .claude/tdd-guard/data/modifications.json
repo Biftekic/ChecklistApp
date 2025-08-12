@@ -1,11 +1,10 @@
 {
-  "session_id": "88173992-c152-4ffc-98d1-1620ca6b9625",
-  "transcript_path": "/home/tinpavlic1/.claude/projects/-home-tinpavlic1-claude-projects-ChecklistApp/88173992-c152-4ffc-98d1-1620ca6b9625.jsonl",
+  "session_id": "5bb3c4d2-998c-4b04-8585-7f912e546b79",
+  "transcript_path": "/home/tinpavlic1/.claude/projects/-home-tinpavlic1-claude-projects-ChecklistApp/5bb3c4d2-998c-4b04-8585-7f912e546b79.jsonl",
   "hook_event_name": "PreToolUse",
-  "tool_name": "Edit",
+  "tool_name": "Write",
   "tool_input": {
-    "file_path": "/home/tinpavlic1/claude-projects/ChecklistApp/lib/types/__tests__/checklist.test.ts",
-    "old_string": "  });\n});\nEOF < /dev/null",
-    "new_string": "  });\n});"
+    "file_path": "/home/tinpavlic1/claude-projects/ChecklistApp/lib/types/sync.ts",
+    "content": "export interface SyncQueueItem {\n  id?: number;\n  type: 'create' | 'update' | 'delete';\n  entity: 'checklist' | 'template' | 'session';\n  data: any;\n  timestamp: number;\n  synced?: boolean;\n  syncedAt?: number;\n  error?: string;\n  retryCount?: number;\n  nextRetryAt?: number;\n}\n\nexport interface SyncProgress {\n  processed: number;\n  total: number;\n  percentage: number;\n}\n\nexport type SyncStatus = 'idle' | 'syncing' | 'error' | 'offline';\n\nexport interface SyncConflict {\n  localVersion: any;\n  serverVersion: any;\n  resolved?: any;\n}\n\nexport type ConflictHandler = (conflict: SyncConflict) => Promise<any>;"
   }
 }

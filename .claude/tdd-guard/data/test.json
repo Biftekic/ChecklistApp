@@ -1,6 +1,116 @@
 {
   "testModules": [
     {
+      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/lib/services/__tests__/database.test.ts",
+      "tests": [
+        {
+          "name": "should initialize IndexedDB with correct schema",
+          "fullName": "DatabaseService > Database Initialization > should initialize IndexedDB with correct schema",
+          "state": "passed"
+        },
+        {
+          "name": "should create all required tables",
+          "fullName": "DatabaseService > Database Initialization > should create all required tables",
+          "state": "passed"
+        },
+        {
+          "name": "should handle database version migration",
+          "fullName": "DatabaseService > Database Initialization > should handle database version migration",
+          "state": "passed"
+        },
+        {
+          "name": "should handle quota exceeded errors",
+          "fullName": "DatabaseService > Database Initialization > should handle quota exceeded errors",
+          "state": "passed"
+        },
+        {
+          "name": "should create a new checklist",
+          "fullName": "DatabaseService > Checklist CRUD Operations > should create a new checklist",
+          "state": "passed"
+        },
+        {
+          "name": "should read a checklist by id",
+          "fullName": "DatabaseService > Checklist CRUD Operations > should read a checklist by id",
+          "state": "passed"
+        },
+        {
+          "name": "should update a checklist",
+          "fullName": "DatabaseService > Checklist CRUD Operations > should update a checklist",
+          "state": "passed"
+        },
+        {
+          "name": "should delete a checklist",
+          "fullName": "DatabaseService > Checklist CRUD Operations > should delete a checklist",
+          "state": "passed"
+        },
+        {
+          "name": "should handle concurrent modifications",
+          "fullName": "DatabaseService > Checklist CRUD Operations > should handle concurrent modifications",
+          "state": "passed"
+        },
+        {
+          "name": "should add operations to sync queue",
+          "fullName": "DatabaseService > Offline Sync Queue > should add operations to sync queue",
+          "state": "passed"
+        },
+        {
+          "name": "should process sync queue when online",
+          "fullName": "DatabaseService > Offline Sync Queue > should process sync queue when online",
+          "state": "passed"
+        },
+        {
+          "name": "should handle conflict resolution",
+          "fullName": "DatabaseService > Offline Sync Queue > should handle conflict resolution",
+          "state": "passed"
+        },
+        {
+          "name": "should cache AI responses",
+          "fullName": "DatabaseService > AI Response Caching > should cache AI responses",
+          "state": "passed"
+        },
+        {
+          "name": "should retrieve cached AI responses",
+          "fullName": "DatabaseService > AI Response Caching > should retrieve cached AI responses",
+          "state": "passed"
+        }
+      ]
+    },
+    {
+      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/components/ui/__tests__/button.test.tsx",
+      "tests": [
+        {
+          "name": "should render button with text",
+          "fullName": "Button > should render button with text",
+          "state": "passed"
+        },
+        {
+          "name": "should handle click events",
+          "fullName": "Button > should handle click events",
+          "state": "passed"
+        },
+        {
+          "name": "should render with different variants",
+          "fullName": "Button > should render with different variants",
+          "state": "passed"
+        },
+        {
+          "name": "should render with different sizes",
+          "fullName": "Button > should render with different sizes",
+          "state": "passed"
+        },
+        {
+          "name": "should be disabled when disabled prop is true",
+          "fullName": "Button > should be disabled when disabled prop is true",
+          "state": "passed"
+        },
+        {
+          "name": "should render as child component when asChild is true",
+          "fullName": "Button > should render as child component when asChild is true",
+          "state": "passed"
+        }
+      ]
+    },
+    {
       "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/components/ui/__tests__/checkbox.test.tsx",
       "tests": [
         {
@@ -46,36 +156,31 @@
       ]
     },
     {
-      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/components/ui/__tests__/button.test.tsx",
+      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/hooks/__tests__/use-viewport.test.ts",
       "tests": [
         {
-          "name": "should render button with text",
-          "fullName": "Button > should render button with text",
+          "name": "should return initial viewport size",
+          "fullName": "useViewport > should return initial viewport size",
           "state": "passed"
         },
         {
-          "name": "should handle click events",
-          "fullName": "Button > should handle click events",
+          "name": "should detect mobile viewport",
+          "fullName": "useViewport > should detect mobile viewport",
           "state": "passed"
         },
         {
-          "name": "should render with different variants",
-          "fullName": "Button > should render with different variants",
+          "name": "should detect tablet viewport",
+          "fullName": "useViewport > should detect tablet viewport",
           "state": "passed"
         },
         {
-          "name": "should render with different sizes",
-          "fullName": "Button > should render with different sizes",
+          "name": "should update on window resize",
+          "fullName": "useViewport > should update on window resize",
           "state": "passed"
         },
         {
-          "name": "should be disabled when disabled prop is true",
-          "fullName": "Button > should be disabled when disabled prop is true",
-          "state": "passed"
-        },
-        {
-          "name": "should render as child component when asChild is true",
-          "fullName": "Button > should render as child component when asChild is true",
+          "name": "should clean up event listener on unmount",
+          "fullName": "useViewport > should clean up event listener on unmount",
           "state": "passed"
         }
       ]
@@ -116,31 +221,161 @@
       ]
     },
     {
-      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/hooks/__tests__/use-viewport.test.ts",
+      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/lib/services/__tests__/qa-engine.test.ts",
       "tests": [
         {
-          "name": "should return initial viewport size",
-          "fullName": "useViewport > should return initial viewport size",
+          "name": "should generate checklist from completed session",
+          "fullName": "QAEngine > Generate Checklist > should generate checklist from completed session",
           "state": "passed"
         },
         {
-          "name": "should detect mobile viewport",
-          "fullName": "useViewport > should detect mobile viewport",
+          "name": "should not generate checklist from incomplete session",
+          "fullName": "QAEngine > Generate Checklist > should not generate checklist from incomplete session",
           "state": "passed"
         },
         {
-          "name": "should detect tablet viewport",
-          "fullName": "useViewport > should detect tablet viewport",
+          "name": "should create a new QA session",
+          "fullName": "QAEngine > Session Management > should create a new QA session",
           "state": "passed"
         },
         {
-          "name": "should update on window resize",
-          "fullName": "useViewport > should update on window resize",
+          "name": "should retrieve an existing session",
+          "fullName": "QAEngine > Session Management > should retrieve an existing session",
           "state": "passed"
         },
         {
-          "name": "should clean up event listener on unmount",
-          "fullName": "useViewport > should clean up event listener on unmount",
+          "name": "should generate checklist from completed session",
+          "fullName": "QAEngine > Generate Checklist > should generate checklist from completed session",
+          "state": "passed"
+        },
+        {
+          "name": "should not generate checklist from incomplete session",
+          "fullName": "QAEngine > Generate Checklist > should not generate checklist from incomplete session",
+          "state": "passed"
+        },
+        {
+          "name": "should start with service type question",
+          "fullName": "QAEngine > Question Flow > should start with service type question",
+          "state": "passed"
+        },
+        {
+          "name": "should progress to property type after service selection",
+          "fullName": "QAEngine > Question Flow > should progress to property type after service selection",
+          "state": "passed"
+        },
+        {
+          "name": "should ask about photo upload after property type",
+          "fullName": "QAEngine > Question Flow > should ask about photo upload after property type",
+          "state": "passed"
+        },
+        {
+          "name": "should ask about rooms after photo decision",
+          "fullName": "QAEngine > Question Flow > should ask about rooms after photo decision",
+          "state": "passed"
+        },
+        {
+          "name": "should complete session after all questions",
+          "fullName": "QAEngine > Question Flow > should complete session after all questions",
+          "state": "passed"
+        },
+        {
+          "name": "should generate checklist from completed session",
+          "fullName": "QAEngine > Generate Checklist > should generate checklist from completed session",
+          "state": "passed"
+        },
+        {
+          "name": "should not generate checklist from incomplete session",
+          "fullName": "QAEngine > Generate Checklist > should not generate checklist from incomplete session",
+          "state": "passed"
+        },
+        {
+          "name": "should validate required questions",
+          "fullName": "QAEngine > Answer Validation > should validate required questions",
+          "state": "passed"
+        },
+        {
+          "name": "should validate single select answers",
+          "fullName": "QAEngine > Answer Validation > should validate single select answers",
+          "state": "passed"
+        },
+        {
+          "name": "should validate multi select answers",
+          "fullName": "QAEngine > Answer Validation > should validate multi select answers",
+          "state": "passed"
+        },
+        {
+          "name": "should generate checklist from completed session",
+          "fullName": "QAEngine > Generate Checklist > should generate checklist from completed session",
+          "state": "passed"
+        },
+        {
+          "name": "should not generate checklist from incomplete session",
+          "fullName": "QAEngine > Generate Checklist > should not generate checklist from incomplete session",
+          "state": "passed"
+        },
+        {
+          "name": "should show photo upload question only when photos included",
+          "fullName": "QAEngine > Conditional Questions > should show photo upload question only when photos included",
+          "state": "passed"
+        },
+        {
+          "name": "should skip photo upload when photos not included",
+          "fullName": "QAEngine > Conditional Questions > should skip photo upload when photos not included",
+          "state": "passed"
+        },
+        {
+          "name": "should show different room options based on property type",
+          "fullName": "QAEngine > Conditional Questions > should show different room options based on property type",
+          "state": "passed"
+        },
+        {
+          "name": "should generate checklist from completed session",
+          "fullName": "QAEngine > Generate Checklist > should generate checklist from completed session",
+          "state": "passed"
+        },
+        {
+          "name": "should not generate checklist from incomplete session",
+          "fullName": "QAEngine > Generate Checklist > should not generate checklist from incomplete session",
+          "state": "passed"
+        },
+        {
+          "name": "should allow going back to previous question",
+          "fullName": "QAEngine > Navigation > should allow going back to previous question",
+          "state": "passed"
+        },
+        {
+          "name": "should not allow going back from first question",
+          "fullName": "QAEngine > Navigation > should not allow going back from first question",
+          "state": "passed"
+        },
+        {
+          "name": "should preserve answers when navigating back",
+          "fullName": "QAEngine > Navigation > should preserve answers when navigating back",
+          "state": "passed"
+        },
+        {
+          "name": "should generate checklist from completed session",
+          "fullName": "QAEngine > Generate Checklist > should generate checklist from completed session",
+          "state": "passed"
+        },
+        {
+          "name": "should not generate checklist from incomplete session",
+          "fullName": "QAEngine > Generate Checklist > should not generate checklist from incomplete session",
+          "state": "passed"
+        },
+        {
+          "name": "should track progress through questions",
+          "fullName": "QAEngine > Progress Tracking > should track progress through questions",
+          "state": "passed"
+        },
+        {
+          "name": "should generate checklist from completed session",
+          "fullName": "QAEngine > Generate Checklist > should generate checklist from completed session",
+          "state": "passed"
+        },
+        {
+          "name": "should not generate checklist from incomplete session",
+          "fullName": "QAEngine > Generate Checklist > should not generate checklist from incomplete session",
           "state": "passed"
         }
       ]
@@ -261,21 +496,6 @@
       ]
     },
     {
-      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/lib/types/__tests__/checklist.test.ts",
-      "tests": [
-        {
-          "name": "should have required properties",
-          "fullName": "Checklist Domain Models > ChecklistItem > should have required properties",
-          "state": "passed"
-        },
-        {
-          "name": "should have required properties",
-          "fullName": "Checklist Domain Models > Checklist > should have required properties",
-          "state": "passed"
-        }
-      ]
-    },
-    {
       "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/tests/example.test.ts",
       "tests": [
         {
@@ -291,17 +511,17 @@
       ]
     },
     {
-      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/lib/services/__tests__/qa-engine.test.ts",
+      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/lib/types/__tests__/checklist.test.ts",
       "tests": [
         {
-          "name": "should start with service type question",
-          "fullName": "QAEngine > Question Flow > should start with service type question",
-          "state": "skipped"
+          "name": "should have required properties",
+          "fullName": "Checklist Domain Models > ChecklistItem > should have required properties",
+          "state": "passed"
         },
         {
-          "name": "should progress to property type after service selection",
-          "fullName": "QAEngine > Question Flow > should progress to property type after service selection",
-          "state": "skipped"
+          "name": "should have required properties",
+          "fullName": "Checklist Domain Models > Checklist > should have required properties",
+          "state": "passed"
         }
       ]
     }

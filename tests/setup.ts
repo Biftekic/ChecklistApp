@@ -1,6 +1,9 @@
 import '@testing-library/jest-dom';
-import { afterEach, vi } from 'vitest';
+import { afterEach, beforeAll, vi } from 'vitest';
 import { cleanup } from '@testing-library/react';
+import 'fake-indexeddb/auto';
+
+// Setup fake IndexedDB - imported automatically by fake-indexeddb/auto
 
 // Cleanup after each test case
 afterEach(() => {

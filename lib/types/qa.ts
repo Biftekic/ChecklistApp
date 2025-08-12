@@ -1,14 +1,17 @@
 // Q&A System types for Interactive Customization
 
 export type QuestionType = 
-  | 'single-select' 
-  | 'multi-select' 
+  | 'single_select'
+  | 'multi_select' 
   | 'number' 
   | 'text' 
   | 'boolean' 
   | 'scale'
   | 'room-selector'
-  | 'task-selector';
+  | 'task-selector'
+  | 'file';
+
+export type Answer = string | number | boolean | string[] | File | null;
 
 export interface QuestionOption {
   id: string;
@@ -26,15 +29,15 @@ export interface Question {
   text: string;
   description?: string;
   type: QuestionType;
-  category: string;
-  order: number;
+  category?: string;
+  order?: number;
   required?: boolean;
   dependsOn?: {
     questionId: string;
     expectedValue?: any;
     condition?: 'equals' | 'contains' | 'greaterThan' | 'lessThan' | 'notEmpty';
   };
-  options?: QuestionOption[];
+  options?: string[] | QuestionOption[];
   validation?: {
     min?: number;
     max?: number;
@@ -44,6 +47,7 @@ export interface Question {
   placeholder?: string;
   helpText?: string;
   defaultValue?: any;
+  condition?: (answers: Record<string, Answer>) => boolean;
 }
 
 export interface QuestionCategory {
@@ -55,22 +59,19 @@ export interface QuestionCategory {
   questions: Question[];
 }
 
-export interface Answer {
-  questionId: string;
-  value: any;
-  timestamp: Date;
-}
-
 export interface QASession {
   id: string;
   templateId?: string;
   startedAt: Date;
   completedAt?: Date;
-  answers: Answer[];
+  updatedAt?: Date;
+  answers: Record<string, Answer>;
   currentQuestionIndex: number;
-  suggestedRooms: string[];
-  suggestedTasks: Record<string, string[]>; // roomId -> taskIds
-  customRequirements: string[];
+  isComplete: boolean;
+  questions: Question[];
+  suggestedRooms?: string[];
+  suggestedTasks?: Record<string, string[]>; // roomId -> taskIds
+  customRequirements?: string[];
   estimatedTime?: number;
   serviceType?: string;
 }
