@@ -7,7 +7,6 @@ describe("Template Engine", () => {
 
   beforeEach(() => {
     engine = new TemplateEngine();
-    vi.clearAllMocks();
   });
 
   describe("Template Loading", () => {

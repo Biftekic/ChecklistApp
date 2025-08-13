@@ -55,6 +55,32 @@ describe('QAEngine', () => {
     });
   });
 
+  describe('Generate Checklist', () => {
+    it('should generate checklist from completed session', async () => {
+      const session = engine.createSession();
+      
+      engine.answerQuestion(session.id, 'service_type', 'move_out');
+      engine.answerQuestion(session.id, 'property_type', 'apartment');
+      engine.answerQuestion(session.id, 'include_photos', false);
+      engine.answerQuestion(session.id, 'rooms', ['bedroom', 'bathroom', 'kitchen']);
+      engine.getCurrentQuestion(session.id); // Trigger completion check
+      
+      const checklist = await engine.generateChecklist(session.id);
+      
+      expect(checklist).toBeDefined();
+      expect(checklist.serviceType).toBe('move_out');
+      expect(checklist.propertyType).toBe('apartment');
+      expect(checklist.items.length).toBeGreaterThan(0);
+    });
+
+    it('should not generate checklist from incomplete session', async () => {
+      const session = engine.createSession();
+      
+      engine.answerQuestion(session.id, 'service_type', 'move_out');
+      
+      await expect(engine.generateChecklist(session.id)).rejects.toThrow('Session not complete');
+    });
+  });
 
   describe('Question Flow', () => {
     it('should start with service type question', () => {
@@ -115,6 +141,32 @@ describe('QAEngine', () => {
     });
   });
 
+  describe('Generate Checklist', () => {
+    it('should generate checklist from completed session', async () => {
+      const session = engine.createSession();
+      
+      engine.answerQuestion(session.id, 'service_type', 'move_out');
+      engine.answerQuestion(session.id, 'property_type', 'apartment');
+      engine.answerQuestion(session.id, 'include_photos', false);
+      engine.answerQuestion(session.id, 'rooms', ['bedroom', 'bathroom', 'kitchen']);
+      engine.getCurrentQuestion(session.id); // Trigger completion check
+      
+      const checklist = await engine.generateChecklist(session.id);
+      
+      expect(checklist).toBeDefined();
+      expect(checklist.serviceType).toBe('move_out');
+      expect(checklist.propertyType).toBe('apartment');
+      expect(checklist.items.length).toBeGreaterThan(0);
+    });
+
+    it('should not generate checklist from incomplete session', async () => {
+      const session = engine.createSession();
+      
+      engine.answerQuestion(session.id, 'service_type', 'move_out');
+      
+      await expect(engine.generateChecklist(session.id)).rejects.toThrow('Session not complete');
+    });
+  });
 
   describe('Answer Validation', () => {
     it('should validate required questions', () => {
@@ -150,6 +202,32 @@ describe('QAEngine', () => {
     });
   });
 
+  describe('Generate Checklist', () => {
+    it('should generate checklist from completed session', async () => {
+      const session = engine.createSession();
+      
+      engine.answerQuestion(session.id, 'service_type', 'move_out');
+      engine.answerQuestion(session.id, 'property_type', 'apartment');
+      engine.answerQuestion(session.id, 'include_photos', false);
+      engine.answerQuestion(session.id, 'rooms', ['bedroom', 'bathroom', 'kitchen']);
+      engine.getCurrentQuestion(session.id); // Trigger completion check
+      
+      const checklist = await engine.generateChecklist(session.id);
+      
+      expect(checklist).toBeDefined();
+      expect(checklist.serviceType).toBe('move_out');
+      expect(checklist.propertyType).toBe('apartment');
+      expect(checklist.items.length).toBeGreaterThan(0);
+    });
+
+    it('should not generate checklist from incomplete session', async () => {
+      const session = engine.createSession();
+      
+      engine.answerQuestion(session.id, 'service_type', 'move_out');
+      
+      await expect(engine.generateChecklist(session.id)).rejects.toThrow('Session not complete');
+    });
+  });
 
   describe('Conditional Questions', () => {
     it('should show photo upload question only when photos included', () => {
@@ -201,6 +279,32 @@ describe('QAEngine', () => {
     });
   });
 
+  describe('Generate Checklist', () => {
+    it('should generate checklist from completed session', async () => {
+      const session = engine.createSession();
+      
+      engine.answerQuestion(session.id, 'service_type', 'move_out');
+      engine.answerQuestion(session.id, 'property_type', 'apartment');
+      engine.answerQuestion(session.id, 'include_photos', false);
+      engine.answerQuestion(session.id, 'rooms', ['bedroom', 'bathroom', 'kitchen']);
+      engine.getCurrentQuestion(session.id); // Trigger completion check
+      
+      const checklist = await engine.generateChecklist(session.id);
+      
+      expect(checklist).toBeDefined();
+      expect(checklist.serviceType).toBe('move_out');
+      expect(checklist.propertyType).toBe('apartment');
+      expect(checklist.items.length).toBeGreaterThan(0);
+    });
+
+    it('should not generate checklist from incomplete session', async () => {
+      const session = engine.createSession();
+      
+      engine.answerQuestion(session.id, 'service_type', 'move_out');
+      
+      await expect(engine.generateChecklist(session.id)).rejects.toThrow('Session not complete');
+    });
+  });
 
   describe('Navigation', () => {
     it('should allow going back to previous question', () => {
@@ -240,21 +344,73 @@ describe('QAEngine', () => {
 
   });
 
+  describe('Generate Checklist', () => {
+    it('should generate checklist from completed session', async () => {
+      const session = engine.createSession();
+      
+      engine.answerQuestion(session.id, 'service_type', 'move_out');
+      engine.answerQuestion(session.id, 'property_type', 'apartment');
+      engine.answerQuestion(session.id, 'include_photos', false);
+      engine.answerQuestion(session.id, 'rooms', ['bedroom', 'bathroom', 'kitchen']);
+      engine.getCurrentQuestion(session.id); // Trigger completion check
+      
+      const checklist = await engine.generateChecklist(session.id);
+      
+      expect(checklist).toBeDefined();
+      expect(checklist.serviceType).toBe('move_out');
+      expect(checklist.propertyType).toBe('apartment');
+      expect(checklist.items.length).toBeGreaterThan(0);
+    });
+
+    it('should not generate checklist from incomplete session', async () => {
+      const session = engine.createSession();
+      
+      engine.answerQuestion(session.id, 'service_type', 'move_out');
+      
+      await expect(engine.generateChecklist(session.id)).rejects.toThrow('Session not complete');
+    });
+  });
 
   describe('Progress Tracking', () => {
     it('should track progress through questions', () => {
       const session = engine.createSession();
       
       let progress = engine.getProgress(session.id);
-      expect(progress.current).toBe(0);
+      expect(progress.current).toBe(1);
       expect(progress.total).toBe(4);
-      expect(progress.percentage).toBe(0);
+      expect(progress.percentage).toBe(25);
       
       engine.answerQuestion(session.id, 'service_type', 'move_out');
       progress = engine.getProgress(session.id);
-      expect(progress.current).toBe(1);
-      expect(progress.percentage).toBe(25);
+      expect(progress.current).toBe(2);
+      expect(progress.percentage).toBe(50);
     });
   });
 
+  describe('Generate Checklist', () => {
+    it('should generate checklist from completed session', async () => {
+      const session = engine.createSession();
+      
+      engine.answerQuestion(session.id, 'service_type', 'move_out');
+      engine.answerQuestion(session.id, 'property_type', 'apartment');
+      engine.answerQuestion(session.id, 'include_photos', false);
+      engine.answerQuestion(session.id, 'rooms', ['bedroom', 'bathroom', 'kitchen']);
+      engine.getCurrentQuestion(session.id); // Trigger completion check
+      
+      const checklist = await engine.generateChecklist(session.id);
+      
+      expect(checklist).toBeDefined();
+      expect(checklist.serviceType).toBe('move_out');
+      expect(checklist.propertyType).toBe('apartment');
+      expect(checklist.items.length).toBeGreaterThan(0);
+    });
+
+    it('should not generate checklist from incomplete session', async () => {
+      const session = engine.createSession();
+      
+      engine.answerQuestion(session.id, 'service_type', 'move_out');
+      
+      await expect(engine.generateChecklist(session.id)).rejects.toThrow('Session not complete');
+    });
+  });
 });

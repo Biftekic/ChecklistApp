@@ -1,0 +1,11 @@
+--- a/lib/services/qa-engine.ts
++++ b/lib/services/qa-engine.ts
+@@ -369,7 +369,7 @@ export class QAEngine {
+     if (session.answers['pets'] !== undefined) answeredCount++;
+     if (session.answers['rooms'] !== undefined) answeredCount++;
+ 
+-    const current = Math.min(answeredCount + 1, totalQuestions);
++    const current = Math.min(answeredCount, totalQuestions);
+     // Calculate percentage based on current position, not just answered
+     const percentage = totalQuestions > 0 ? Math.round((current / totalQuestions) * 100) : 0;
+ 

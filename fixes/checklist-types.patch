@@ -1,0 +1,21 @@
+--- a/lib/types/checklist.ts
++++ b/lib/types/checklist.ts
+@@ -4,7 +4,8 @@ export type ServiceType = 
+   | 'deep_clean'
+   | 'regular'
+   | 'post_construction'
+-  | 'airbnb';
++  | 'airbnb'
++  | 'standard-cleaning';
+ 
+ export type PropertyType =
+   | 'apartment'
+@@ -70,7 +71,7 @@ export interface ChecklistTemplate {
+   description?: string;
+   serviceType: ServiceType;
+   propertyType: PropertyType;
+-  defaultItems: Omit<ChecklistItem, 'id' | 'completed'>[];
++  items: Omit<ChecklistItem, 'id' | 'completed'>[];
+   createdAt: Date;
+   updatedAt: Date;
+   isDefault: boolean;

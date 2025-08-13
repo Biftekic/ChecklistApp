@@ -30,14 +30,14 @@ export function ChecklistMetadata({ metadata, onUpdate }: ChecklistMetadataProps
 
   const handleAddStaff = () => {
     if (newStaffMember.trim()) {
-      const updatedStaff = [...localMetadata.assignedStaff, newStaffMember.trim()];
+      const updatedStaff = [...(localMetadata.assignedStaff || []), newStaffMember.trim()];
       handleInputChange('assignedStaff', updatedStaff);
       setNewStaffMember('');
     }
   };
 
   const handleRemoveStaff = (index: number) => {
-    const updatedStaff = localMetadata.assignedStaff.filter((_: string, i: number) => i !== index);
+    const updatedStaff = (localMetadata.assignedStaff || []).filter((_: string, i: number) => i !== index);
     handleInputChange('assignedStaff', updatedStaff);
   };
 
@@ -85,8 +85,10 @@ export function ChecklistMetadata({ metadata, onUpdate }: ChecklistMetadataProps
             <Input
               id="serviceDate"
               type="date"
-              value={localMetadata.serviceDate}
-              onChange={(e) => handleInputChange('serviceDate', e.target.value)}
+              value={localMetadata.serviceDate instanceof Date 
+                ? localMetadata.serviceDate.toISOString().split('T')[0]
+                : localMetadata.serviceDate || ''}
+              onChange={(e) => handleInputChange('serviceDate', new Date(e.target.value))}
             />
           </div>
 
@@ -114,7 +116,7 @@ export function ChecklistMetadata({ metadata, onUpdate }: ChecklistMetadataProps
                 <Plus className="h-4 w-4" />
               </Button>
             </div>
-            {localMetadata.assignedStaff.length > 0 && (
+            {localMetadata.assignedStaff && localMetadata.assignedStaff.length > 0 && (
               <div className="mt-2 flex flex-wrap gap-2">
                 {localMetadata.assignedStaff.map((staff: string, index: number) => (
                   <Badge key={index} variant="secondary" className="px-2 py-1">

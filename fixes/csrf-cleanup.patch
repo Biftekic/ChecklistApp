@@ -1,0 +1,15 @@
+--- a/lib/services/auth-service.ts
++++ b/lib/services/auth-service.ts
+@@ -235,9 +235,13 @@
+     this.csrfTokens.add(token);
+     // Clean old tokens periodically
+     if (this.csrfTokens.size > 1000) {
+-      const tokens = Array.from(this.csrfTokens);
+-      this.csrfTokens = new Set(tokens.slice(-500));
++      // More efficient cleanup - remove oldest tokens
++      const tokensArray = Array.from(this.csrfTokens);
++      const tokensToRemove = tokensArray.slice(0, 500);
++      tokensToRemove.forEach(t => this.csrfTokens.delete(t));
+     }
+     return token;
+   }

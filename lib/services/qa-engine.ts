@@ -24,6 +24,7 @@ export class QAEngine {
   private checklistService: ChecklistService;
   private templateService: TemplateService;
   private nextSessionId = 1;
+  private currentAnswers: Record<string, Answer> = {};
 
   constructor() {
     this.checklistService = new ChecklistService();
@@ -266,6 +267,31 @@ export class QAEngine {
     return session?.answers || {};
   }
 
+  setAnswers(answers: Record<string, Answer>): void {
+    // This would typically be used with a session ID
+    // For now, just store in memory
+    this.currentAnswers = answers;
+  }
+
+  generateRoomSuggestions(): any[] {
+    // Generate room suggestions based on answers
+    const suggestions = [];
+    // Add logic here to generate room suggestions
+    return suggestions;
+  }
+
+  getRecommendedTemplate(): string | undefined {
+    // Return a recommended template ID based on answers
+    // For now, return a default template
+    return 'default-template';
+  }
+
+  calculateEstimatedTime(roomSuggestions: any[]): number {
+    // Calculate estimated time based on room suggestions
+    // Simple calculation: 30 minutes per room
+    return roomSuggestions.length * 30;
+  }
+
   async generateChecklist(sessionId: string): Promise<Checklist> {
     const session = this.sessions.get(sessionId);
     if (!session) {
@@ -343,7 +369,7 @@ export class QAEngine {
     }
     if (session.answers['rooms'] !== undefined) answeredCount++;
 
-    const current = Math.min(answeredCount + 1, totalQuestions);
+    const current = Math.min(answeredCount, totalQuestions);
     // Calculate percentage based on current position, not just answered
     const percentage = totalQuestions > 0 ? Math.round((current / totalQuestions) * 100) : 0;
 

@@ -9,7 +9,8 @@ import { QuestionRenderer } from '@/components/qa/question-renderer';
 import { TaskSelection } from '@/components/qa/task-selection';
 import { useQAStore } from '@/lib/stores/qa-store';
 import { useCustomizationStore } from '@/lib/stores/customization-store';
-import { QAEngine, questionFlows } from '@/lib/services/qa-engine';
+import { QAEngine } from '@/lib/services/qa-engine';
+import { questionFlows } from '@/lib/services/qa-engine-old';
 import { 
   Sparkles, 
   ChevronRight,
@@ -68,7 +69,7 @@ export default function QAPage() {
       qaEngine.setAnswers(currentSession.answers);
       
       // Check if we have enough answers to generate suggestions
-      if (currentSession.answers.length >= 2) {
+      if (Object.keys(currentSession.answers).length >= 2) {
         const suggestions = qaEngine.generateRoomSuggestions();
         // Update store with suggestions
         // This would be connected to the store's suggestion management
@@ -185,7 +186,7 @@ export default function QAPage() {
               {currentQuestion && (
                 <QuestionRenderer
                   question={currentQuestion}
-                  value={currentSession.answers.find(a => a.questionId === currentQuestion.id)?.value}
+                  value={currentSession.answers[currentQuestion.id]}
                   onChange={handleAnswerQuestion}
                   onNext={handleNext}
                   onPrevious={handlePrevious}

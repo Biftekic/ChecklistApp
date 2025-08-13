@@ -9,7 +9,7 @@ import { ChecklistMetadata } from '@/components/checklist/checklist-metadata';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Edit3 } from 'lucide-react';
 import { useCustomizationStore } from '@/lib/stores/customization-store';
-import { templateEngine } from '@/lib/services/template-engine';
+import { TemplateEngine } from '@/lib/services/template-engine';
 import { GeneratedChecklist } from '@/lib/types/template';
 
 import { ChecklistMetadataType } from '@/lib/types/checklist';
@@ -28,9 +28,16 @@ export default function PreviewPage() {
 
   const [generatedChecklist, setGeneratedChecklist] = useState<GeneratedChecklist | null>(null);
   const [metadata, setMetadata] = useState<ChecklistMetadataType>({
+    serviceType: 'regular',
+    propertyType: 'apartment',
+    includePhotos: false,
+    rooms: [],
+    customTasks: [],
+    dateCreated: new Date(),
+    lastModified: new Date(),
     clientName: '',
     location: '',
-    serviceDate: new Date().toISOString().split('T')[0],
+    serviceDate: new Date(),
     assignedStaff: [],
     notes: '',
   });
@@ -39,7 +46,8 @@ export default function PreviewPage() {
   useEffect(() => {
     // Generate the checklist from the current state
     if (selectedTemplate) {
-      const checklist = templateEngine.generateChecklist({
+      const engine = new TemplateEngine();
+      const checklist = engine.generateChecklist({
         selectedTemplate,
         selectedRooms,
         selectedTasks,

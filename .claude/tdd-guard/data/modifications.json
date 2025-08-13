@@ -1,11 +1,19 @@
 {
-  "session_id": "5bb3c4d2-998c-4b04-8585-7f912e546b79",
-  "transcript_path": "/home/tinpavlic1/.claude/projects/-home-tinpavlic1-claude-projects-ChecklistApp/5bb3c4d2-998c-4b04-8585-7f912e546b79.jsonl",
+  "session_id": "25224b11-047e-45e8-8637-86ec549d806e",
+  "transcript_path": "/home/tinpavlic1/.claude/projects/-home-tinpavlic1-claude-projects-ChecklistApp/25224b11-047e-45e8-8637-86ec549d806e.jsonl",
   "hook_event_name": "PreToolUse",
-  "tool_name": "Edit",
+  "tool_name": "MultiEdit",
   "tool_input": {
-    "file_path": "/home/tinpavlic1/claude-projects/ChecklistApp/lib/services/template-engine.ts",
-    "old_string": "  private getDefaultItemsForIndustry(industry: string): ChecklistItem[] {\n    const baseItems: ChecklistItem[] = [\n      { id: uuidv4(), text: 'Check and restock supplies', category: 'preparation', completed: false },\n      { id: uuidv4(), text: 'Dust surfaces', category: 'general', completed: false },\n      { id: uuidv4(), text: 'Vacuum floors', category: 'floors', completed: false },\n      { id: uuidv4(), text: 'Mop floors', category: 'floors', completed: false },\n      { id: uuidv4(), text: 'Empty trash bins', category: 'general', completed: false },\n      { id: uuidv4(), text: 'Clean windows', category: 'general', completed: false }\n    ];",
-    "new_string": "  private getDefaultItemsForIndustry(industry: string): ChecklistItem[] {\n    const baseItems: ChecklistItem[] = [\n      { id: uuidv4(), text: 'Check and restock supplies', category: 'preparation', completed: false, order: 1 },\n      { id: uuidv4(), text: 'Dust surfaces', category: 'general', completed: false, order: 2 },\n      { id: uuidv4(), text: 'Vacuum floors', category: 'floors', completed: false, order: 3 },\n      { id: uuidv4(), text: 'Mop floors', category: 'floors', completed: false, order: 4 },\n      { id: uuidv4(), text: 'Empty trash bins', category: 'general', completed: false, order: 5 },\n      { id: uuidv4(), text: 'Clean windows', category: 'general', completed: false, order: 6 }\n    ];"
+    "file_path": "/home/tinpavlic1/claude-projects/ChecklistApp/lib/services/__tests__/template-engine.test.ts",
+    "edits": [
+      {
+        "old_string": "import { describe, it, expect, beforeEach, vi } from \"vitest\";\nimport { TemplateEngine } from \"../template-engine\";\nimport type { Template } from \"@/lib/types/checklist\";",
+        "new_string": "import { describe, it, expect, beforeEach, vi } from \"vitest\";\nimport { TemplateEngine } from \"../template-engine\";\nimport type { Template, ChecklistTemplate, ChecklistItem } from \"@/lib/types/checklist\";\n\n// Import refactored components for TDD\nimport { \n  TemplateRepository,\n  TemplateValidator,\n  TemplateCustomizer,\n  TemplateMerger\n} from \"../template-engine-refactored\";"
+      },
+      {
+        "old_string": "describe(\"Template Engine\", () => {",
+        "new_string": "describe(\"Template Engine - Original Tests\", () => {"
+      }
+    ]
   }
 }

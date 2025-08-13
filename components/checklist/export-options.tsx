@@ -5,7 +5,7 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { GeneratedChecklist } from '@/lib/types/template';
 import { ChecklistMetadataType } from '@/lib/types/checklist';
-import { templateEngine } from '@/lib/services/template-engine';
+import { TemplateEngine } from '@/lib/services/template-engine';
 import { 
   Download, 
   Table, 
@@ -49,7 +49,8 @@ export function ExportOptions({
   };
 
   const handleExportCSV = () => {
-    const csvContent = templateEngine.exportChecklist(checklist, 'csv');
+    const engine = new TemplateEngine();
+    const csvContent = engine.exportChecklist(checklist, 'csv');
     const blob = new Blob([csvContent], { type: 'text/csv' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');

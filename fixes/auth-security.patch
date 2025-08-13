@@ -1,0 +1,51 @@
+--- a/lib/auth.ts
++++ b/lib/auth.ts
+@@ -4,6 +4,18 @@ import GoogleProvider from 'next-auth/providers/google';
+ import { AuthService } from '@/lib/services/auth-service';
+ import { DatabaseService } from '@/lib/services/database';
+ 
++// Validate JWT secret at startup
++const getJwtSecret = (): string => {
++  const secret = process.env.JWT_SECRET;
++  if (!secret) {
++    if (process.env.NODE_ENV === 'production') {
++      throw new Error('JWT_SECRET environment variable is required in production');
++    }
++    console.warn('WARNING: Using development JWT secret. Set JWT_SECRET for production.');
++    return 'dev-only-jwt-secret-do-not-use-in-production';
++  }
++  return secret;
++};
++
+ // Initialize services
+ const dbService = new DatabaseService();
+ const authService = new AuthService(dbService);
+@@ -48,7 +60,7 @@ export const authOptions: NextAuthOptions = {
+     maxAge: 30 * 24 * 60 * 60, // 30 days
+   },
+   jwt: {
+-    secret: process.env.JWT_SECRET || 'development-secret-key',
++    secret: getJwtSecret(),
+   },
+   pages: {
+     signIn: '/auth/signin',
+@@ -61,7 +73,7 @@ export const authOptions: NextAuthOptions = {
+     async jwt({ token, user, account }) {
+       if (user) {
+         token.id = user.id;
+-        token.role = (user as any).role || 'user';
++        token.role = (user as { role?: string }).role || 'user';
+       }
+       if (account) {
+         token.accessToken = account.access_token;
+@@ -70,8 +82,8 @@ export const authOptions: NextAuthOptions = {
+     },
+     async session({ session, token }) {
+       if (session.user) {
+-        (session.user as any).id = token.id;
+-        (session.user as any).role = token.role;
++        (session.user as { id?: string; role?: string }).id = token.id;
++        (session.user as { id?: string; role?: string }).role = token.role;
+       }
+       return session;
+     }

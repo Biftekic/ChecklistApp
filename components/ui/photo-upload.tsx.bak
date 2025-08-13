@@ -1,0 +1,265 @@
+'use client';
+
+import React, { useState, useRef, useCallback } from 'react';
+import { ClaudeVisionService } from '@/lib/services/claude-vision';
+import { ImageProcessor } from '@/lib/services/image-processor';
+import type { DetectedTask } from '@/lib/types/vision';
+import { Button } from './button';
+import { cn } from '@/lib/utils';
+import { Upload, X, RefreshCw, Camera } from 'lucide-react';
+
+interface PhotoUploadProps {
+  onTasksDetected: (tasks: DetectedTask[]) => void;
+  multiple?: boolean;
+  showConfidence?: boolean;
+  className?: string;
+}
+
+export function PhotoUpload({ 
+  onTasksDetected, 
+  multiple = false,
+  showConfidence = false,
+  className 
+}: PhotoUploadProps) {
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [isDragActive, setIsDragActive] = useState(false);
+  const [uploadedImage, setUploadedImage] = useState<string | null>(null);
+  const [detectedTasks, setDetectedTasks] = useState<DetectedTask[]>([]);
+  const [error, setError] = useState<string | null>(null);
+  const [canRetry, setCanRetry] = useState(false);
+  
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const visionService = useRef(new ClaudeVisionService());
+  const imageProcessor = useRef(new ImageProcessor());
+
+  const processFile = async (file: File) => {
+    setError(null);
+    setCanRetry(false);
+    
+    try {
+      // Convert file to data URL
+      const reader = new FileReader();
+      const dataUrl = await new Promise<string>((resolve, reject) => {
+        reader.onload = (e) => resolve(e.target?.result as string);
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+
+      // Validate format
+      imageProcessor.current.validateFormat(dataUrl);
+      
+      // Validate size
+      imageProcessor.current.validateSize(dataUrl);
+      
+      // Process and optimize image
+      const processed = await imageProcessor.current.processImage(dataUrl);
+      const optimized = await imageProcessor.current.optimizeForVisionAPI(processed);
+      
+      setUploadedImage(optimized);
+      
+      // Analyze with Vision API
+      const response = await visionService.current.analyzeImage({
+        images: [{ data: optimized, type: 'base64' }],
+        includeConfidence: showConfidence
+      });
+      
+      setDetectedTasks(response.tasks);
+      onTasksDetected(response.tasks);
+      
+    } catch (err: any) {
+      setError(err.message || 'An error occurred during processing');
+      setCanRetry(err.message?.includes('API') || false);
+    }
+  };
+
+  const handleFileSelect = async (files: FileList | null) => {
+    if (!files || files.length === 0) return;
+    
+    setIsProcessing(true);
+    setDetectedTasks([]);
+    
+    try {
+      if (multiple) {
+        // Process multiple files
+        for (const file of Array.from(files)) {
+          await processFile(file);
+        }
+      } else {
+        // Process single file
+        await processFile(files[0]);
+      }
+    } finally {
+      setIsProcessing(false);
+    }
+  };
+
+  const handleDragEnter = (e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragActive(true);
+  };
+
+  const handleDragLeave = (e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragActive(false);
+  };
+
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+  };
+
+  const handleDrop = async (e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragActive(false);
+    
+    const files = e.dataTransfer.files;
+    await handleFileSelect(files);
+  };
+
+  const handleRemoveImage = () => {
+    setUploadedImage(null);
+    setDetectedTasks([]);
+    setError(null);
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+    }
+  };
+
+  const handleRetry = async () => {
+    if (!uploadedImage) return;
+    
+    setIsProcessing(true);
+    setError(null);
+    
+    try {
+      const response = await visionService.current.analyzeImage({
+        images: [{ data: uploadedImage, type: 'base64' }],
+        includeConfidence: showConfidence
+      });
+      
+      setDetectedTasks(response.tasks);
+      onTasksDetected(response.tasks);
+      setCanRetry(false);
+    } catch (err: any) {
+      setError(err.message || 'Retry failed');
+      setCanRetry(true);
+    } finally {
+      setIsProcessing(false);
+    }
+  };
+
+  return (
+    <div className={cn('space-y-4', className)}>
+      {/* Upload Area */}
+      <div
+        data-testid="drop-zone"
+        className={cn(
+          'border-2 border-dashed rounded-lg p-8 text-center transition-colors',
+          isDragActive ? 'border-primary bg-primary/5 drag-active' : 'border-gray-300',
+          isProcessing && 'opacity-50 pointer-events-none'
+        )}
+        onDragEnter={handleDragEnter}
+        onDragLeave={handleDragLeave}
+        onDragOver={handleDragOver}
+        onDrop={handleDrop}
+      >
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept="image/jpeg,image/png,image/webp"
+          multiple={multiple}
+          onChange={(e) => handleFileSelect(e.target.files)}
+          className="hidden"
+          data-testid="photo-upload-input"
+          disabled={isProcessing}
+        />
+        
+        {!uploadedImage ? (
+          <>
+            <Camera className="mx-auto h-12 w-12 text-gray-400 mb-4" />
+            <p className="text-lg mb-2">Drag and drop your photo here</p>
+            <p className="text-sm text-gray-500 mb-4">or</p>
+            <Button
+              onClick={() => fileInputRef.current?.click()}
+              disabled={isProcessing}
+              variant="outline"
+            >
+              <Upload className="mr-2 h-4 w-4" />
+              Upload Photo
+            </Button>
+          </>
+        ) : (
+          <div className="space-y-4">
+            <div className="relative inline-block">
+              <img
+                src={uploadedImage}
+                alt="Uploaded photo"
+                className="max-w-full max-h-64 rounded-lg"
+              />
+              <Button
+                onClick={handleRemoveImage}
+                size="sm"
+                variant="destructive"
+                className="absolute top-2 right-2"
+                aria-label="Remove"
+              >
+                <X className="h-4 w-4" />
+              </Button>
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Processing State */}
+      {isProcessing && (
+        <div className="text-center">
+          <RefreshCw className="animate-spin h-6 w-6 mx-auto mb-2" />
+          <p>Processing image...</p>
+        </div>
+      )}
+
+      {/* Error State */}
+      {error && (
+        <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+          <p className="text-red-800">{error}</p>
+          {canRetry && (
+            <Button
+              onClick={handleRetry}
+              size="sm"
+              variant="outline"
+              className="mt-2"
+            >
+              <RefreshCw className="mr-2 h-4 w-4" />
+              Retry
+            </Button>
+          )}
+        </div>
+      )}
+
+      {/* Detected Tasks */}
+      {detectedTasks.length > 0 && (
+        <div className="space-y-2">
+          <h3 className="font-semibold">Detected Tasks:</h3>
+          <ul className="space-y-2">
+            {detectedTasks.map((task) => (
+              <li
+                key={task.id}
+                className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+              >
+                <span>{task.description}</span>
+                {showConfidence && task.confidence && (
+                  <span className="text-sm text-gray-500">
+                    {Math.round(task.confidence * 100)}%
+                  </span>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  );
+}
