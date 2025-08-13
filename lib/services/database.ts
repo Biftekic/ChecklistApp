@@ -1,5 +1,6 @@
 import Dexie, { type Table } from 'dexie';
-import type { Checklist, Template } from '../types/checklist';
+import type { Checklist } from '../types/checklist';
+import type { ChecklistTemplate as Template } from '../types/template';
 import type { QASession } from '../types/qa';
 
 interface SyncQueueItem {

@@ -72,6 +72,8 @@ export const useQAStore = create<QAStore>()(
             startedAt: new Date(),
             answers: {},
             currentQuestionIndex: 0,
+            isComplete: false,
+            questions: [],
             suggestedRooms: [],
             suggestedTasks: {},
             customRequirements: [],

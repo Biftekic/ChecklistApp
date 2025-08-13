@@ -77,6 +77,7 @@ export interface GeneratedChecklist {
   customTasks: TemplateTask[];
   createdAt: Date;
   modifiedAt: Date;
+  updatedAt: Date; // Added for compatibility with tests
 }
 
 export interface TemplateSelectionState {

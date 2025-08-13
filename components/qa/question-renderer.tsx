@@ -84,7 +84,7 @@ export function QuestionRenderer({
       {question.options?.map((option) => {
         const optionObj = typeof option === "string" ? { id: option, value: option, label: option } : option;
         const Icon = iconMap[typeof option === "string" ? option : optionObj.icon || ''];
-        const isSelected = localValue === typeof option === "string" ? option : optionObj.value;
+        const isSelected = localValue === (typeof option === "string" ? option : optionObj.value);
         
         return (
           <Card
@@ -94,7 +94,7 @@ export function QuestionRenderer({
                 ? 'border-primary bg-primary/5'
                 : 'border-border hover:border-primary/50'
             }`}
-            onClick={() => handleChange(option.value)}
+            onClick={() => handleChange(typeof option === "string" ? option : optionObj.value)}
           >
             <div className="flex items-start gap-3">
               {Icon && (
@@ -105,15 +105,15 @@ export function QuestionRenderer({
               <div className="flex-1">
                 <div className="flex items-center justify-between">
                   <Label className="cursor-pointer font-medium">
-                    {option.label}
+                    {typeof option === "string" ? option : optionObj.label}
                   </Label>
                   {isSelected && (
                     <CheckCircle2 className="h-5 w-5 text-primary" />
                   )}
                 </div>
-                {option.description && (
+                {typeof option !== "string" && optionObj.description && (
                   <p className="mt-1 text-sm text-muted-foreground">
-                    {option.description}
+                    {optionObj.description}
                   </p>
                 )}
               </div>
@@ -140,9 +140,10 @@ export function QuestionRenderer({
                 isSelected ? 'bg-primary/5' : 'hover:bg-muted/50'
               }`}
               onClick={() => {
+                const optionValue = typeof option === "string" ? option : optionObj.value;
                 const newValues = isSelected
-                  ? selectedValues.filter(v => v !== typeof option === "string" ? option : optionObj.value)
-                  : [...selectedValues, typeof option === "string" ? option : optionObj.value];
+                  ? selectedValues.filter(v => v !== optionValue)
+                  : [...selectedValues, optionValue];
                 handleChange(newValues);
               }}
             >
@@ -156,9 +157,9 @@ export function QuestionRenderer({
                   <Label className="cursor-pointer font-medium">
                     {typeof option === "string" ? option : optionObj.label}
                   </Label>
-                  {typeof option === "string" ? option : optionObj.description && (
+                  {typeof option !== "string" && optionObj.description && (
                     <p className="mt-1 text-sm text-muted-foreground">
-                      {typeof option === "string" ? option : optionObj.description}
+                      {optionObj.description}
                     </p>
                   )}
                 </div>

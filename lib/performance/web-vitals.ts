@@ -1,10 +1,9 @@
-import { onCLS, onFCP, onFID, onINP, onLCP, onTTFB, Metric } from 'web-vitals';
+import { onCLS, onFCP, onINP, onLCP, onTTFB, Metric } from 'web-vitals';
 
 export interface PerformanceMetrics {
   CLS?: number;
   FCP?: number;
-  FID?: number;
-  INP?: number;
+  INP?: number; // INP replaces FID in web-vitals v5+
   LCP?: number;
   TTFB?: number;
 }
@@ -22,8 +21,7 @@ class PerformanceMonitor {
   private initializeMonitoring() {
     onCLS(this.handleMetric.bind(this));
     onFCP(this.handleMetric.bind(this));
-    onFID(this.handleMetric.bind(this));
-    onINP(this.handleMetric.bind(this));
+    onINP(this.handleMetric.bind(this)); // INP replaces FID in web-vitals v5+
     onLCP(this.handleMetric.bind(this));
     onTTFB(this.handleMetric.bind(this));
   }

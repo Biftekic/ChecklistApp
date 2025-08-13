@@ -58,7 +58,7 @@ export class QAEngine {
       {
         id: 'service_type',
         text: 'What type of service do you need?',
-        type: 'single_select',
+        type: 'single-select',
         required: true,
         options: [
           'move_in',
@@ -72,7 +72,7 @@ export class QAEngine {
       {
         id: 'property_type',
         text: 'What type of property is this?',
-        type: 'single_select',
+        type: 'single-select',
         required: true,
         options: [
           'apartment',
@@ -99,7 +99,7 @@ export class QAEngine {
       {
         id: 'rooms',
         text: 'Which rooms need cleaning?',
-        type: 'multi_select',
+        type: 'multi-select',
         required: true,
         options: [] // Will be dynamically set based on property type
       }
@@ -213,14 +213,14 @@ export class QAEngine {
     }
 
     // Validate single select
-    if (question.type === 'single_select' && question.options) {
+    if (question.type === 'single-select' && question.options) {
       if (!question.options.includes(answer as string)) {
         return { success: false, error: 'Invalid option selected' };
       }
     }
 
     // Validate multi select
-    if (question.type === 'multi_select' && question.options) {
+    if (question.type === 'multi-select' && question.options) {
       const answers = answer as string[];
       for (const ans of answers) {
         if (!question.options.includes(ans)) {

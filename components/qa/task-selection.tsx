@@ -139,7 +139,7 @@ export function TaskSelection({
       <div className="mb-4">
         <h3 className="text-lg font-semibold">Select Tasks for Your Checklist</h3>
         <p className="text-sm text-muted-foreground">
-          We've suggested tasks based on your requirements. Select what you need and customize as desired.
+          We&apos;ve suggested tasks based on your requirements. Select what you need and customize as desired.
         </p>
       </div>
 

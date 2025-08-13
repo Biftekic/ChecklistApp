@@ -1,19 +1,10 @@
 {
-  "session_id": "d634572f-12f1-4f8f-b2c9-77e10412ae29",
-  "transcript_path": "/home/tinpavlic1/.claude/projects/-home-tinpavlic1-claude-projects-ChecklistApp/d634572f-12f1-4f8f-b2c9-77e10412ae29.jsonl",
+  "session_id": "77837ef5-d70a-46b6-be8a-ea39be5371ec",
+  "transcript_path": "/home/tinpavlic1/.claude/projects/-home-tinpavlic1-claude-projects-ChecklistApp/77837ef5-d70a-46b6-be8a-ea39be5371ec.jsonl",
   "hook_event_name": "PreToolUse",
-  "tool_name": "MultiEdit",
+  "tool_name": "Write",
   "tool_input": {
-    "file_path": "/home/tinpavlic1/claude-projects/ChecklistApp/lib/stores/qa-store.ts",
-    "edits": [
-      {
-        "old_string": "            answers: [],",
-        "new_string": "            answers: {}"
-      },
-      {
-        "old_string": "        const answer: Answer = {\n          questionId,\n          value,\n          timestamp: new Date(),\n        };\n\n        const updatedAnswers = [...state.currentSession.answers, answer];",
-        "new_string": "        const answer = value;\n\n        const updatedAnswers = { ...state.currentSession.answers, [questionId]: answer };"
-      }
-    ]
+    "file_path": "/home/tinpavlic1/claude-projects/ChecklistApp/lib/performance/web-vitals.ts",
+    "content": "import { onCLS, onFCP, onINP, onLCP, onTTFB, Metric } from 'web-vitals';\n\nexport interface PerformanceMetrics {\n  CLS?: number;\n  FCP?: number;\n  INP?: number; // INP replaces FID in web-vitals v5+\n  LCP?: number;\n  TTFB?: number;\n}\n\nclass PerformanceMonitor {\n  private metrics: PerformanceMetrics = {};\n  private callbacks: Set<(metrics: PerformanceMetrics) => void> = new Set();\n\n  constructor() {\n    if (typeof window !== 'undefined') {\n      this.initializeMonitoring();\n    }\n  }\n\n  private initializeMonitoring() {\n    onCLS(this.handleMetric.bind(this));\n    onFCP(this.handleMetric.bind(this));\n    onINP(this.handleMetric.bind(this)); // INP replaces FID in web-vitals v5+\n    onLCP(this.handleMetric.bind(this));\n    onTTFB(this.handleMetric.bind(this));\n  }\n\n  private handleMetric(metric: Metric) {\n    this.metrics[metric.name as keyof PerformanceMetrics] = metric.value;\n    \n    if (process.env.NODE_ENV === 'development') {\n      console.log(`[Web Vital] ${metric.name}:`, metric.value.toFixed(2));\n    }\n\n    this.sendToAnalytics(metric);\n    this.notifySubscribers();\n  }\n\n  private sendToAnalytics(metric: Metric) {\n    if (typeof window.gtag !== 'undefined') {\n      window.gtag('event', metric.name, {\n        value: Math.round(metric.value),\n        metric_id: metric.id,\n        metric_delta: metric.delta,\n      });\n    }\n  }\n\n  private notifySubscribers() {\n    this.callbacks.forEach(callback => callback(this.metrics));\n  }\n\n  public subscribe(callback: (metrics: PerformanceMetrics) => void) {\n    this.callbacks.add(callback);\n    return () => this.callbacks.delete(callback);\n  }\n\n  public getMetrics(): PerformanceMetrics {\n    return { ...this.metrics };\n  }\n}\n\nlet performanceMonitor: PerformanceMonitor | null = null;\n\nexport function getPerformanceMonitor(): PerformanceMonitor {\n  if (!performanceMonitor) {\n    performanceMonitor = new PerformanceMonitor();\n  }\n  return performanceMonitor;\n}\n\ndeclare global {\n  interface Window {\n    gtag: any;\n  }\n}"
   }
 }

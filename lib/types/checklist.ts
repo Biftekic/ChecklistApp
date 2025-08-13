@@ -39,6 +39,7 @@ export interface ChecklistItem {
   notes?: string;
   customField?: string;
   timeEstimate?: number;
+  estimatedTime?: number; // Added for compatibility with template-engine
   roomId?: string;
 }
 

@@ -207,7 +207,7 @@ export default function QAPage() {
                   <div>
                     <h2 className="text-2xl font-bold">Your Custom Checklist is Ready!</h2>
                     <p className="text-muted-foreground">
-                      Based on your answers, we've prepared a customized checklist for you.
+                      Based on your answers, we&apos;ve prepared a customized checklist for you.
                     </p>
                   </div>
                 </div>

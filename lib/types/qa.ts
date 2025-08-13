@@ -1,8 +1,8 @@
 // Q&A System types for Interactive Customization
 
 export type QuestionType = 
-  | 'single_select'
-  | 'multi_select' 
+  | 'single-select'  // Changed from single_select
+  | 'multi-select'   // Changed from multi_select
   | 'number' 
   | 'text' 
   | 'boolean' 

@@ -40,7 +40,7 @@ export function ChecklistPreview({
           </Badge>
         </div>
       </div>      {/* Metadata Section */}
-      {(metadata.clientName || metadata.location || metadata.serviceDate || metadata?.assignedStaff.length > 0) && (
+      {(metadata.clientName || metadata.location || metadata.serviceDate || (metadata.assignedStaff && metadata.assignedStaff.length > 0)) && (
         <div className="border-b bg-muted/10 px-6 py-4">
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {metadata.clientName && (
@@ -69,12 +69,12 @@ export function ChecklistPreview({
                   <p className="font-medium">{new Date(metadata.serviceDate).toLocaleDateString()}</p>
                 </div>
               </div>
-            )}            {metadata?.assignedStaff.length > 0 && (
+            )}            {metadata.assignedStaff && metadata.assignedStaff.length > 0 && (
               <div className="flex items-center gap-2">
                 <Users className="h-4 w-4 text-muted-foreground" />
                 <div>
                   <p className="text-xs text-muted-foreground">Assigned Staff</p>
-                  <p className="font-medium">{metadata?.assignedStaff.join(', ')}</p>
+                  <p className="font-medium">{metadata.assignedStaff?.join(', ')}</p>
                 </div>
               </div>
             )}
