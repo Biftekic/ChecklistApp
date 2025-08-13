@@ -122,7 +122,7 @@ export class AuthService {
   }
 
   async generateToken(payload: { id: string; email: string }, expiresIn: string = '7d'): Promise<string> {
-    return jwt.sign(payload, this.JWT_SECRET, { expiresIn });
+    return jwt.sign(payload, this.JWT_SECRET, { expiresIn } as jwt.SignOptions);
   }
 
   async validateToken(token: string): Promise<boolean> {

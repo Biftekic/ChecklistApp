@@ -180,7 +180,8 @@ export class ClaudeVisionService {
         tasks: parsed.tasks || [],
         summary: parsed.summary || '',
         confidence: parsed.confidence || 0,
-        timestamp: new Date()
+        timestamp: new Date().toISOString(),
+        cacheHit: false,
       };
     } catch (error) {
       return this.getFallbackResponse();
@@ -192,7 +193,8 @@ export class ClaudeVisionService {
       tasks: [],
       summary: 'unable to analyze image at this time',
       confidence: 0,
-      timestamp: new Date()
+      timestamp: new Date().toISOString(),
+      cacheHit: false
     };
   }
 }

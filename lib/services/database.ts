@@ -210,10 +210,11 @@ export class DatabaseService {
   }
 
   async getTemplates(criteria: { serviceType?: string; propertyType?: string }): Promise<Template[]> {
-    if (criteria.serviceType && criteria.propertyType) {
+    // Note: Template from template.ts does not have propertyType field
+    // Filtering only by serviceType if provided
+    if (criteria.serviceType) {
       return await this.db.templates
-        .where('serviceType').equals(criteria.serviceType)
-        .and(t => t.propertyType === criteria.propertyType)
+        .where("industry").equals(criteria.serviceType as any)
         .toArray();
     }
     return await this.db.templates.toArray();

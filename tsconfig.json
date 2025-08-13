@@ -23,12 +23,10 @@
       "@/*": ["./app/*"],
       "@/components/*": ["./components/*"],
       "@/lib/*": ["./lib/*"],
-      "@/actions/*": ["./actions/*"],
       "@/hooks/*": ["./hooks/*"],
       "@/types/*": ["./types/*"],
-      "@/stores/*": ["./stores/*"],
-      "@/utils/*": ["./utils/*"],
-      "@/config/*": ["./config/*"]
+      "@/stores/*": ["./lib/stores/*"],
+      "@/utils/*": ["./lib/utils/*"],
     }
   },
   "include": [
