@@ -2,9 +2,22 @@
   "session_id": "312e149b-8f6d-4180-91a3-e29293855b0c",
   "transcript_path": "/home/tinpavlic1/.claude/projects/-home-tinpavlic1-claude-projects-ChecklistApp/312e149b-8f6d-4180-91a3-e29293855b0c.jsonl",
   "hook_event_name": "PreToolUse",
-  "tool_name": "Write",
+  "tool_name": "MultiEdit",
   "tool_input": {
-    "file_path": "/home/tinpavlic1/claude-projects/ChecklistApp/next.config.js",
-    "content": "import withPWA from '@ducanh2912/next-pwa';\n\nconst nextConfig = {\n  reactStrictMode: true,\n  images: {\n    formats: ['image/avif', 'image/webp'],\n    deviceSizes: [390, 430, 768, 1024],\n    imageSizes: [16, 32, 48, 64, 96],\n  },\n  experimental: {\n    // React 19 and Next.js 15.1 features\n    // ppr: true, // Partial Prerendering (canary only)\n    // reactCompiler: true, // React Compiler optimization (requires additional setup)\n    serverActions: {\n      bodySizeLimit: '2mb', // For photo uploads\n      allowedOrigins: ['localhost:3000', 'app.checklistapp.com'],\n    },\n    // optimizeCss: true, // Requires critters to be configured\n    optimizePackageImports: [\n      '@radix-ui/react-*',\n      'dexie',\n      'date-fns',\n      '@tanstack/react-query',\n    ],\n    webVitalsAttribution: ['CLS', 'LCP', 'INP'],\n  },\n  // TypeScript for React 19\n  typescript: {\n    ignoreBuildErrors: false,\n  },\n};\n\nexport default withPWA({\n  dest: 'public',\n  register: true,\n  skipWaiting: true,\n  disable: process.env.NODE_ENV === 'development',\n  runtimeCaching: [\n    {\n      urlPattern: /^https:\\/\\/api\\.anthropic\\.com\\/.*/i,\n      handler: 'NetworkFirst',\n      options: {\n        cacheName: 'claude-api-cache',\n        expiration: {\n          maxEntries: 10,\n          maxAgeSeconds: 60 * 60 * 24, // 24 hours\n        },\n      },\n    },\n  ],\n})(nextConfig);"
+    "file_path": "/home/tinpavlic1/claude-projects/ChecklistApp/lib/services/auth-service.ts",
+    "edits": [
+      {
+        "old_string": "  async generateToken(payload: { id: string; email: string }, expiresIn: string = '7d'): Promise<string> {\n    return jwt.sign(payload, this.JWT_SECRET, { expiresIn } as jwt.SignOptions);\n  }",
+        "new_string": "  async generateToken(payload: { id: string; email: string }, expiresIn: string = '7d'): Promise<string> {\n    return jwt.sign(payload, this.JWT_SECRET, { expiresIn });\n  }"
+      },
+      {
+        "old_string": "import type { User, AuthCredentials, AuthResult, Session, PasswordResetResult } from '@/lib/types/auth';",
+        "new_string": "import type { User, AuthCredentials, AuthResult, Session, PasswordResetResult, TokenPayload } from '@/lib/types/auth';"
+      },
+      {
+        "old_string": "  async refreshToken(oldToken: string): Promise<string> {\n    try {\n      const decoded = jwt.verify(oldToken, this.JWT_SECRET) as any;\n      return await this.generateToken({ id: decoded.id || decoded.userId, email: decoded.email });\n    } catch {\n      throw new Error('Invalid token');\n    }\n  }",
+        "new_string": "  async refreshToken(oldToken: string): Promise<string> {\n    try {\n      const decoded = jwt.verify(oldToken, this.JWT_SECRET) as TokenPayload;\n      return await this.generateToken({ id: decoded.userId, email: decoded.email });\n    } catch {\n      throw new Error('Invalid token');\n    }\n  }"
+      }
+    ]
   }
 }
