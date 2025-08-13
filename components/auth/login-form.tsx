@@ -49,7 +49,7 @@ export function LoginForm() {
       } else {
         setError(result?.error || 'Invalid credentials');
       }
-    } catch (err) {
+    } catch (_err) {
       setError('An error occurred. Please try again.');
     } finally {
       setIsLoading(false);

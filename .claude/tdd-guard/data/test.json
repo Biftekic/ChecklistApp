@@ -1,6 +1,1601 @@
 {
   "testModules": [
     {
+      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/components/ui/__tests__/photo-upload.test.tsx",
+      "tests": [
+        {
+          "name": "should render upload button",
+          "fullName": "PhotoUpload Component > Component Rendering > should render upload button",
+          "state": "passed"
+        },
+        {
+          "name": "should render drag and drop area",
+          "fullName": "PhotoUpload Component > Component Rendering > should render drag and drop area",
+          "state": "passed"
+        },
+        {
+          "name": "should show file input with correct accept attributes",
+          "fullName": "PhotoUpload Component > Component Rendering > should show file input with correct accept attributes",
+          "state": "passed"
+        },
+        {
+          "name": "should allow multiple file selection",
+          "fullName": "PhotoUpload Component > Component Rendering > should allow multiple file selection",
+          "state": "passed"
+        },
+        {
+          "name": "should handle single file upload",
+          "fullName": "PhotoUpload Component > File Upload > should handle single file upload",
+          "state": "passed"
+        },
+        {
+          "name": "should handle multiple file upload",
+          "fullName": "PhotoUpload Component > File Upload > should handle multiple file upload",
+          "state": "passed"
+        },
+        {
+          "name": "should reject invalid file formats",
+          "fullName": "PhotoUpload Component > File Upload > should reject invalid file formats",
+          "state": "failed",
+          "errors": [
+            {
+              "stack": "Error: Unable to find an element with the text: Unsupported image format. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.\n\nIgnored nodes: comments, script, style\n\u001b[36m<body>\u001b[39m\n  \u001b[36m<div>\u001b[39m\n    \u001b[36m<div\u001b[39m\n      \u001b[33mclass\u001b[39m=\u001b[32m\"space-y-4\"\u001b[39m\n    \u001b[36m>\u001b[39m\n      \u001b[36m<div\u001b[39m\n        \u001b[33mclass\u001b[39m=\u001b[32m\"border-2 border-dashed rounded-lg p-8 text-center transition-colors border-gray-300\"\u001b[39m\n        \u001b[33mdata-testid\u001b[39m=\u001b[32m\"drop-zone\"\u001b[39m\n      \u001b[36m>\u001b[39m\n        \u001b[36m<input\u001b[39m\n          \u001b[33maccept\u001b[39m=\u001b[32m\"image/jpeg,image/png,image/webp\"\u001b[39m\n          \u001b[33mclass\u001b[39m=\u001b[32m\"hidden\"\u001b[39m\n          \u001b[33mdata-testid\u001b[39m=\u001b[32m\"photo-upload-input\"\u001b[39m\n          \u001b[33mtype\u001b[39m=\u001b[32m\"file\"\u001b[39m\n        \u001b[36m/>\u001b[39m\n        \u001b[36m<svg\u001b[39m\n          \u001b[33maria-hidden\u001b[39m=\u001b[32m\"true\"\u001b[39m\n          \u001b[33mclass\u001b[39m=\u001b[32m\"lucide lucide-camera mx-auto h-12 w-12 text-gray-400 mb-4\"\u001b[39m\n          \u001b[33mfill\u001b[39m=\u001b[32m\"none\"\u001b[39m\n          \u001b[33mheight\u001b[39m=\u001b[32m\"24\"\u001b[39m\n          \u001b[33mstroke\u001b[39m=\u001b[32m\"currentColor\"\u001b[39m\n          \u001b[33mstroke-linecap\u001b[39m=\u001b[32m\"round\"\u001b[39m\n          \u001b[33mstroke-linejoin\u001b[39m=\u001b[32m\"round\"\u001b[39m\n          \u001b[33mstroke-width\u001b[39m=\u001b[32m\"2\"\u001b[39m\n          \u001b[33mviewBox\u001b[39m=\u001b[32m\"0 0 24 24\"\u001b[39m\n          \u001b[33mwidth\u001b[39m=\u001b[32m\"24\"\u001b[39m\n          \u001b[33mxmlns\u001b[39m=\u001b[32m\"http://www.w3.org/2000/svg\"\u001b[39m\n        \u001b[36m>\u001b[39m\n          \u001b[36m<path\u001b[39m\n            \u001b[33md\u001b[39m=\u001b[32m\"M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z\"\u001b[39m\n          \u001b[36m/>\u001b[39m\n          \u001b[36m<circle\u001b[39m\n            \u001b[33mcx\u001b[39m=\u001b[32m\"12\"\u001b[39m\n            \u001b[33mcy\u001b[39m=\u001b[32m\"13\"\u001b[39m\n            \u001b[33mr\u001b[39m=\u001b[32m\"3\"\u001b[39m\n          \u001b[36m/>\u001b[39m\n        \u001b[36m</svg>\u001b[39m\n        \u001b[36m<p\u001b[39m\n          \u001b[33mclass\u001b[39m=\u001b[32m\"text-lg mb-2\"\u001b[39m\n        \u001b[36m>\u001b[39m\n          \u001b[0mDrag and drop your photo here\u001b[0m\n        \u001b[36m</p>\u001b[39m\n        \u001b[36m<p\u001b[39m\n          \u001b[33mclass\u001b[39m=\u001b[32m\"text-sm text-gray-500 mb-4\"\u001b[39m\n        \u001b[36m>\u001b[39m\n          \u001b[0mor\u001b[0m\n        \u001b[36m</p>\u001b[39m\n        \u001b[36m<button\u001b[39m\n          \u001b[33mclass\u001b[39m=\u001b[32m\"inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 touch-manipulation border border-input bg-background hover:bg-accent hover:text-accent-foreground h-11 px-4 py-2 min-h-[44px]\"\u001b[39m\n        \u001b[36m>\u001b[39m\n          \u001b[36m<svg\u001b[39m\n            \u001b[33maria-hidden\u001b[39m=\u001b[32m\"true\"\u001b[39m\n            \u001b[33mclass\u001b[39m=\u001b[32m\"lucide lucide-upload mr-2 h-4 w-4\"\u001b[39m\n            \u001b[33mfill\u001b[39m=\u001b[32m\"none\"\u001b[39m\n            \u001b[33mheight\u001b[39m=\u001b[32m\"24\"\u001b[39m\n            \u001b[33mstroke\u001b[39m=\u001b[32m\"currentColor\"\u001b[39m\n            \u001b[33mstroke-linecap\u001b[39m=\u001b[32m\"round\"\u001b[39m\n            \u001b[33mstroke-linejoin\u001b[39m=\u001b[32m\"round\"\u001b[39m\n            \u001b[33mstroke-width\u001b[39m=\u001b[32m\"2\"\u001b[39m\n            \u001b[33mviewBox\u001b[39m=\u001b[32m\"0 0 24 24\"\u001b[39m\n            \u001b[33mwidth\u001b[39m=\u001b[32m\"24\"\u001b[39m\n            \u001b[33mxmlns\u001b[39m=\u001b[32m\"http://www.w3.org/2000/svg\"\u001b[39m\n          \u001b[36m>\u001b[39m\n            \u001b[36m<path\u001b[39m\n              \u001b[33md\u001b[39m=\u001b[32m\"M12 3v12\"\u001b[39m\n            \u001b[36m/>\u001b[39m\n            \u001b[36m<path\u001b[39m\n              \u001b[33md\u001b[39m=\u001b[32m\"m17 8-5-5-5 5\"\u001b[39m\n            \u001b[36m/>\u001b[39m\n            \u001b[36m<path\u001b[39m\n              \u001b[33md\u001b[39m=\u001b[32m\"M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4\"\u001b[39m\n            \u001b[36m/>\u001b[39m\n          \u001b[36m</svg>\u001b[39m\n          \u001b[0mUpload Photo\u001b[0m\n        \u001b[36m</button>\u001b[39m\n      \u001b[36m</div>\u001b[39m\n    \u001b[36m</div>\u001b[39m\n  \u001b[36m</div>\u001b[39m\n\u001b[36m</body>\u001b[39m\n    at Proxy.waitForWrapper (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/@testing-library/dom/dist/wait-for.js:163:27)\n    at /home/tinpavlic1/claude-projects/ChecklistApp/components/ui/__tests__/photo-upload.test.tsx:130:13\n    at file:///home/tinpavlic1/claude-projects/ChecklistApp/node_modules/@vitest/runner/dist/chunk-hooks.js:752:20",
+              "message": "Unable to find an element with the text: Unsupported image format. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.\n\nIgnored nodes: comments, script, style\n\u001b[36m<body>\u001b[39m\n  \u001b[36m<div>\u001b[39m\n    \u001b[36m<div\u001b[39m\n      \u001b[33mclass\u001b[39m=\u001b[32m\"space-y-4\"\u001b[39m\n    \u001b[36m>\u001b[39m\n      \u001b[36m<div\u001b[39m\n        \u001b[33mclass\u001b[39m=\u001b[32m\"border-2 border-dashed rounded-lg p-8 text-center transition-colors border-gray-300\"\u001b[39m\n        \u001b[33mdata-testid\u001b[39m=\u001b[32m\"drop-zone\"\u001b[39m\n      \u001b[36m>\u001b[39m\n        \u001b[36m<input\u001b[39m\n          \u001b[33maccept\u001b[39m=\u001b[32m\"image/jpeg,image/png,image/webp\"\u001b[39m\n          \u001b[33mclass\u001b[39m=\u001b[32m\"hidden\"\u001b[39m\n          \u001b[33mdata-testid\u001b[39m=\u001b[32m\"photo-upload-input\"\u001b[39m\n          \u001b[33mtype\u001b[39m=\u001b[32m\"file\"\u001b[39m\n        \u001b[36m/>\u001b[39m\n        \u001b[36m<svg\u001b[39m\n          \u001b[33maria-hidden\u001b[39m=\u001b[32m\"true\"\u001b[39m\n          \u001b[33mclass\u001b[39m=\u001b[32m\"lucide lucide-camera mx-auto h-12 w-12 text-gray-400 mb-4\"\u001b[39m\n          \u001b[33mfill\u001b[39m=\u001b[32m\"none\"\u001b[39m\n          \u001b[33mheight\u001b[39m=\u001b[32m\"24\"\u001b[39m\n          \u001b[33mstroke\u001b[39m=\u001b[32m\"currentColor\"\u001b[39m\n          \u001b[33mstroke-linecap\u001b[39m=\u001b[32m\"round\"\u001b[39m\n          \u001b[33mstroke-linejoin\u001b[39m=\u001b[32m\"round\"\u001b[39m\n          \u001b[33mstroke-width\u001b[39m=\u001b[32m\"2\"\u001b[39m\n          \u001b[33mviewBox\u001b[39m=\u001b[32m\"0 0 24 24\"\u001b[39m\n          \u001b[33mwidth\u001b[39m=\u001b[32m\"24\"\u001b[39m\n          \u001b[33mxmlns\u001b[39m=\u001b[32m\"http://www.w3.org/2000/svg\"\u001b[39m\n        \u001b[36m>\u001b[39m\n          \u001b[36m<path\u001b[39m\n            \u001b[33md\u001b[39m=\u001b[32m\"M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z\"\u001b[39m\n          \u001b[36m/>\u001b[39m\n          \u001b[36m<circle\u001b[39m\n            \u001b[33mcx\u001b[39m=\u001b[32m\"12\"\u001b[39m\n            \u001b[33mcy\u001b[39m=\u001b[32m\"13\"\u001b[39m\n            \u001b[33mr\u001b[39m=\u001b[32m\"3\"\u001b[39m\n          \u001b[36m/>\u001b[39m\n        \u001b[36m</svg>\u001b[39m\n        \u001b[36m<p\u001b[39m\n          \u001b[33mclass\u001b[39m=\u001b[32m\"text-lg mb-2\"\u001b[39m\n        \u001b[36m>\u001b[39m\n          \u001b[0mDrag and drop your photo here\u001b[0m\n        \u001b[36m</p>\u001b[39m\n        \u001b[36m<p\u001b[39m\n          \u001b[33mclass\u001b[39m=\u001b[32m\"text-sm text-gray-500 mb-4\"\u001b[39m\n        \u001b[36m>\u001b[39m\n          \u001b[0mor\u001b[0m\n        \u001b[36m</p>\u001b[39m\n        \u001b[36m<button\u001b[39m\n          \u001b[33mclass\u001b[39m=\u001b[32m\"inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 touch-manipulation border border-input bg-background hover:bg-accent hover:text-accent-foreground h-11 px-4 py-2 min-h-[44px]\"\u001b[39m\n        \u001b[36m>\u001b[39m\n          \u001b[36m<svg\u001b[39m\n            \u001b[33maria-hidden\u001b[39m=\u001b[32m\"true\"\u001b[39m\n            \u001b[33mclass\u001b[39m=\u001b[32m\"lucide lucide-upload mr-2 h-4 w-4\"\u001b[39m\n            \u001b[33mfill\u001b[39m=\u001b[32m\"none\"\u001b[39m\n            \u001b[33mheight\u001b[39m=\u001b[32m\"24\"\u001b[39m\n            \u001b[33mstroke\u001b[39m=\u001b[32m\"currentColor\"\u001b[39m\n            \u001b[33mstroke-linecap\u001b[39m=\u001b[32m\"round\"\u001b[39m\n            \u001b[33mstroke-linejoin\u001b[39m=\u001b[32m\"round\"\u001b[39m\n            \u001b[33mstroke-width\u001b[39m=\u001b[32m\"2\"\u001b[39m\n            \u001b[33mviewBox\u001b[39m=\u001b[32m\"0 0 24 24\"\u001b[39m\n            \u001b[33mwidth\u001b[39m=\u001b[32m\"24\"\u001b[39m\n            \u001b[33mxmlns\u001b[39m=\u001b[32m\"http://www.w3.org/2000/svg\"\u001b[39m\n          \u001b[36m>\u001b[39m\n            \u001b[36m<path\u001b[39m\n              \u001b[33md\u001b[39m=\u001b[32m\"M12 3v12\"\u001b[39m\n            \u001b[36m/>\u001b[39m\n            \u001b[36m<path\u001b[39m\n              \u001b[33md\u001b[39m=\u001b[32m\"m17 8-5-5-5 5\"\u001b[39m\n            \u001b[36m/>\u001b[39m\n            \u001b[36m<path\u001b[39m\n              \u001b[33md\u001b[39m=\u001b[32m\"M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4\"\u001b[39m\n            \u001b[36m/>\u001b[39m\n          \u001b[36m</svg>\u001b[39m\n          \u001b[0mUpload Photo\u001b[0m\n        \u001b[36m</button>\u001b[39m\n      \u001b[36m</div>\u001b[39m\n    \u001b[36m</div>\u001b[39m\n  \u001b[36m</div>\u001b[39m\n\u001b[36m</body>\u001b[39m\n\nIgnored nodes: comments, script, style\n\u001b[36m<html>\u001b[39m\n  \u001b[36m<head />\u001b[39m\n  \u001b[36m<body>\u001b[39m\n    \u001b[36m<div>\u001b[39m\n      \u001b[36m<div\u001b[39m\n        \u001b[33mclass\u001b[39m=\u001b[32m\"space-y-4\"\u001b[39m\n      \u001b[36m>\u001b[39m\n        \u001b[36m<div\u001b[39m\n          \u001b[33mclass\u001b[39m=\u001b[32m\"border-2 border-dashed rounded-lg p-8 text-center transition-colors border-gray-300\"\u001b[39m\n          \u001b[33mdata-testid\u001b[39m=\u001b[32m\"drop-zone\"\u001b[39m\n        \u001b[36m>\u001b[39m\n          \u001b[36m<input\u001b[39m\n            \u001b[33maccept\u001b[39m=\u001b[32m\"image/jpeg,image/png,image/webp\"\u001b[39m\n            \u001b[33mclass\u001b[39m=\u001b[32m\"hidden\"\u001b[39m\n            \u001b[33mdata-testid\u001b[39m=\u001b[32m\"photo-upload-input\"\u001b[39m\n            \u001b[33mtype\u001b[39m=\u001b[32m\"file\"\u001b[39m\n          \u001b[36m/>\u001b[39m\n          \u001b[36m<svg\u001b[39m\n            \u001b[33maria-hidden\u001b[39m=\u001b[32m\"true\"\u001b[39m\n            \u001b[33mclass\u001b[39m=\u001b[32m\"lucide lucide-camera mx-auto h-12 w-12 text-gray-400 mb-4\"\u001b[39m\n            \u001b[33mfill\u001b[39m=\u001b[32m\"none\"\u001b[39m\n            \u001b[33mheight\u001b[39m=\u001b[32m\"24\"\u001b[39m\n            \u001b[33mstroke\u001b[39m=\u001b[32m\"currentColor\"\u001b[39m\n            \u001b[33mstroke-linecap\u001b[39m=\u001b[32m\"round\"\u001b[39m\n            \u001b[33mstroke-linejoin\u001b[39m=\u001b[32m\"round\"\u001b[39m\n            \u001b[33mstroke-width\u001b[39m=\u001b[32m\"2\"\u001b[39m\n            \u001b[33mviewBox\u001b[39m=\u001b[32m\"0 0 24 24\"\u001b[39m\n            \u001b[33mwidth\u001b[39m=\u001b[32m\"24\"\u001b[39m\n            \u001b[33mxmlns\u001b[39m=\u001b[32m\"http://www.w3.org/2000/svg\"\u001b[39m\n          \u001b[36m>\u001b[39m\n            \u001b[36m<path\u001b[39m\n              \u001b[33md\u001b[39m=\u001b[32m\"M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z\"\u001b[39m\n            \u001b[36m/>\u001b[39m\n            \u001b[36m<circle\u001b[39m\n              \u001b[33mcx\u001b[39m=\u001b[32m\"12\"\u001b[39m\n              \u001b[33mcy\u001b[39m=\u001b[32m\"13\"\u001b[39m\n              \u001b[33mr\u001b[39m=\u001b[32m\"3\"\u001b[39m\n            \u001b[36m/>\u001b[39m\n          \u001b[36m</svg>\u001b[39m\n          \u001b[36m<p\u001b[39m\n            \u001b[33mclass\u001b[39m=\u001b[32m\"text-lg mb-2\"\u001b[39m\n          \u001b[36m>\u001b[39m\n            \u001b[0mDrag and drop your photo here\u001b[0m\n          \u001b[36m</p>\u001b[39m\n          \u001b[36m<p\u001b[39m\n            \u001b[33mclass\u001b[39m=\u001b[32m\"text-sm text-gray-500 mb-4\"\u001b[39m\n          \u001b[36m>\u001b[39m\n            \u001b[0mor\u001b[0m\n          \u001b[36m</p>\u001b[39m\n          \u001b[36m<button\u001b[39m\n            \u001b[33mclass\u001b[39m=\u001b[32m\"inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 touch-manipulation border border-input bg-background hover:bg-accent hover:text-accent-foreground h-11 px-4 py-2 min-h-[44px]\"\u001b[39m\n          \u001b[36m>\u001b[39m\n            \u001b[36m<svg\u001b[39m\n              \u001b[33maria-hidden\u001b[39m=\u001b[32m\"true\"\u001b[39m\n              \u001b[33mclass\u001b[39m=\u001b[32m\"lucide lucide-upload mr-2 h-4 w-4\"\u001b[39m\n              \u001b[33mfill\u001b[39m=\u001b[32m\"none\"\u001b[39m\n              \u001b[33mheight\u001b[39m=\u001b[32m\"24\"\u001b[39m\n              \u001b[33mstroke\u001b[39m=\u001b[32m\"currentColor\"\u001b[39m\n              \u001b[33mstroke-linecap\u001b[39m=\u001b[32m\"round\"\u001b[39m\n              \u001b[33mstroke-linejoin\u001b[39m=\u001b[32m\"round\"\u001b[39m\n              \u001b[33mstroke-width\u001b[39m=\u001b[32m\"2\"\u001b[39m\n              \u001b[33mviewBox\u001b[39m=\u001b[32m\"0 0 24 24\"\u001b[39m\n              \u001b[33mwidth\u001b[39m=\u001b[32m\"24\"\u001b[39m\n              \u001b[33mxmlns\u001b[39m=\u001b[32m\"http://www.w3.org/2000/svg\"\u001b[39m\n            \u001b[36m>\u001b[39m\n              \u001b[36m<path\u001b[39m\n                \u001b[33md\u001b[39m=\u001b[32m\"M12 3v12\"\u001b[39m\n              \u001b[36m/>\u001b[39m\n              \u001b[36m<path\u001b[39m\n                \u001b[33md\u001b[39m=\u001b[32m\"m17 8-5-5-5 5\"\u001b[39m\n              \u001b[36m/>\u001b[39m\n              \u001b[36m<path\u001b[39m\n                \u001b[33md\u001b[39m=\u001b[32m\"M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4\"\u001b[39m\n              \u001b[36m/>\u001b[39m\n            \u001b[36m</svg>\u001b[39m\n            \u001b[0mUpload Photo\u001b[0m\n          \u001b[36m</button>\u001b[39m\n        \u001b[36m</div>\u001b[39m\n      \u001b[36m</div>\u001b[39m\n    \u001b[36m</div>\u001b[39m\n  \u001b[36m</body>\u001b[39m\n\u001b[36m</html>\u001b[39m",
+              "name": "TestingLibraryElementError",
+              "constructor": "Function<Error>",
+              "toString": "Function<toString>"
+            }
+          ]
+        },
+        {
+          "name": "should reject files larger than 5MB",
+          "fullName": "PhotoUpload Component > File Upload > should reject files larger than 5MB",
+          "state": "passed"
+        },
+        {
+          "name": "should handle drag enter",
+          "fullName": "PhotoUpload Component > Drag and Drop > should handle drag enter",
+          "state": "passed"
+        },
+        {
+          "name": "should handle drag leave",
+          "fullName": "PhotoUpload Component > Drag and Drop > should handle drag leave",
+          "state": "passed"
+        },
+        {
+          "name": "should handle file drop",
+          "fullName": "PhotoUpload Component > Drag and Drop > should handle file drop",
+          "state": "passed"
+        },
+        {
+          "name": "should prevent default drag behavior",
+          "fullName": "PhotoUpload Component > Drag and Drop > should prevent default drag behavior",
+          "state": "passed"
+        },
+        {
+          "name": "should show loading state during processing",
+          "fullName": "PhotoUpload Component > Image Processing > should show loading state during processing",
+          "state": "passed"
+        },
+        {
+          "name": "should display image preview after upload",
+          "fullName": "PhotoUpload Component > Image Processing > should display image preview after upload",
+          "state": "passed"
+        },
+        {
+          "name": "should optimize image before analysis",
+          "fullName": "PhotoUpload Component > Image Processing > should optimize image before analysis",
+          "state": "passed"
+        },
+        {
+          "name": "should call vision service after upload",
+          "fullName": "PhotoUpload Component > AI Analysis > should call vision service after upload",
+          "state": "passed"
+        },
+        {
+          "name": "should display detected tasks",
+          "fullName": "PhotoUpload Component > AI Analysis > should display detected tasks",
+          "state": "passed"
+        },
+        {
+          "name": "should show confidence scores when enabled",
+          "fullName": "PhotoUpload Component > AI Analysis > should show confidence scores when enabled",
+          "state": "passed"
+        },
+        {
+          "name": "should handle analysis errors gracefully",
+          "fullName": "PhotoUpload Component > AI Analysis > should handle analysis errors gracefully",
+          "state": "passed"
+        },
+        {
+          "name": "should allow removing uploaded image",
+          "fullName": "PhotoUpload Component > User Interaction > should allow removing uploaded image",
+          "state": "passed"
+        },
+        {
+          "name": "should allow retrying analysis",
+          "fullName": "PhotoUpload Component > User Interaction > should allow retrying analysis",
+          "state": "passed"
+        },
+        {
+          "name": "should disable upload during processing",
+          "fullName": "PhotoUpload Component > User Interaction > should disable upload during processing",
+          "state": "passed"
+        }
+      ]
+    },
+    {
+      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/lib/services/__tests__/offline-sync.test.ts",
+      "tests": [
+        {
+          "name": "should queue operations when offline",
+          "fullName": "Offline Sync Service > Queue Management > should queue operations when offline",
+          "state": "passed"
+        },
+        {
+          "name": "should execute operations immediately when online",
+          "fullName": "Offline Sync Service > Queue Management > should execute operations immediately when online",
+          "state": "passed"
+        },
+        {
+          "name": "should handle batch synchronization",
+          "fullName": "Offline Sync Service > Queue Management > should handle batch synchronization",
+          "state": "failed",
+          "errors": [
+            {
+              "message": "expected 4 to be 3 // Object.is equality",
+              "actual": "4",
+              "expected": "3",
+              "showDiff": true,
+              "operator": "strictEqual",
+              "diff": "\u001b[32m- Expected\u001b[39m\n\u001b[31m+ Received\u001b[39m\n\n\u001b[32m- 3\u001b[39m\n\u001b[31m+ 4\u001b[39m",
+              "name": "AssertionError",
+              "ok": false,
+              "stack": "AssertionError: expected 4 to be 3 // Object.is equality\n    at /home/tinpavlic1/claude-projects/ChecklistApp/lib/services/__tests__/offline-sync.test.ts:96:32\n    at file:///home/tinpavlic1/claude-projects/ChecklistApp/node_modules/@vitest/runner/dist/chunk-hooks.js:752:20"
+            }
+          ]
+        },
+        {
+          "name": "should respect operation order",
+          "fullName": "Offline Sync Service > Queue Management > should respect operation order",
+          "state": "passed"
+        },
+        {
+          "name": "should implement exponential backoff",
+          "fullName": "Offline Sync Service > Retry Logic > should implement exponential backoff",
+          "state": "failed",
+          "errors": [
+            {
+              "message": "expected 1000 to be greater than 1900",
+              "actual": "1000",
+              "expected": "1900",
+              "showDiff": false,
+              "operator": "strictEqual",
+              "name": "AssertionError",
+              "ok": false,
+              "stack": "AssertionError: expected 1000 to be greater than 1900\n    at /home/tinpavlic1/claude-projects/ChecklistApp/lib/services/__tests__/offline-sync.test.ts:147:22\n    at file:///home/tinpavlic1/claude-projects/ChecklistApp/node_modules/@vitest/runner/dist/chunk-hooks.js:752:20"
+            }
+          ]
+        },
+        {
+          "name": "should have maximum retry limit",
+          "fullName": "Offline Sync Service > Retry Logic > should have maximum retry limit",
+          "state": "passed"
+        },
+        {
+          "name": "should handle network recovery",
+          "fullName": "Offline Sync Service > Retry Logic > should handle network recovery",
+          "state": "passed"
+        },
+        {
+          "name": "should detect conflicts",
+          "fullName": "Offline Sync Service > Conflict Resolution > should detect conflicts",
+          "state": "passed"
+        },
+        {
+          "name": "should resolve conflicts with last-write-wins strategy",
+          "fullName": "Offline Sync Service > Conflict Resolution > should resolve conflicts with last-write-wins strategy",
+          "state": "passed"
+        },
+        {
+          "name": "should support custom merge strategy",
+          "fullName": "Offline Sync Service > Conflict Resolution > should support custom merge strategy",
+          "state": "passed"
+        },
+        {
+          "name": "should handle large queues efficiently",
+          "fullName": "Offline Sync Service > Performance > should handle large queues efficiently",
+          "state": "passed"
+        },
+        {
+          "name": "should batch API calls for efficiency",
+          "fullName": "Offline Sync Service > Performance > should batch API calls for efficiency",
+          "state": "failed",
+          "errors": [
+            {
+              "message": "expected \"spy\" to be called 5 times, but got 150 times",
+              "actual": "150",
+              "expected": "5",
+              "showDiff": false,
+              "operator": "strictEqual",
+              "name": "AssertionError",
+              "ok": false,
+              "stack": "AssertionError: expected \"spy\" to be called 5 times, but got 150 times\n    at /home/tinpavlic1/claude-projects/ChecklistApp/lib/services/__tests__/offline-sync.test.ts:317:28\n    at file:///home/tinpavlic1/claude-projects/ChecklistApp/node_modules/@vitest/runner/dist/chunk-hooks.js:752:20"
+            }
+          ]
+        },
+        {
+          "name": "should provide sync status",
+          "fullName": "Offline Sync Service > Status Tracking > should provide sync status",
+          "state": "passed"
+        },
+        {
+          "name": "should emit sync events",
+          "fullName": "Offline Sync Service > Status Tracking > should emit sync events",
+          "state": "passed"
+        },
+        {
+          "name": "should track sync metrics",
+          "fullName": "Offline Sync Service > Status Tracking > should track sync metrics",
+          "state": "failed",
+          "errors": [
+            {
+              "message": "expected 3 to be 2 // Object.is equality",
+              "actual": "3",
+              "expected": "2",
+              "showDiff": true,
+              "operator": "strictEqual",
+              "diff": "\u001b[32m- Expected\u001b[39m\n\u001b[31m+ Received\u001b[39m\n\n\u001b[32m- 2\u001b[39m\n\u001b[31m+ 3\u001b[39m",
+              "name": "AssertionError",
+              "ok": false,
+              "stack": "AssertionError: expected 3 to be 2 // Object.is equality\n    at /home/tinpavlic1/claude-projects/ChecklistApp/lib/services/__tests__/offline-sync.test.ts:380:39\n    at file:///home/tinpavlic1/claude-projects/ChecklistApp/node_modules/@vitest/runner/dist/chunk-hooks.js:752:20"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/lib/services/__tests__/integration.test.ts",
+      "tests": [
+        {
+          "name": "should generate checklist from QA session using template engine",
+          "fullName": "Service Integration Tests > QA Engine with Template Engine Integration > should generate checklist from QA session using template engine",
+          "state": "passed"
+        },
+        {
+          "name": "should merge QA answers with template using template engine",
+          "fullName": "Service Integration Tests > QA Engine with Template Engine Integration > should merge QA answers with template using template engine",
+          "state": "failed",
+          "errors": [
+            {
+              "message": "expected undefined to be defined",
+              "actual": "undefined",
+              "expected": "undefined",
+              "showDiff": false,
+              "operator": "strictEqual",
+              "name": "AssertionError",
+              "ok": false,
+              "stack": "AssertionError: expected undefined to be defined\n    at /home/tinpavlic1/claude-projects/ChecklistApp/lib/services/__tests__/integration.test.ts:54:31\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at file:///home/tinpavlic1/claude-projects/ChecklistApp/node_modules/@vitest/runner/dist/chunk-hooks.js:752:20"
+            }
+          ]
+        },
+        {
+          "name": "should register user and store in database",
+          "fullName": "Service Integration Tests > Authentication with Database Integration > should register user and store in database",
+          "state": "passed"
+        },
+        {
+          "name": "should handle CSRF token generation and validation",
+          "fullName": "Service Integration Tests > Authentication with Database Integration > should handle CSRF token generation and validation",
+          "state": "passed"
+        },
+        {
+          "name": "should handle password reset flow",
+          "fullName": "Service Integration Tests > Authentication with Database Integration > should handle password reset flow",
+          "state": "passed"
+        },
+        {
+          "name": "should create checklist from template",
+          "fullName": "Service Integration Tests > Checklist Service with Template Service Integration > should create checklist from template",
+          "state": "failed",
+          "errors": [
+            {
+              "stack": "TypeError: Cannot read properties of undefined (reading 'map')\n    at ChecklistService.createChecklistFromTemplate (/home/tinpavlic1/claude-projects/ChecklistApp/lib/services/checklist-service.ts:25:36)\n    at /home/tinpavlic1/claude-projects/ChecklistApp/lib/services/__tests__/integration.test.ts:156:48\n    at file:///home/tinpavlic1/claude-projects/ChecklistApp/node_modules/@vitest/runner/dist/chunk-hooks.js:752:20",
+              "message": "Cannot read properties of undefined (reading 'map')",
+              "constructor": "Function<TypeError>",
+              "name": "TypeError",
+              "toString": "Function<toString>"
+            }
+          ]
+        },
+        {
+          "name": "should handle complete workflow: QA -> Template -> Checklist",
+          "fullName": "Service Integration Tests > Checklist Service with Template Service Integration > should handle complete workflow: QA -> Template -> Checklist",
+          "state": "passed"
+        },
+        {
+          "name": "should handle invalid session in QA engine gracefully",
+          "fullName": "Service Integration Tests > Error Handling Across Services > should handle invalid session in QA engine gracefully",
+          "state": "passed"
+        },
+        {
+          "name": "should handle authentication failures properly",
+          "fullName": "Service Integration Tests > Error Handling Across Services > should handle authentication failures properly",
+          "state": "failed",
+          "errors": [
+            {
+              "message": "expected 'Password requirements: At least one u…' to contain 'already exists'",
+              "actual": "Password requirements: At least one uppercase letter",
+              "expected": "already exists",
+              "showDiff": true,
+              "operator": "strictEqual",
+              "diff": "Expected: \u001b[32m\"already exists\"\u001b[39m\nReceived: \u001b[31m\"Password requirements: At least one uppercase letter\"\u001b[39m",
+              "name": "AssertionError",
+              "ok": false,
+              "stack": "AssertionError: expected 'Password requirements: At least one u…' to contain 'already exists'\n    at /home/tinpavlic1/claude-projects/ChecklistApp/lib/services/__tests__/integration.test.ts:251:37\n    at file:///home/tinpavlic1/claude-projects/ChecklistApp/node_modules/@vitest/runner/dist/chunk-hooks.js:752:20"
+            }
+          ]
+        },
+        {
+          "name": "should handle template not found scenarios",
+          "fullName": "Service Integration Tests > Error Handling Across Services > should handle template not found scenarios",
+          "state": "passed"
+        },
+        {
+          "name": "should handle multiple concurrent QA sessions",
+          "fullName": "Service Integration Tests > Performance and Scalability > should handle multiple concurrent QA sessions",
+          "state": "passed"
+        },
+        {
+          "name": "should efficiently handle large number of CSRF tokens",
+          "fullName": "Service Integration Tests > Performance and Scalability > should efficiently handle large number of CSRF tokens",
+          "state": "passed"
+        }
+      ]
+    },
+    {
+      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/components/checklist/__tests__/export-options.test.tsx",
+      "tests": [
+        {
+          "name": "should render export button",
+          "fullName": "Export Options Component > Component Rendering > should render export button",
+          "state": "failed",
+          "errors": [
+            {
+              "stack": "TypeError: Cannot read properties of undefined (reading 'length')\n    at ExportOptions (/home/tinpavlic1/claude-projects/ChecklistApp/components/checklist/export-options.tsx:248:60)\n    at Object.react_stack_bottom_frame (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:23863:20)\n    at renderWithHooks (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:5529:22)\n    at updateFunctionComponent (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:8897:19)\n    at beginWork (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:10522:18)\n    at runWithFiberInDEV (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:1522:13)\n    at performUnitOfWork (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:15140:22)\n    at workLoopSync (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:14956:41)\n    at renderRootSync (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:14936:11)\n    at performWorkOnRoot (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:14462:44)",
+              "message": "Cannot read properties of undefined (reading 'length')",
+              "constructor": "Function<TypeError>",
+              "name": "TypeError",
+              "toString": "Function<toString>"
+            }
+          ]
+        },
+        {
+          "name": "should show export dialog when button clicked",
+          "fullName": "Export Options Component > Component Rendering > should show export dialog when button clicked",
+          "state": "failed",
+          "errors": [
+            {
+              "stack": "TypeError: Cannot read properties of undefined (reading 'length')\n    at ExportOptions (/home/tinpavlic1/claude-projects/ChecklistApp/components/checklist/export-options.tsx:248:60)\n    at Object.react_stack_bottom_frame (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:23863:20)\n    at renderWithHooks (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:5529:22)\n    at updateFunctionComponent (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:8897:19)\n    at beginWork (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:10522:18)\n    at runWithFiberInDEV (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:1522:13)\n    at performUnitOfWork (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:15140:22)\n    at workLoopSync (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:14956:41)\n    at renderRootSync (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:14936:11)\n    at performWorkOnRoot (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:14462:44)",
+              "message": "Cannot read properties of undefined (reading 'length')",
+              "constructor": "Function<TypeError>",
+              "name": "TypeError",
+              "toString": "Function<toString>"
+            }
+          ]
+        },
+        {
+          "name": "should display all available export formats",
+          "fullName": "Export Options Component > Component Rendering > should display all available export formats",
+          "state": "failed",
+          "errors": [
+            {
+              "stack": "TypeError: Cannot read properties of undefined (reading 'length')\n    at ExportOptions (/home/tinpavlic1/claude-projects/ChecklistApp/components/checklist/export-options.tsx:248:60)\n    at Object.react_stack_bottom_frame (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:23863:20)\n    at renderWithHooks (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:5529:22)\n    at updateFunctionComponent (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:8897:19)\n    at beginWork (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:10522:18)\n    at runWithFiberInDEV (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:1522:13)\n    at performUnitOfWork (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:15140:22)\n    at workLoopSync (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:14956:41)\n    at renderRootSync (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:14936:11)\n    at performWorkOnRoot (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:14462:44)",
+              "message": "Cannot read properties of undefined (reading 'length')",
+              "constructor": "Function<TypeError>",
+              "name": "TypeError",
+              "toString": "Function<toString>"
+            }
+          ]
+        },
+        {
+          "name": "should export to PDF format",
+          "fullName": "Export Options Component > Export Functionality > should export to PDF format",
+          "state": "failed",
+          "errors": [
+            {
+              "stack": "TypeError: Cannot read properties of undefined (reading 'length')\n    at ExportOptions (/home/tinpavlic1/claude-projects/ChecklistApp/components/checklist/export-options.tsx:248:60)\n    at Object.react_stack_bottom_frame (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:23863:20)\n    at renderWithHooks (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:5529:22)\n    at updateFunctionComponent (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:8897:19)\n    at beginWork (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:10522:18)\n    at runWithFiberInDEV (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:1522:13)\n    at performUnitOfWork (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:15140:22)\n    at workLoopSync (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:14956:41)\n    at renderRootSync (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:14936:11)\n    at performWorkOnRoot (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:14462:44)",
+              "message": "Cannot read properties of undefined (reading 'length')",
+              "constructor": "Function<TypeError>",
+              "name": "TypeError",
+              "toString": "Function<toString>"
+            }
+          ]
+        },
+        {
+          "name": "should export to Markdown format",
+          "fullName": "Export Options Component > Export Functionality > should export to Markdown format",
+          "state": "failed",
+          "errors": [
+            {
+              "stack": "TypeError: Cannot read properties of undefined (reading 'length')\n    at ExportOptions (/home/tinpavlic1/claude-projects/ChecklistApp/components/checklist/export-options.tsx:248:60)\n    at Object.react_stack_bottom_frame (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:23863:20)\n    at renderWithHooks (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:5529:22)\n    at updateFunctionComponent (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:8897:19)\n    at beginWork (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:10522:18)\n    at runWithFiberInDEV (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:1522:13)\n    at performUnitOfWork (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:15140:22)\n    at workLoopSync (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:14956:41)\n    at renderRootSync (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:14936:11)\n    at performWorkOnRoot (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:14462:44)",
+              "message": "Cannot read properties of undefined (reading 'length')",
+              "constructor": "Function<TypeError>",
+              "name": "TypeError",
+              "toString": "Function<toString>"
+            }
+          ]
+        },
+        {
+          "name": "should show preview before export",
+          "fullName": "Export Options Component > Export Functionality > should show preview before export",
+          "state": "failed",
+          "errors": [
+            {
+              "stack": "TypeError: Cannot read properties of undefined (reading 'length')\n    at ExportOptions (/home/tinpavlic1/claude-projects/ChecklistApp/components/checklist/export-options.tsx:248:60)\n    at Object.react_stack_bottom_frame (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:23863:20)\n    at renderWithHooks (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:5529:22)\n    at updateFunctionComponent (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:8897:19)\n    at beginWork (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:10522:18)\n    at runWithFiberInDEV (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:1522:13)\n    at performUnitOfWork (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:15140:22)\n    at workLoopSync (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:14956:41)\n    at renderRootSync (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:14936:11)\n    at performWorkOnRoot (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:14462:44)",
+              "message": "Cannot read properties of undefined (reading 'length')",
+              "constructor": "Function<TypeError>",
+              "name": "TypeError",
+              "toString": "Function<toString>"
+            }
+          ]
+        },
+        {
+          "name": "should handle export to PerfexCRM",
+          "fullName": "Export Options Component > Export Functionality > should handle export to PerfexCRM",
+          "state": "failed",
+          "errors": [
+            {
+              "stack": "TypeError: Cannot read properties of undefined (reading 'length')\n    at ExportOptions (/home/tinpavlic1/claude-projects/ChecklistApp/components/checklist/export-options.tsx:248:60)\n    at Object.react_stack_bottom_frame (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:23863:20)\n    at renderWithHooks (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:5529:22)\n    at updateFunctionComponent (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:8897:19)\n    at beginWork (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:10522:18)\n    at runWithFiberInDEV (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:1522:13)\n    at performUnitOfWork (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:15140:22)\n    at workLoopSync (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:14956:41)\n    at renderRootSync (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:14936:11)\n    at performWorkOnRoot (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:14462:44)",
+              "message": "Cannot read properties of undefined (reading 'length')",
+              "constructor": "Function<TypeError>",
+              "name": "TypeError",
+              "toString": "Function<toString>"
+            }
+          ]
+        },
+        {
+          "name": "should allow including metadata",
+          "fullName": "Export Options Component > Options Configuration > should allow including metadata",
+          "state": "failed",
+          "errors": [
+            {
+              "stack": "TypeError: Cannot read properties of undefined (reading 'length')\n    at ExportOptions (/home/tinpavlic1/claude-projects/ChecklistApp/components/checklist/export-options.tsx:248:60)\n    at Object.react_stack_bottom_frame (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:23863:20)\n    at renderWithHooks (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:5529:22)\n    at updateFunctionComponent (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:8897:19)\n    at beginWork (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:10522:18)\n    at runWithFiberInDEV (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:1522:13)\n    at performUnitOfWork (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:15140:22)\n    at workLoopSync (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:14956:41)\n    at renderRootSync (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:14936:11)\n    at performWorkOnRoot (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:14462:44)",
+              "message": "Cannot read properties of undefined (reading 'length')",
+              "constructor": "Function<TypeError>",
+              "name": "TypeError",
+              "toString": "Function<toString>"
+            }
+          ]
+        },
+        {
+          "name": "should allow including images",
+          "fullName": "Export Options Component > Options Configuration > should allow including images",
+          "state": "failed",
+          "errors": [
+            {
+              "stack": "TypeError: Cannot read properties of undefined (reading 'length')\n    at ExportOptions (/home/tinpavlic1/claude-projects/ChecklistApp/components/checklist/export-options.tsx:248:60)\n    at Object.react_stack_bottom_frame (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:23863:20)\n    at renderWithHooks (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:5529:22)\n    at updateFunctionComponent (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:8897:19)\n    at beginWork (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:10522:18)\n    at runWithFiberInDEV (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:1522:13)\n    at performUnitOfWork (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:15140:22)\n    at workLoopSync (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:14956:41)\n    at renderRootSync (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:14936:11)\n    at performWorkOnRoot (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:14462:44)",
+              "message": "Cannot read properties of undefined (reading 'length')",
+              "constructor": "Function<TypeError>",
+              "name": "TypeError",
+              "toString": "Function<toString>"
+            }
+          ]
+        },
+        {
+          "name": "should show loading state during export",
+          "fullName": "Export Options Component > User Feedback > should show loading state during export",
+          "state": "failed",
+          "errors": [
+            {
+              "stack": "TypeError: Cannot read properties of undefined (reading 'length')\n    at ExportOptions (/home/tinpavlic1/claude-projects/ChecklistApp/components/checklist/export-options.tsx:248:60)\n    at Object.react_stack_bottom_frame (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:23863:20)\n    at renderWithHooks (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:5529:22)\n    at updateFunctionComponent (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:8897:19)\n    at beginWork (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:10522:18)\n    at runWithFiberInDEV (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:1522:13)\n    at performUnitOfWork (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:15140:22)\n    at workLoopSync (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:14956:41)\n    at renderRootSync (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:14936:11)\n    at performWorkOnRoot (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:14462:44)",
+              "message": "Cannot read properties of undefined (reading 'length')",
+              "constructor": "Function<TypeError>",
+              "name": "TypeError",
+              "toString": "Function<toString>"
+            }
+          ]
+        },
+        {
+          "name": "should show success message after export",
+          "fullName": "Export Options Component > User Feedback > should show success message after export",
+          "state": "failed",
+          "errors": [
+            {
+              "stack": "TypeError: Cannot read properties of undefined (reading 'length')\n    at ExportOptions (/home/tinpavlic1/claude-projects/ChecklistApp/components/checklist/export-options.tsx:248:60)\n    at Object.react_stack_bottom_frame (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:23863:20)\n    at renderWithHooks (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:5529:22)\n    at updateFunctionComponent (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:8897:19)\n    at beginWork (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:10522:18)\n    at runWithFiberInDEV (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:1522:13)\n    at performUnitOfWork (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:15140:22)\n    at workLoopSync (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:14956:41)\n    at renderRootSync (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:14936:11)\n    at performWorkOnRoot (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:14462:44)",
+              "message": "Cannot read properties of undefined (reading 'length')",
+              "constructor": "Function<TypeError>",
+              "name": "TypeError",
+              "toString": "Function<toString>"
+            }
+          ]
+        },
+        {
+          "name": "should handle export errors gracefully",
+          "fullName": "Export Options Component > User Feedback > should handle export errors gracefully",
+          "state": "failed",
+          "errors": [
+            {
+              "stack": "TypeError: Cannot read properties of undefined (reading 'length')\n    at ExportOptions (/home/tinpavlic1/claude-projects/ChecklistApp/components/checklist/export-options.tsx:248:60)\n    at Object.react_stack_bottom_frame (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:23863:20)\n    at renderWithHooks (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:5529:22)\n    at updateFunctionComponent (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:8897:19)\n    at beginWork (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:10522:18)\n    at runWithFiberInDEV (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:1522:13)\n    at performUnitOfWork (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:15140:22)\n    at workLoopSync (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:14956:41)\n    at renderRootSync (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:14936:11)\n    at performWorkOnRoot (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:14462:44)",
+              "message": "Cannot read properties of undefined (reading 'length')",
+              "constructor": "Function<TypeError>",
+              "name": "TypeError",
+              "toString": "Function<toString>"
+            }
+          ]
+        },
+        {
+          "name": "should close dialog on cancel",
+          "fullName": "Export Options Component > Dialog Management > should close dialog on cancel",
+          "state": "failed",
+          "errors": [
+            {
+              "stack": "TypeError: Cannot read properties of undefined (reading 'length')\n    at ExportOptions (/home/tinpavlic1/claude-projects/ChecklistApp/components/checklist/export-options.tsx:248:60)\n    at Object.react_stack_bottom_frame (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:23863:20)\n    at renderWithHooks (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:5529:22)\n    at updateFunctionComponent (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:8897:19)\n    at beginWork (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:10522:18)\n    at runWithFiberInDEV (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:1522:13)\n    at performUnitOfWork (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:15140:22)\n    at workLoopSync (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:14956:41)\n    at renderRootSync (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:14936:11)\n    at performWorkOnRoot (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:14462:44)",
+              "message": "Cannot read properties of undefined (reading 'length')",
+              "constructor": "Function<TypeError>",
+              "name": "TypeError",
+              "toString": "Function<toString>"
+            }
+          ]
+        },
+        {
+          "name": "should close dialog after successful export",
+          "fullName": "Export Options Component > Dialog Management > should close dialog after successful export",
+          "state": "failed",
+          "errors": [
+            {
+              "stack": "TypeError: Cannot read properties of undefined (reading 'length')\n    at ExportOptions (/home/tinpavlic1/claude-projects/ChecklistApp/components/checklist/export-options.tsx:248:60)\n    at Object.react_stack_bottom_frame (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:23863:20)\n    at renderWithHooks (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:5529:22)\n    at updateFunctionComponent (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:8897:19)\n    at beginWork (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:10522:18)\n    at runWithFiberInDEV (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:1522:13)\n    at performUnitOfWork (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:15140:22)\n    at workLoopSync (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:14956:41)\n    at renderRootSync (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:14936:11)\n    at performWorkOnRoot (/home/tinpavlic1/claude-projects/ChecklistApp/node_modules/react-dom/cjs/react-dom-client.development.js:14462:44)",
+              "message": "Cannot read properties of undefined (reading 'length')",
+              "constructor": "Function<TypeError>",
+              "name": "TypeError",
+              "toString": "Function<toString>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/lib/services/__tests__/auth-service.test.ts",
+      "tests": [
+        {
+          "name": "should handle user registration",
+          "fullName": "Authentication Service > User Registration > should handle user registration",
+          "state": "passed"
+        },
+        {
+          "name": "should validate email format",
+          "fullName": "Authentication Service > User Registration > should validate email format",
+          "state": "passed"
+        },
+        {
+          "name": "should validate password strength",
+          "fullName": "Authentication Service > User Registration > should validate password strength",
+          "state": "passed"
+        },
+        {
+          "name": "should prevent duplicate email registration",
+          "fullName": "Authentication Service > User Registration > should prevent duplicate email registration",
+          "state": "passed"
+        },
+        {
+          "name": "should hash passwords securely",
+          "fullName": "Authentication Service > User Registration > should hash passwords securely",
+          "state": "failed",
+          "errors": [
+            {
+              "message": "expected undefined to be 'hashed_SecurePassword123!' // Object.is equality",
+              "actual": "undefined",
+              "expected": "hashed_SecurePassword123!",
+              "showDiff": true,
+              "operator": "strictEqual",
+              "diff": "\u001b[32m- Expected:\u001b[39m \n\"hashed_SecurePassword123!\"\n\n\u001b[31m+ Received:\u001b[39m \nundefined",
+              "name": "AssertionError",
+              "ok": false,
+              "stack": "AssertionError: expected undefined to be 'hashed_SecurePassword123!' // Object.is equality\n    at /home/tinpavlic1/claude-projects/ChecklistApp/lib/services/__tests__/auth-service.test.ts:110:37\n    at runNextTicks (node:internal/process/task_queues:60:5)\n    at processImmediate (node:internal/timers:454:9)\n    at file:///home/tinpavlic1/claude-projects/ChecklistApp/node_modules/@vitest/runner/dist/chunk-hooks.js:752:20"
+            }
+          ]
+        },
+        {
+          "name": "should validate email and password",
+          "fullName": "Authentication Service > User Login > should validate email and password",
+          "state": "passed"
+        },
+        {
+          "name": "should reject invalid credentials",
+          "fullName": "Authentication Service > User Login > should reject invalid credentials",
+          "state": "passed"
+        },
+        {
+          "name": "should handle non-existent users",
+          "fullName": "Authentication Service > User Login > should handle non-existent users",
+          "state": "passed"
+        },
+        {
+          "name": "should create session on successful login",
+          "fullName": "Authentication Service > User Login > should create session on successful login",
+          "state": "passed"
+        },
+        {
+          "name": "should implement rate limiting",
+          "fullName": "Authentication Service > User Login > should implement rate limiting",
+          "state": "passed"
+        },
+        {
+          "name": "should manage JWT tokens securely",
+          "fullName": "Authentication Service > JWT Token Management > should manage JWT tokens securely",
+          "state": "failed",
+          "errors": [
+            {
+              "message": "expected 'token_undefined' to contain 'token_user123'",
+              "actual": "token_undefined",
+              "expected": "token_user123",
+              "showDiff": true,
+              "operator": "strictEqual",
+              "diff": "Expected: \u001b[32m\"token_u\u001b[7mser123\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"token_u\u001b[7mndefined\u001b[27m\"\u001b[39m",
+              "name": "AssertionError",
+              "ok": false,
+              "stack": "AssertionError: expected 'token_undefined' to contain 'token_user123'\n    at /home/tinpavlic1/claude-projects/ChecklistApp/lib/services/__tests__/auth-service.test.ts:204:21\n    at runNextTicks (node:internal/process/task_queues:60:5)\n    at processImmediate (node:internal/timers:454:9)\n    at file:///home/tinpavlic1/claude-projects/ChecklistApp/node_modules/@vitest/runner/dist/chunk-hooks.js:752:20"
+            }
+          ]
+        },
+        {
+          "name": "should validate JWT tokens",
+          "fullName": "Authentication Service > JWT Token Management > should validate JWT tokens",
+          "state": "passed"
+        },
+        {
+          "name": "should reject invalid tokens",
+          "fullName": "Authentication Service > JWT Token Management > should reject invalid tokens",
+          "state": "passed"
+        },
+        {
+          "name": "should refresh expired tokens",
+          "fullName": "Authentication Service > JWT Token Management > should refresh expired tokens",
+          "state": "passed"
+        },
+        {
+          "name": "should handle token expiration",
+          "fullName": "Authentication Service > JWT Token Management > should handle token expiration",
+          "state": "failed",
+          "errors": [
+            {
+              "message": "expected true to be false // Object.is equality",
+              "actual": "true",
+              "expected": "false",
+              "showDiff": true,
+              "operator": "strictEqual",
+              "diff": "\u001b[32m- Expected\u001b[39m\n\u001b[31m+ Received\u001b[39m\n\n\u001b[32m- false\u001b[39m\n\u001b[31m+ true\u001b[39m",
+              "name": "AssertionError",
+              "ok": false,
+              "stack": "AssertionError: expected true to be false // Object.is equality\n    at /home/tinpavlic1/claude-projects/ChecklistApp/lib/services/__tests__/auth-service.test.ts:241:21\n    at file:///home/tinpavlic1/claude-projects/ChecklistApp/node_modules/@vitest/runner/dist/chunk-hooks.js:752:20"
+            }
+          ]
+        },
+        {
+          "name": "should handle password reset",
+          "fullName": "Authentication Service > Password Reset > should handle password reset",
+          "state": "passed"
+        },
+        {
+          "name": "should validate reset tokens",
+          "fullName": "Authentication Service > Password Reset > should validate reset tokens",
+          "state": "passed"
+        },
+        {
+          "name": "should expire reset tokens",
+          "fullName": "Authentication Service > Password Reset > should expire reset tokens",
+          "state": "passed"
+        },
+        {
+          "name": "should invalidate old passwords after reset",
+          "fullName": "Authentication Service > Password Reset > should invalidate old passwords after reset",
+          "state": "passed"
+        },
+        {
+          "name": "should manage sessions",
+          "fullName": "Authentication Service > Session Management > should manage sessions",
+          "state": "passed"
+        },
+        {
+          "name": "should validate sessions",
+          "fullName": "Authentication Service > Session Management > should validate sessions",
+          "state": "passed"
+        },
+        {
+          "name": "should invalidate sessions on logout",
+          "fullName": "Authentication Service > Session Management > should invalidate sessions on logout",
+          "state": "passed"
+        },
+        {
+          "name": "should handle session expiration",
+          "fullName": "Authentication Service > Session Management > should handle session expiration",
+          "state": "passed"
+        },
+        {
+          "name": "should clean up expired sessions",
+          "fullName": "Authentication Service > Session Management > should clean up expired sessions",
+          "state": "failed",
+          "errors": [
+            {
+              "message": "expected 5 to be +0 // Object.is equality",
+              "actual": "5",
+              "expected": "0",
+              "showDiff": true,
+              "operator": "strictEqual",
+              "diff": "\u001b[32m- Expected\u001b[39m\n\u001b[31m+ Received\u001b[39m\n\n\u001b[32m- 0\u001b[39m\n\u001b[31m+ 5\u001b[39m",
+              "name": "AssertionError",
+              "ok": false,
+              "stack": "AssertionError: expected 5 to be +0 // Object.is equality\n    at /home/tinpavlic1/claude-projects/ChecklistApp/lib/services/__tests__/auth-service.test.ts:377:37\n    at file:///home/tinpavlic1/claude-projects/ChecklistApp/node_modules/@vitest/runner/dist/chunk-hooks.js:752:20"
+            }
+          ]
+        },
+        {
+          "name": "should implement CSRF protection",
+          "fullName": "Authentication Service > CSRF Protection > should implement CSRF protection",
+          "state": "passed"
+        },
+        {
+          "name": "should validate CSRF tokens",
+          "fullName": "Authentication Service > CSRF Protection > should validate CSRF tokens",
+          "state": "passed"
+        },
+        {
+          "name": "should reject invalid CSRF tokens",
+          "fullName": "Authentication Service > CSRF Protection > should reject invalid CSRF tokens",
+          "state": "passed"
+        },
+        {
+          "name": "should implement password hashing",
+          "fullName": "Authentication Service > Security Features > should implement password hashing",
+          "state": "passed"
+        },
+        {
+          "name": "should verify password hashes",
+          "fullName": "Authentication Service > Security Features > should verify password hashes",
+          "state": "passed"
+        },
+        {
+          "name": "should sanitize user input",
+          "fullName": "Authentication Service > Security Features > should sanitize user input",
+          "state": "passed"
+        },
+        {
+          "name": "should validate email addresses",
+          "fullName": "Authentication Service > Security Features > should validate email addresses",
+          "state": "passed"
+        }
+      ]
+    },
+    {
+      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/lib/services/__tests__/export-service.test.ts",
+      "tests": [
+        {
+          "name": "should generate valid PDF documents",
+          "fullName": "Export Service > PDF Generation > should generate valid PDF documents",
+          "state": "passed"
+        },
+        {
+          "name": "should include checklist title and description",
+          "fullName": "Export Service > PDF Generation > should include checklist title and description",
+          "state": "passed"
+        },
+        {
+          "name": "should include all tasks with completion status",
+          "fullName": "Export Service > PDF Generation > should include all tasks with completion status",
+          "state": "passed"
+        },
+        {
+          "name": "should handle large checklists efficiently",
+          "fullName": "Export Service > PDF Generation > should handle large checklists efficiently",
+          "state": "passed"
+        },
+        {
+          "name": "should apply custom styling and branding",
+          "fullName": "Export Service > PDF Generation > should apply custom styling and branding",
+          "state": "passed"
+        },
+        {
+          "name": "should support image embedding",
+          "fullName": "Export Service > PDF Generation > should support image embedding",
+          "state": "passed"
+        },
+        {
+          "name": "should create Markdown with proper formatting",
+          "fullName": "Export Service > Markdown Export > should create Markdown with proper formatting",
+          "state": "passed"
+        },
+        {
+          "name": "should support GitHub-flavored markdown",
+          "fullName": "Export Service > Markdown Export > should support GitHub-flavored markdown",
+          "state": "passed"
+        },
+        {
+          "name": "should include metadata in frontmatter",
+          "fullName": "Export Service > Markdown Export > should include metadata in frontmatter",
+          "state": "passed"
+        },
+        {
+          "name": "should handle special characters correctly",
+          "fullName": "Export Service > Markdown Export > should handle special characters correctly",
+          "state": "failed",
+          "errors": [
+            {
+              "message": "expected '# Clean & Organize [Kitchen]\\n\\nCompl…' to contain 'Clean & Organize \\[Kitchen\\]'",
+              "actual": "# Clean & Organize [Kitchen]\n\nComplete kitchen cleaning checklist\n\n## Tasks\n\n- [ ] Clean \\*all\\* surfaces & &lt;appliances&gt;\n",
+              "expected": "Clean & Organize \\[Kitchen\\]",
+              "showDiff": true,
+              "operator": "strictEqual",
+              "diff": "\u001b[32m- Expected\u001b[39m\n\u001b[31m+ Received\u001b[39m\n\n\u001b[32m- Clean & Organize \u001b[7m\\\u001b[27m[Kitchen\u001b[7m\\\u001b[27m]\u001b[39m\n\u001b[31m+ \u001b[7m# \u001b[27mClean & Organize [Kitchen]\u001b[39m\n\u001b[31m+\u001b[39m\n\u001b[31m+ Complete kitchen cleaning checklist\u001b[39m\n\u001b[31m+\u001b[39m\n\u001b[31m+ ## Tasks\u001b[39m\n\u001b[31m+\u001b[39m\n\u001b[31m+ - [ ] Clean \\*all\\* surfaces & &lt;appliances&gt;\u001b[39m\n\u001b[31m+\u001b[39m",
+              "name": "AssertionError",
+              "ok": false,
+              "stack": "AssertionError: expected '# Clean & Organize [Kitchen]\\n\\nCompl…' to contain 'Clean & Organize \\[Kitchen\\]'\n    at /home/tinpavlic1/claude-projects/ChecklistApp/lib/services/__tests__/export-service.test.ts:223:24\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at file:///home/tinpavlic1/claude-projects/ChecklistApp/node_modules/@vitest/runner/dist/chunk-hooks.js:752:20"
+            }
+          ]
+        },
+        {
+          "name": "should integrate with PerfexCRM GraphQL",
+          "fullName": "Export Service > PerfexCRM Integration > should integrate with PerfexCRM GraphQL",
+          "state": "passed"
+        },
+        {
+          "name": "should handle GraphQL mutations correctly",
+          "fullName": "Export Service > PerfexCRM Integration > should handle GraphQL mutations correctly",
+          "state": "passed"
+        },
+        {
+          "name": "should map checklist data to CRM schema",
+          "fullName": "Export Service > PerfexCRM Integration > should map checklist data to CRM schema",
+          "state": "passed"
+        },
+        {
+          "name": "should handle authentication and errors",
+          "fullName": "Export Service > PerfexCRM Integration > should handle authentication and errors",
+          "state": "passed"
+        },
+        {
+          "name": "should handle network errors gracefully",
+          "fullName": "Export Service > PerfexCRM Integration > should handle network errors gracefully",
+          "state": "passed"
+        },
+        {
+          "name": "should support multiple export formats",
+          "fullName": "Export Service > Export Configuration > should support multiple export formats",
+          "state": "passed"
+        },
+        {
+          "name": "should validate export options",
+          "fullName": "Export Service > Export Configuration > should validate export options",
+          "state": "passed"
+        },
+        {
+          "name": "should provide export preview",
+          "fullName": "Export Service > Export Configuration > should provide export preview",
+          "state": "passed"
+        },
+        {
+          "name": "should handle concurrent exports efficiently",
+          "fullName": "Export Service > Performance > should handle concurrent exports efficiently",
+          "state": "passed"
+        },
+        {
+          "name": "should maintain formatting across formats",
+          "fullName": "Export Service > Performance > should maintain formatting across formats",
+          "state": "passed"
+        }
+      ]
+    },
+    {
+      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/lib/pwa/__tests__/service-worker.test.ts",
+      "tests": [
+        {
+          "name": "should register service worker",
+          "fullName": "Service Worker Manager > Registration > should register service worker",
+          "state": "failed",
+          "errors": [
+            {
+              "message": "expected false to be true // Object.is equality",
+              "actual": "false",
+              "expected": "true",
+              "showDiff": true,
+              "operator": "strictEqual",
+              "diff": "\u001b[32m- Expected\u001b[39m\n\u001b[31m+ Received\u001b[39m\n\n\u001b[32m- true\u001b[39m\n\u001b[31m+ false\u001b[39m",
+              "name": "AssertionError",
+              "ok": false,
+              "stack": "AssertionError: expected false to be true // Object.is equality\n    at /home/tinpavlic1/claude-projects/ChecklistApp/lib/pwa/__tests__/service-worker.test.ts:53:30\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at file:///home/tinpavlic1/claude-projects/ChecklistApp/node_modules/@vitest/runner/dist/chunk-hooks.js:752:20"
+            }
+          ]
+        },
+        {
+          "name": "should handle registration failure",
+          "fullName": "Service Worker Manager > Registration > should handle registration failure",
+          "state": "passed"
+        },
+        {
+          "name": "should detect offline status",
+          "fullName": "Service Worker Manager > Offline Functionality > should detect offline status",
+          "state": "passed"
+        },
+        {
+          "name": "should serve offline page when offline",
+          "fullName": "Service Worker Manager > Offline Functionality > should serve offline page when offline",
+          "state": "passed"
+        }
+      ]
+    },
+    {
+      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/test-debug.test.tsx",
+      "tests": []
+    },
+    {
+      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/components/auth/__tests__/login-form.test.tsx",
+      "tests": []
+    },
+    {
+      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/lib/services/__tests__/claude-vision.test.ts",
+      "tests": [
+        {
+          "name": "should initialize with Anthropic API key from environment",
+          "fullName": "Claude Vision Service > Service Initialization > should initialize with Anthropic API key from environment",
+          "state": "passed"
+        },
+        {
+          "name": "should throw error if API key is missing",
+          "fullName": "Claude Vision Service > Service Initialization > should throw error if API key is missing",
+          "state": "passed"
+        },
+        {
+          "name": "should configure correct model version (claude-3-opus-20240229)",
+          "fullName": "Claude Vision Service > Service Initialization > should configure correct model version (claude-3-opus-20240229)",
+          "state": "passed"
+        },
+        {
+          "name": "should set appropriate max tokens and temperature",
+          "fullName": "Claude Vision Service > Service Initialization > should set appropriate max tokens and temperature",
+          "state": "passed"
+        },
+        {
+          "name": "should accept image in base64 format",
+          "fullName": "Claude Vision Service > Image Analysis > should accept image in base64 format",
+          "state": "passed"
+        },
+        {
+          "name": "should validate image format (jpg, png, webp)",
+          "fullName": "Claude Vision Service > Image Analysis > should validate image format (jpg, png, webp)",
+          "state": "passed"
+        },
+        {
+          "name": "should reject images larger than 5MB",
+          "fullName": "Claude Vision Service > Image Analysis > should reject images larger than 5MB",
+          "state": "passed"
+        },
+        {
+          "name": "should detect cleaning tasks from image",
+          "fullName": "Claude Vision Service > Task Detection > should detect cleaning tasks from image",
+          "state": "passed"
+        },
+        {
+          "name": "should provide confidence scores for each task",
+          "fullName": "Claude Vision Service > Task Detection > should provide confidence scores for each task",
+          "state": "passed"
+        },
+        {
+          "name": "should handle API rate limiting with exponential backoff",
+          "fullName": "Claude Vision Service > Error Handling > should handle API rate limiting with exponential backoff",
+          "state": "passed"
+        },
+        {
+          "name": "should provide fallback for API failures",
+          "fullName": "Claude Vision Service > Error Handling > should provide fallback for API failures",
+          "state": "passed"
+        }
+      ]
+    },
+    {
+      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/lib/services/__tests__/database.test.ts",
+      "tests": [
+        {
+          "name": "should initialize IndexedDB with correct schema",
+          "fullName": "DatabaseService > Database Initialization > should initialize IndexedDB with correct schema",
+          "state": "passed"
+        },
+        {
+          "name": "should create all required tables",
+          "fullName": "DatabaseService > Database Initialization > should create all required tables",
+          "state": "passed"
+        },
+        {
+          "name": "should handle database version migration",
+          "fullName": "DatabaseService > Database Initialization > should handle database version migration",
+          "state": "passed"
+        },
+        {
+          "name": "should handle quota exceeded errors",
+          "fullName": "DatabaseService > Database Initialization > should handle quota exceeded errors",
+          "state": "passed"
+        },
+        {
+          "name": "should create a new checklist",
+          "fullName": "DatabaseService > Checklist CRUD Operations > should create a new checklist",
+          "state": "passed"
+        },
+        {
+          "name": "should read a checklist by id",
+          "fullName": "DatabaseService > Checklist CRUD Operations > should read a checklist by id",
+          "state": "passed"
+        },
+        {
+          "name": "should update a checklist",
+          "fullName": "DatabaseService > Checklist CRUD Operations > should update a checklist",
+          "state": "passed"
+        },
+        {
+          "name": "should delete a checklist",
+          "fullName": "DatabaseService > Checklist CRUD Operations > should delete a checklist",
+          "state": "passed"
+        },
+        {
+          "name": "should handle concurrent modifications",
+          "fullName": "DatabaseService > Checklist CRUD Operations > should handle concurrent modifications",
+          "state": "passed"
+        },
+        {
+          "name": "should add operations to sync queue",
+          "fullName": "DatabaseService > Offline Sync Queue > should add operations to sync queue",
+          "state": "passed"
+        },
+        {
+          "name": "should process sync queue when online",
+          "fullName": "DatabaseService > Offline Sync Queue > should process sync queue when online",
+          "state": "passed"
+        },
+        {
+          "name": "should handle conflict resolution",
+          "fullName": "DatabaseService > Offline Sync Queue > should handle conflict resolution",
+          "state": "passed"
+        },
+        {
+          "name": "should cache AI responses",
+          "fullName": "DatabaseService > AI Response Caching > should cache AI responses",
+          "state": "passed"
+        },
+        {
+          "name": "should retrieve cached AI responses",
+          "fullName": "DatabaseService > AI Response Caching > should retrieve cached AI responses",
+          "state": "passed"
+        }
+      ]
+    },
+    {
+      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/components/ui/__tests__/checkbox.test.tsx",
+      "tests": [
+        {
+          "name": "should render checkbox",
+          "fullName": "Checkbox > should render checkbox",
+          "state": "passed"
+        },
+        {
+          "name": "should handle checked state",
+          "fullName": "Checkbox > should handle checked state",
+          "state": "passed"
+        },
+        {
+          "name": "should handle indeterminate state",
+          "fullName": "Checkbox > should handle indeterminate state",
+          "state": "passed"
+        },
+        {
+          "name": "should call onCheckedChange when clicked",
+          "fullName": "Checkbox > should call onCheckedChange when clicked",
+          "state": "passed"
+        },
+        {
+          "name": "should be disabled when disabled prop is true",
+          "fullName": "Checkbox > should be disabled when disabled prop is true",
+          "state": "passed"
+        },
+        {
+          "name": "should apply custom className",
+          "fullName": "Checkbox > should apply custom className",
+          "state": "passed"
+        },
+        {
+          "name": "should show check icon when checked",
+          "fullName": "Checkbox > should show check icon when checked",
+          "state": "passed"
+        },
+        {
+          "name": "should show minus icon when indeterminate",
+          "fullName": "Checkbox > should show minus icon when indeterminate",
+          "state": "passed"
+        }
+      ]
+    },
+    {
+      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/components/ui/__tests__/button.test.tsx",
+      "tests": [
+        {
+          "name": "should render button with text",
+          "fullName": "Button > should render button with text",
+          "state": "passed"
+        },
+        {
+          "name": "should handle click events",
+          "fullName": "Button > should handle click events",
+          "state": "passed"
+        },
+        {
+          "name": "should render with different variants",
+          "fullName": "Button > should render with different variants",
+          "state": "passed"
+        },
+        {
+          "name": "should render with different sizes",
+          "fullName": "Button > should render with different sizes",
+          "state": "passed"
+        },
+        {
+          "name": "should be disabled when disabled prop is true",
+          "fullName": "Button > should be disabled when disabled prop is true",
+          "state": "passed"
+        },
+        {
+          "name": "should render as child component when asChild is true",
+          "fullName": "Button > should render as child component when asChild is true",
+          "state": "passed"
+        }
+      ]
+    },
+    {
+      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/lib/stores/__tests__/customization-store.test.ts",
+      "tests": [
+        {
+          "name": "should set and clear selected template",
+          "fullName": "useCustomizationStore > should set and clear selected template",
+          "state": "passed"
+        },
+        {
+          "name": "should toggle room selection",
+          "fullName": "useCustomizationStore > should toggle room selection",
+          "state": "passed"
+        },
+        {
+          "name": "should select and deselect all rooms",
+          "fullName": "useCustomizationStore > should select and deselect all rooms",
+          "state": "passed"
+        },
+        {
+          "name": "should toggle task selection",
+          "fullName": "useCustomizationStore > should toggle task selection",
+          "state": "passed"
+        },
+        {
+          "name": "should calculate total estimated time",
+          "fullName": "useCustomizationStore > should calculate total estimated time",
+          "state": "passed"
+        },
+        {
+          "name": "should navigate through steps",
+          "fullName": "useCustomizationStore > should navigate through steps",
+          "state": "passed"
+        }
+      ]
+    },
+    {
+      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/lib/services/__tests__/image-processor.test.ts",
+      "tests": [
+        {
+          "name": "should accept valid image formats (jpg, png, webp)",
+          "fullName": "Image Processor > Image Validation > should accept valid image formats (jpg, png, webp)",
+          "state": "passed"
+        },
+        {
+          "name": "should reject invalid image formats",
+          "fullName": "Image Processor > Image Validation > should reject invalid image formats",
+          "state": "passed"
+        },
+        {
+          "name": "should validate image size (max 5MB)",
+          "fullName": "Image Processor > Image Validation > should validate image size (max 5MB)",
+          "state": "passed"
+        },
+        {
+          "name": "should validate image dimensions",
+          "fullName": "Image Processor > Image Validation > should validate image dimensions",
+          "state": "passed"
+        },
+        {
+          "name": "should resize large images while maintaining aspect ratio",
+          "fullName": "Image Processor > Image Processing > should resize large images while maintaining aspect ratio",
+          "state": "passed"
+        },
+        {
+          "name": "should compress images to reduce file size",
+          "fullName": "Image Processor > Image Processing > should compress images to reduce file size",
+          "state": "passed"
+        },
+        {
+          "name": "should convert images to required format",
+          "fullName": "Image Processor > Image Processing > should convert images to required format",
+          "state": "passed"
+        },
+        {
+          "name": "should extract metadata from images",
+          "fullName": "Image Processor > Image Processing > should extract metadata from images",
+          "state": "passed"
+        },
+        {
+          "name": "should process multiple images in parallel",
+          "fullName": "Image Processor > Batch Processing > should process multiple images in parallel",
+          "state": "passed"
+        },
+        {
+          "name": "should handle errors gracefully in batch processing",
+          "fullName": "Image Processor > Batch Processing > should handle errors gracefully in batch processing",
+          "state": "passed"
+        },
+        {
+          "name": "should limit concurrent processing to prevent memory issues",
+          "fullName": "Image Processor > Batch Processing > should limit concurrent processing to prevent memory issues",
+          "state": "passed"
+        },
+        {
+          "name": "should optimize images for Claude Vision API",
+          "fullName": "Image Processor > Image Optimization > should optimize images for Claude Vision API",
+          "state": "passed"
+        },
+        {
+          "name": "should maintain image quality during optimization",
+          "fullName": "Image Processor > Image Optimization > should maintain image quality during optimization",
+          "state": "passed"
+        },
+        {
+          "name": "should handle already optimized images efficiently",
+          "fullName": "Image Processor > Image Optimization > should handle already optimized images efficiently",
+          "state": "passed"
+        },
+        {
+          "name": "should handle corrupted image data",
+          "fullName": "Image Processor > Error Handling > should handle corrupted image data",
+          "state": "passed"
+        },
+        {
+          "name": "should handle missing image data",
+          "fullName": "Image Processor > Error Handling > should handle missing image data",
+          "state": "passed"
+        },
+        {
+          "name": "should provide detailed error messages",
+          "fullName": "Image Processor > Error Handling > should provide detailed error messages",
+          "state": "passed"
+        }
+      ]
+    },
+    {
+      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/hooks/__tests__/use-viewport.test.ts",
+      "tests": [
+        {
+          "name": "should return initial viewport size",
+          "fullName": "useViewport > should return initial viewport size",
+          "state": "passed"
+        },
+        {
+          "name": "should detect mobile viewport",
+          "fullName": "useViewport > should detect mobile viewport",
+          "state": "passed"
+        },
+        {
+          "name": "should detect tablet viewport",
+          "fullName": "useViewport > should detect tablet viewport",
+          "state": "passed"
+        },
+        {
+          "name": "should update on window resize",
+          "fullName": "useViewport > should update on window resize",
+          "state": "passed"
+        },
+        {
+          "name": "should clean up event listener on unmount",
+          "fullName": "useViewport > should clean up event listener on unmount",
+          "state": "passed"
+        }
+      ]
+    },
+    {
+      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/lib/services/__tests__/ai-cache.test.ts",
+      "tests": [
+        {
+          "name": "should generate consistent cache keys for same images",
+          "fullName": "AI Cache Service > Cache Key Generation > should generate consistent cache keys for same images",
+          "state": "passed"
+        },
+        {
+          "name": "should generate different keys for different images",
+          "fullName": "AI Cache Service > Cache Key Generation > should generate different keys for different images",
+          "state": "passed"
+        },
+        {
+          "name": "should handle image arrays for batch caching",
+          "fullName": "AI Cache Service > Cache Key Generation > should handle image arrays for batch caching",
+          "state": "passed"
+        },
+        {
+          "name": "should store vision analysis results in cache",
+          "fullName": "AI Cache Service > Cache Storage > should store vision analysis results in cache",
+          "state": "passed"
+        },
+        {
+          "name": "should set appropriate expiration times",
+          "fullName": "AI Cache Service > Cache Storage > should set appropriate expiration times",
+          "state": "passed"
+        },
+        {
+          "name": "should handle storage errors gracefully",
+          "fullName": "AI Cache Service > Cache Storage > should handle storage errors gracefully",
+          "state": "passed"
+        },
+        {
+          "name": "should retrieve cached results for known images",
+          "fullName": "AI Cache Service > Cache Retrieval > should retrieve cached results for known images",
+          "state": "passed"
+        },
+        {
+          "name": "should return null for uncached images",
+          "fullName": "AI Cache Service > Cache Retrieval > should return null for uncached images",
+          "state": "passed"
+        },
+        {
+          "name": "should ignore expired cache entries",
+          "fullName": "AI Cache Service > Cache Retrieval > should ignore expired cache entries",
+          "state": "passed"
+        },
+        {
+          "name": "should delete expired entries when found",
+          "fullName": "AI Cache Service > Cache Retrieval > should delete expired entries when found",
+          "state": "passed"
+        },
+        {
+          "name": "should clear all cache entries",
+          "fullName": "AI Cache Service > Cache Management > should clear all cache entries",
+          "state": "passed"
+        },
+        {
+          "name": "should clear expired entries only",
+          "fullName": "AI Cache Service > Cache Management > should clear expired entries only",
+          "state": "passed"
+        },
+        {
+          "name": "should get cache statistics",
+          "fullName": "AI Cache Service > Cache Management > should get cache statistics",
+          "state": "passed"
+        },
+        {
+          "name": "should implement cache size limits",
+          "fullName": "AI Cache Service > Cache Management > should implement cache size limits",
+          "state": "passed"
+        },
+        {
+          "name": "should invalidate cache for specific image",
+          "fullName": "AI Cache Service > Cache Invalidation > should invalidate cache for specific image",
+          "state": "passed"
+        },
+        {
+          "name": "should invalidate cache based on age",
+          "fullName": "AI Cache Service > Cache Invalidation > should invalidate cache based on age",
+          "state": "passed"
+        },
+        {
+          "name": "should handle batch invalidation",
+          "fullName": "AI Cache Service > Cache Invalidation > should handle batch invalidation",
+          "state": "passed"
+        },
+        {
+          "name": "should implement cache warming",
+          "fullName": "AI Cache Service > Performance Optimization > should implement cache warming",
+          "state": "passed"
+        },
+        {
+          "name": "should implement cache hit rate tracking",
+          "fullName": "AI Cache Service > Performance Optimization > should implement cache hit rate tracking",
+          "state": "passed"
+        }
+      ]
+    },
+    {
+      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/lib/utils/__tests__/error-handler.test.ts",
+      "tests": [
+        {
+          "name": "should return result when operation succeeds",
+          "fullName": "ErrorHandler > wrapOperation > should return result when operation succeeds",
+          "state": "passed"
+        },
+        {
+          "name": "should throw formatted error when operation fails",
+          "fullName": "ErrorHandler > wrapOperation > should throw formatted error when operation fails",
+          "state": "passed"
+        },
+        {
+          "name": "should handle non-Error throws",
+          "fullName": "ErrorHandler > wrapOperation > should handle non-Error throws",
+          "state": "passed"
+        },
+        {
+          "name": "should return result when async operation succeeds",
+          "fullName": "ErrorHandler > wrapAsyncOperation > should return result when async operation succeeds",
+          "state": "passed"
+        },
+        {
+          "name": "should throw formatted error when async operation fails",
+          "fullName": "ErrorHandler > wrapAsyncOperation > should throw formatted error when async operation fails",
+          "state": "passed"
+        },
+        {
+          "name": "should create error with message from Error object",
+          "fullName": "ErrorHandler > createError > should create error with message from Error object",
+          "state": "passed"
+        },
+        {
+          "name": "should create error with string error",
+          "fullName": "ErrorHandler > createError > should create error with string error",
+          "state": "passed"
+        },
+        {
+          "name": "should handle unknown error types",
+          "fullName": "ErrorHandler > createError > should handle unknown error types",
+          "state": "passed"
+        },
+        {
+          "name": "should add context when provided",
+          "fullName": "ErrorHandler > createError > should add context when provided",
+          "state": "passed"
+        },
+        {
+          "name": "should succeed on first try",
+          "fullName": "ErrorHandler > retryOperation > should succeed on first try",
+          "state": "passed"
+        },
+        {
+          "name": "should retry on failure and succeed",
+          "fullName": "ErrorHandler > retryOperation > should retry on failure and succeed",
+          "state": "passed"
+        },
+        {
+          "name": "should throw after max retries",
+          "fullName": "ErrorHandler > retryOperation > should throw after max retries",
+          "state": "passed"
+        }
+      ]
+    },
+    {
+      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/lib/services/base/__tests__/base-engine.service.test.ts",
+      "tests": [
+        {
+          "name": "should call ValidationUtils.validateTemplate",
+          "fullName": "BaseEngineService > validateTemplate > should call ValidationUtils.validateTemplate",
+          "state": "passed"
+        },
+        {
+          "name": "should return operation result",
+          "fullName": "BaseEngineService > executeOperation > should return operation result",
+          "state": "passed"
+        },
+        {
+          "name": "should handle operation errors",
+          "fullName": "BaseEngineService > executeOperation > should handle operation errors",
+          "state": "passed"
+        },
+        {
+          "name": "should return processed template",
+          "fullName": "BaseEngineService > processTemplate > should return processed template",
+          "state": "passed"
+        },
+        {
+          "name": "should return a valid UUID",
+          "fullName": "BaseEngineService > generateId > should return a valid UUID",
+          "state": "passed"
+        }
+      ]
+    },
+    {
+      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/lib/services/__tests__/qa-engine.test.ts",
+      "tests": [
+        {
+          "name": "should generate checklist from completed session",
+          "fullName": "QAEngine > Generate Checklist > should generate checklist from completed session",
+          "state": "passed"
+        },
+        {
+          "name": "should not generate checklist from incomplete session",
+          "fullName": "QAEngine > Generate Checklist > should not generate checklist from incomplete session",
+          "state": "passed"
+        },
+        {
+          "name": "should create a new QA session",
+          "fullName": "QAEngine > Session Management > should create a new QA session",
+          "state": "passed"
+        },
+        {
+          "name": "should retrieve an existing session",
+          "fullName": "QAEngine > Session Management > should retrieve an existing session",
+          "state": "passed"
+        },
+        {
+          "name": "should start with service type question",
+          "fullName": "QAEngine > Question Flow > should start with service type question",
+          "state": "passed"
+        },
+        {
+          "name": "should progress to property type after service selection",
+          "fullName": "QAEngine > Question Flow > should progress to property type after service selection",
+          "state": "passed"
+        },
+        {
+          "name": "should ask about photo upload after property type",
+          "fullName": "QAEngine > Question Flow > should ask about photo upload after property type",
+          "state": "passed"
+        },
+        {
+          "name": "should ask about rooms after photo decision",
+          "fullName": "QAEngine > Question Flow > should ask about rooms after photo decision",
+          "state": "passed"
+        },
+        {
+          "name": "should complete session after all questions",
+          "fullName": "QAEngine > Question Flow > should complete session after all questions",
+          "state": "passed"
+        },
+        {
+          "name": "should validate required questions",
+          "fullName": "QAEngine > Answer Validation > should validate required questions",
+          "state": "passed"
+        },
+        {
+          "name": "should validate single select answers",
+          "fullName": "QAEngine > Answer Validation > should validate single select answers",
+          "state": "passed"
+        },
+        {
+          "name": "should validate multi select answers",
+          "fullName": "QAEngine > Answer Validation > should validate multi select answers",
+          "state": "passed"
+        },
+        {
+          "name": "should show photo upload question only when photos included",
+          "fullName": "QAEngine > Conditional Questions > should show photo upload question only when photos included",
+          "state": "passed"
+        },
+        {
+          "name": "should skip photo upload when photos not included",
+          "fullName": "QAEngine > Conditional Questions > should skip photo upload when photos not included",
+          "state": "passed"
+        },
+        {
+          "name": "should show different room options based on property type",
+          "fullName": "QAEngine > Conditional Questions > should show different room options based on property type",
+          "state": "passed"
+        },
+        {
+          "name": "should allow going back to previous question",
+          "fullName": "QAEngine > Navigation > should allow going back to previous question",
+          "state": "passed"
+        },
+        {
+          "name": "should not allow going back from first question",
+          "fullName": "QAEngine > Navigation > should not allow going back from first question",
+          "state": "passed"
+        },
+        {
+          "name": "should preserve answers when navigating back",
+          "fullName": "QAEngine > Navigation > should preserve answers when navigating back",
+          "state": "passed"
+        },
+        {
+          "name": "should track progress through questions",
+          "fullName": "QAEngine > Progress Tracking > should track progress through questions",
+          "state": "passed"
+        }
+      ]
+    },
+    {
       "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/lib/services/__tests__/template-engine.test.ts",
       "tests": [
         {
@@ -49,8 +1644,258 @@
           "state": "passed"
         }
       ]
+    },
+    {
+      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/lib/services/__tests__/template-service.test.ts",
+      "tests": [
+        {
+          "name": "should create a new template",
+          "fullName": "TemplateService > createTemplate > should create a new template",
+          "state": "passed"
+        },
+        {
+          "name": "should return default templates for service and property type",
+          "fullName": "TemplateService > getDefaultTemplates > should return default templates for service and property type",
+          "state": "passed"
+        },
+        {
+          "name": "should return empty array for unknown combination",
+          "fullName": "TemplateService > getDefaultTemplates > should return empty array for unknown combination",
+          "state": "passed"
+        },
+        {
+          "name": "should retrieve a template by id",
+          "fullName": "TemplateService > getTemplate > should retrieve a template by id",
+          "state": "passed"
+        },
+        {
+          "name": "should return undefined for non-existent template",
+          "fullName": "TemplateService > getTemplate > should return undefined for non-existent template",
+          "state": "passed"
+        },
+        {
+          "name": "should update template properties",
+          "fullName": "TemplateService > updateTemplate > should update template properties",
+          "state": "passed"
+        },
+        {
+          "name": "should add items to template",
+          "fullName": "TemplateService > updateTemplate > should add items to template",
+          "state": "passed"
+        },
+        {
+          "name": "should delete a template",
+          "fullName": "TemplateService > deleteTemplate > should delete a template",
+          "state": "passed"
+        },
+        {
+          "name": "should not delete default templates",
+          "fullName": "TemplateService > deleteTemplate > should not delete default templates",
+          "state": "passed"
+        },
+        {
+          "name": "should return all templates including defaults",
+          "fullName": "TemplateService > getAllTemplates > should return all templates including defaults",
+          "state": "passed"
+        }
+      ]
+    },
+    {
+      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/lib/utils/__tests__/template-processor.test.ts",
+      "tests": [
+        {
+          "name": "should generate a valid UUID",
+          "fullName": "TemplateProcessor > generateId > should generate a valid UUID",
+          "state": "passed"
+        },
+        {
+          "name": "should generate unique IDs",
+          "fullName": "TemplateProcessor > generateId > should generate unique IDs",
+          "state": "passed"
+        },
+        {
+          "name": "should add ID if missing",
+          "fullName": "TemplateProcessor > processTemplate > should add ID if missing",
+          "state": "passed"
+        },
+        {
+          "name": "should preserve existing ID",
+          "fullName": "TemplateProcessor > processTemplate > should preserve existing ID",
+          "state": "passed"
+        },
+        {
+          "name": "should process sections",
+          "fullName": "TemplateProcessor > processTemplate > should process sections",
+          "state": "passed"
+        },
+        {
+          "name": "should add timestamps",
+          "fullName": "TemplateProcessor > processTemplate > should add timestamps",
+          "state": "passed"
+        },
+        {
+          "name": "should add IDs to sections without them",
+          "fullName": "TemplateProcessor > processSections > should add IDs to sections without them",
+          "state": "passed"
+        },
+        {
+          "name": "should preserve existing section IDs",
+          "fullName": "TemplateProcessor > processSections > should preserve existing section IDs",
+          "state": "passed"
+        },
+        {
+          "name": "should process items within sections",
+          "fullName": "TemplateProcessor > processSections > should process items within sections",
+          "state": "passed"
+        },
+        {
+          "name": "should handle sections without items",
+          "fullName": "TemplateProcessor > processSections > should handle sections without items",
+          "state": "passed"
+        },
+        {
+          "name": "should merge two templates",
+          "fullName": "TemplateProcessor > mergeTemplates > should merge two templates",
+          "state": "passed"
+        },
+        {
+          "name": "should use first template properties",
+          "fullName": "TemplateProcessor > mergeTemplates > should use first template properties",
+          "state": "passed"
+        }
+      ]
+    },
+    {
+      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/lib/services/__tests__/checklist-service.test.ts",
+      "tests": [
+        {
+          "name": "should create a new checklist from template",
+          "fullName": "ChecklistService > createChecklist > should create a new checklist from template",
+          "state": "passed"
+        },
+        {
+          "name": "should create an empty checklist",
+          "fullName": "ChecklistService > createChecklist > should create an empty checklist",
+          "state": "passed"
+        },
+        {
+          "name": "should toggle item completion status",
+          "fullName": "ChecklistService > updateChecklistItem > should toggle item completion status",
+          "state": "passed"
+        },
+        {
+          "name": "should update item text",
+          "fullName": "ChecklistService > updateChecklistItem > should update item text",
+          "state": "passed"
+        },
+        {
+          "name": "should add a new item to checklist",
+          "fullName": "ChecklistService > addItemToChecklist > should add a new item to checklist",
+          "state": "passed"
+        },
+        {
+          "name": "should add custom item with all properties",
+          "fullName": "ChecklistService > addItemToChecklist > should add custom item with all properties",
+          "state": "passed"
+        },
+        {
+          "name": "should remove an item from checklist",
+          "fullName": "ChecklistService > removeItemFromChecklist > should remove an item from checklist",
+          "state": "passed"
+        },
+        {
+          "name": "should retrieve a checklist by id",
+          "fullName": "ChecklistService > getChecklist > should retrieve a checklist by id",
+          "state": "passed"
+        },
+        {
+          "name": "should return undefined for non-existent checklist",
+          "fullName": "ChecklistService > getChecklist > should return undefined for non-existent checklist",
+          "state": "passed"
+        },
+        {
+          "name": "should retrieve all checklists",
+          "fullName": "ChecklistService > getAllChecklists > should retrieve all checklists",
+          "state": "passed"
+        },
+        {
+          "name": "should delete a checklist",
+          "fullName": "ChecklistService > deleteChecklist > should delete a checklist",
+          "state": "passed"
+        }
+      ]
+    },
+    {
+      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/lib/utils/__tests__/validation.utils.test.ts",
+      "tests": [
+        {
+          "name": "should throw error when template is null",
+          "fullName": "ValidationUtils > validateTemplate > should throw error when template is null",
+          "state": "passed"
+        },
+        {
+          "name": "should throw error when template title is missing",
+          "fullName": "ValidationUtils > validateTemplate > should throw error when template title is missing",
+          "state": "passed"
+        },
+        {
+          "name": "should throw error when sections array is empty",
+          "fullName": "ValidationUtils > validateTemplate > should throw error when sections array is empty",
+          "state": "passed"
+        },
+        {
+          "name": "should pass validation for valid template",
+          "fullName": "ValidationUtils > validateTemplate > should pass validation for valid template",
+          "state": "passed"
+        },
+        {
+          "name": "should return true for plain objects",
+          "fullName": "ValidationUtils > isValidObject > should return true for plain objects",
+          "state": "passed"
+        },
+        {
+          "name": "should return false for null",
+          "fullName": "ValidationUtils > isValidObject > should return false for null",
+          "state": "passed"
+        },
+        {
+          "name": "should return false for arrays",
+          "fullName": "ValidationUtils > isValidObject > should return false for arrays",
+          "state": "passed"
+        }
+      ]
+    },
+    {
+      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/lib/types/__tests__/checklist.test.ts",
+      "tests": [
+        {
+          "name": "should have required properties",
+          "fullName": "Checklist Domain Models > ChecklistItem > should have required properties",
+          "state": "passed"
+        },
+        {
+          "name": "should have required properties",
+          "fullName": "Checklist Domain Models > Checklist > should have required properties",
+          "state": "passed"
+        }
+      ]
+    },
+    {
+      "moduleId": "/home/tinpavlic1/claude-projects/ChecklistApp/tests/example.test.ts",
+      "tests": [
+        {
+          "name": "should pass a basic test",
+          "fullName": "Example Test Suite > should pass a basic test",
+          "state": "passed"
+        },
+        {
+          "name": "should handle boolean values",
+          "fullName": "Example Test Suite > should handle boolean values",
+          "state": "passed"
+        }
+      ]
     }
   ],
   "unhandledErrors": [],
-  "reason": "passed"
+  "reason": "failed"
 }

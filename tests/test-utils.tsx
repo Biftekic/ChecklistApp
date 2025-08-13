@@ -84,4 +84,3 @@ export const mockLocalStorage = () => {
   
   return localStorageMock;
 };
-ENDFILE < /dev/null

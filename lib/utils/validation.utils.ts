@@ -1,7 +1,14 @@
-import { Template, Section, ChecklistItem, QAQuestion } from "@/lib/types/sync";
+import { ChecklistTemplate } from "@/lib/types/template";
+import { ChecklistItem } from "@/lib/types/checklist";
+
+interface Section {
+  title: string;
+  items?: ChecklistItem[];
+}
+
 
 export class ValidationUtils {
-  static validateTemplate(template: any): asserts template is Template {
+  static validateTemplate(template: any): asserts template is ChecklistTemplate {
     if (!template) {
       throw new Error("Template is required");
     }

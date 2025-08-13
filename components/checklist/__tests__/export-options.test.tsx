@@ -1,5 +1,6 @@
+import { GeneratedChecklist } from "@/lib/types/template";
 import { describe, it, expect, beforeEach, vi } from 'vitest';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { ExportOptions } from '../export-options';
 import { ExportService } from '@/lib/services/export-service';
@@ -9,14 +10,26 @@ vi.mock('@/lib/services/export-service');
 
 describe('Export Options Component', () => {
   let mockExportService: any;
-  const mockChecklist = {
-    id: 'test-123',
-    title: 'Test Checklist',
-    description: 'Test description',
-    tasks: [
-      { id: '1', description: 'Task 1', completed: false, priority: 'high' }
-    ]
-  };
+    const mockChecklist: GeneratedChecklist = {
+      id: "test-1",
+      templateId: "template-1",
+      name: "Test Checklist",
+      description: "Test Description",
+      rooms: [],
+      totalTasks: 2,
+      selectedTasks: 2,
+      estimatedTime: 30,
+      customTasks: [],
+      createdAt: new Date(),
+      updatedAt: new Date(),
+      serviceType: "regular",
+      propertyType: "apartment",
+      title: "Test Checklist",
+      tasks: [
+        { id: "1", description: "Task 1", completed: false, priority: "medium" },
+        { id: "2", description: "Task 2", completed: true, priority: "high" }
+      ]
+    };
 
   beforeEach(() => {
     vi.clearAllMocks();
@@ -40,12 +53,12 @@ describe('Export Options Component', () => {
 
   describe('Component Rendering', () => {
     it('should render export button', () => {
-      render(<ExportOptions checklist={mockChecklist} />);
+      render(<ExportOptions checklist={mockChecklist} metadata={{} as any} onPrintModeToggle={() => {}} />);
       expect(screen.getByRole('button', { name: /export/i })).toBeInTheDocument();
     });
 
     it('should show export dialog when button clicked', async () => {
-      render(<ExportOptions checklist={mockChecklist} />);
+      render(<ExportOptions checklist={mockChecklist} metadata={{} as any} onPrintModeToggle={() => {}} />);
       
       const exportButton = screen.getByRole('button', { name: /export/i });
       await userEvent.click(exportButton);
@@ -55,7 +68,7 @@ describe('Export Options Component', () => {
     });
 
     it('should display all available export formats', async () => {
-      render(<ExportOptions checklist={mockChecklist} />);
+      render(<ExportOptions checklist={mockChecklist} metadata={{} as any} onPrintModeToggle={() => {}} />);
       
       const exportButton = screen.getByRole('button', { name: /export/i });
       await userEvent.click(exportButton);
@@ -72,7 +85,7 @@ describe('Export Options Component', () => {
 
   describe('Export Functionality', () => {
     it('should export to PDF format', async () => {
-      render(<ExportOptions checklist={mockChecklist} />);
+      render(<ExportOptions checklist={mockChecklist} metadata={{} as any} onPrintModeToggle={() => {}} />);
       
       await userEvent.click(screen.getByRole('button', { name: /export/i }));
       await userEvent.click(screen.getByLabelText(/pdf/i));
@@ -82,7 +95,7 @@ describe('Export Options Component', () => {
     });
 
     it('should export to Markdown format', async () => {
-      render(<ExportOptions checklist={mockChecklist} />);
+      render(<ExportOptions checklist={mockChecklist} metadata={{} as any} onPrintModeToggle={() => {}} />);
       
       await userEvent.click(screen.getByRole('button', { name: /export/i }));
       await userEvent.click(screen.getByLabelText(/markdown/i));
@@ -92,7 +105,7 @@ describe('Export Options Component', () => {
     });
 
     it('should show preview before export', async () => {
-      render(<ExportOptions checklist={mockChecklist} />);
+      render(<ExportOptions checklist={mockChecklist} metadata={{} as any} onPrintModeToggle={() => {}} />);
       
       await userEvent.click(screen.getByRole('button', { name: /export/i }));
       await userEvent.click(screen.getByLabelText(/markdown/i));
@@ -104,7 +117,7 @@ describe('Export Options Component', () => {
     });
 
     it('should handle export to PerfexCRM', async () => {
-      render(<ExportOptions checklist={mockChecklist} />);
+      render(<ExportOptions checklist={mockChecklist} metadata={{} as any} onPrintModeToggle={() => {}} />);
       
       await userEvent.click(screen.getByRole('button', { name: /export/i }));
       await userEvent.click(screen.getByLabelText(/perfexcrm/i));
@@ -129,7 +142,7 @@ describe('Export Options Component', () => {
 
   describe('Options Configuration', () => {
     it('should allow including metadata', async () => {
-      render(<ExportOptions checklist={mockChecklist} />);
+      render(<ExportOptions checklist={mockChecklist} metadata={{} as any} onPrintModeToggle={() => {}} />);
       
       await userEvent.click(screen.getByRole('button', { name: /export/i }));
       
@@ -149,7 +162,7 @@ describe('Export Options Component', () => {
     });
 
     it('should allow including images', async () => {
-      render(<ExportOptions checklist={mockChecklist} />);
+      render(<ExportOptions checklist={mockChecklist} metadata={{} as any} onPrintModeToggle={() => {}} />);
       
       await userEvent.click(screen.getByRole('button', { name: /export/i }));
       
@@ -175,7 +188,7 @@ describe('Export Options Component', () => {
         () => new Promise(resolve => setTimeout(() => resolve(new Blob(['pdf'])), 100))
       );
       
-      render(<ExportOptions checklist={mockChecklist} />);
+      render(<ExportOptions checklist={mockChecklist} metadata={{} as any} onPrintModeToggle={() => {}} />);
       
       await userEvent.click(screen.getByRole('button', { name: /export/i }));
       await userEvent.click(screen.getByLabelText(/pdf/i));
@@ -189,7 +202,7 @@ describe('Export Options Component', () => {
     });
 
     it('should show success message after export', async () => {
-      render(<ExportOptions checklist={mockChecklist} />);
+      render(<ExportOptions checklist={mockChecklist} metadata={{} as any} onPrintModeToggle={() => {}} />);
       
       await userEvent.click(screen.getByRole('button', { name: /export/i }));
       await userEvent.click(screen.getByLabelText(/pdf/i));
@@ -203,7 +216,7 @@ describe('Export Options Component', () => {
     it('should handle export errors gracefully', async () => {
       mockExportService.generatePDF.mockRejectedValue(new Error('Export failed'));
       
-      render(<ExportOptions checklist={mockChecklist} />);
+      render(<ExportOptions checklist={mockChecklist} metadata={{} as any} onPrintModeToggle={() => {}} />);
       
       await userEvent.click(screen.getByRole('button', { name: /export/i }));
       await userEvent.click(screen.getByLabelText(/pdf/i));
@@ -217,7 +230,7 @@ describe('Export Options Component', () => {
 
   describe('Dialog Management', () => {
     it('should close dialog on cancel', async () => {
-      render(<ExportOptions checklist={mockChecklist} />);
+      render(<ExportOptions checklist={mockChecklist} metadata={{} as any} onPrintModeToggle={() => {}} />);
       
       await userEvent.click(screen.getByRole('button', { name: /export/i }));
       expect(screen.getByRole('dialog')).toBeInTheDocument();
@@ -227,7 +240,7 @@ describe('Export Options Component', () => {
     });
 
     it('should close dialog after successful export', async () => {
-      render(<ExportOptions checklist={mockChecklist} />);
+      render(<ExportOptions checklist={mockChecklist} metadata={{} as any} onPrintModeToggle={() => {}} />);
       
       await userEvent.click(screen.getByRole('button', { name: /export/i }));
       await userEvent.click(screen.getByLabelText(/pdf/i));

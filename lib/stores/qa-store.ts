@@ -70,7 +70,7 @@ export const useQAStore = create<QAStore>()(
             id: sessionId,
             templateId,
             startedAt: new Date(),
-            answers: [],
+            answers: {},
             currentQuestionIndex: 0,
             suggestedRooms: [],
             suggestedTasks: {},
@@ -95,13 +95,7 @@ export const useQAStore = create<QAStore>()(
         const state = get();
         if (!state.currentSession) return;
 
-        const answer: Answer = {
-          questionId,
-          value,
-          timestamp: new Date(),
-        };
-
-        const updatedAnswers = [...state.currentSession.answers, answer];
+        const updatedAnswers = { ...state.currentSession.answers, [questionId]: value };
         const answeredQuestions = [...state.answeredQuestions, questionId];
 
         set({
@@ -134,15 +128,13 @@ export const useQAStore = create<QAStore>()(
           if (answeredQuestions.includes(q.id)) return false;
           
           if (q.dependsOn) {
-            const dependencyAnswer = currentSession?.answers.find(
-              a => a.questionId === q.dependsOn!.questionId
-            );
+            const dependencyAnswer = currentSession?.answers[q.dependsOn!.questionId];
             
             if (!dependencyAnswer) return false;
             
             // Check dependency condition
             const { condition, expectedValue } = q.dependsOn;
-            const actualValue = dependencyAnswer.value;
+            const actualValue = dependencyAnswer;
             
             switch (condition) {
               case 'equals':
@@ -176,7 +168,7 @@ export const useQAStore = create<QAStore>()(
           
           if (previousQuestion) {
             // Remove the last answer
-            const updatedAnswers = state.currentSession?.answers.slice(0, -1) || [];
+            const updatedAnswers = { ...state.currentSession?.answers }; delete updatedAnswers[answeredQuestions[answeredQuestions.length - 1]];
             const updatedAnsweredQuestions = answeredQuestions.slice(0, -1);
             
             set({
@@ -251,15 +243,15 @@ export const useQAStore = create<QAStore>()(
 
         conditionalLogic.forEach((logic) => {
           const conditionsMet = logic.conditions.every((condition, index) => {
-            const answer = answers.find(a => a.questionId === condition.questionId);
+            const answer = answers[condition.questionId];
             if (!answer) return false;
 
-            const met = evaluateCondition(answer.value, condition.operator, condition.value);
+            const met = evaluateCondition(answer, condition.operator, condition.value);
             
             // Handle join operators
             if (index > 0 && logic.conditions[index - 1].joinOperator === 'OR') {
               return met || evaluateCondition(
-                answers.find(a => a.questionId === logic.conditions[index - 1].questionId)?.value,
+                answers[logic.conditions[index - 1].questionId],
                 logic.conditions[index - 1].operator,
                 logic.conditions[index - 1].value
               );
@@ -305,10 +297,10 @@ export const useQAStore = create<QAStore>()(
         // For now, this is a placeholder for the suggestion generation logic
       },
 
-      calculateConfidence: (answers) => {
+      calculateConfidence: (answers: Record<string, Answer>) => {
         // Calculate confidence score based on answers
         // More specific answers = higher confidence
-        return Math.min(answers.length * 0.15, 1);
+        return Math.min(Object.keys(answers).length * 0.15, 1);
       },
 
       getSessionResult: () => {

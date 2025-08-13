@@ -82,12 +82,13 @@ export function QuestionRenderer({
   const renderSingleSelect = () => (
     <div className="grid gap-3 sm:grid-cols-2">
       {question.options?.map((option) => {
-        const Icon = iconMap[option.icon || ''];
-        const isSelected = localValue === option.value;
+        const optionObj = typeof option === "string" ? { id: option, value: option, label: option } : option;
+        const Icon = iconMap[typeof option === "string" ? option : optionObj.icon || ''];
+        const isSelected = localValue === typeof option === "string" ? option : optionObj.value;
         
         return (
           <Card
-            key={option.id}
+            key={typeof option === "string" ? option : optionObj.id}
             className={`cursor-pointer border-2 p-4 transition-all hover:shadow-md ${
               isSelected
                 ? 'border-primary bg-primary/5'
@@ -129,18 +130,19 @@ export function QuestionRenderer({
     return (
       <div className="space-y-3">
         {question.options?.map((option) => {
-          const isSelected = selectedValues.includes(option.value);
+          const isSelected = selectedValues.includes(typeof option === "string" ? option : option.value);
+          const optionObj = typeof option === "string" ? { id: option, value: option, label: option } : option;
           
           return (
             <Card
-              key={option.id}
+              key={typeof option === "string" ? option : optionObj.id}
               className={`cursor-pointer border p-4 transition-all ${
                 isSelected ? 'bg-primary/5' : 'hover:bg-muted/50'
               }`}
               onClick={() => {
                 const newValues = isSelected
-                  ? selectedValues.filter(v => v !== option.value)
-                  : [...selectedValues, option.value];
+                  ? selectedValues.filter(v => v !== typeof option === "string" ? option : optionObj.value)
+                  : [...selectedValues, typeof option === "string" ? option : optionObj.value];
                 handleChange(newValues);
               }}
             >
@@ -152,11 +154,11 @@ export function QuestionRenderer({
                 />
                 <div className="flex-1">
                   <Label className="cursor-pointer font-medium">
-                    {option.label}
+                    {typeof option === "string" ? option : optionObj.label}
                   </Label>
-                  {option.description && (
+                  {typeof option === "string" ? option : optionObj.description && (
                     <p className="mt-1 text-sm text-muted-foreground">
-                      {option.description}
+                      {typeof option === "string" ? option : optionObj.description}
                     </p>
                   )}
                 </div>

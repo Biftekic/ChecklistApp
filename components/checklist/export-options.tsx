@@ -82,7 +82,7 @@ export function ExportOptions({
     if (metadata.clientName) text += `Client: ${metadata.clientName}\n`;
     if (metadata.location) text += `Location: ${metadata.location}\n`;
     if (metadata.serviceDate) text += `Service Date: ${new Date(metadata.serviceDate).toLocaleDateString()}\n`;
-    if (metadata.assignedStaff.length > 0) text += `Staff: ${metadata.assignedStaff.join(', ')}\n`;
+    if (metadata?.assignedStaff.length > 0) text += `Staff: ${metadata?.assignedStaff.join(', ')}\n`;
     if (metadata.notes) text += `Notes: ${metadata.notes}\n`;
     
     text += `\nTotal Tasks: ${checklist.selectedTasks}\n`;

@@ -88,7 +88,7 @@ export class TemplateEngine {
     options: CustomizationOptions
   ): Promise<ChecklistTemplate> {
     const customized = { ...template };
-    let items = [...(template.items || [])];
+    let items = [...(template.defaultItems || [])];
 
     // Update existing items
     if (options.updateItems) {
@@ -138,7 +138,7 @@ export class TemplateEngine {
       items = reorderedItems;
     }
 
-    customized.items = items;
+    customized.defaultItems = items;
     customized.updatedAt = new Date();
     return customized;
   }
@@ -157,7 +157,7 @@ export class TemplateEngine {
     }
 
     // Check for at least one task
-    if (!template.items || template.items.length === 0) {
+    if (!template.defaultItems || template.defaultItems.length === 0) {
       errors.push('Template must have at least one task');
     }
 
@@ -167,8 +167,8 @@ export class TemplateEngine {
     }
 
     // Validate items structure
-    if (template.items) {
-      template.items.forEach((item: any, index: number) => {
+    if (template.defaultItems) {
+      template.defaultItems.forEach((item: any, index: number) => {
         if (!item.text || item.text.trim() === '') {
           errors.push(`Task ${index + 1} must have text`);
         }
@@ -235,7 +235,7 @@ export class TemplateEngine {
     }
 
     let mergedTemplate = { ...template };
-    let items = [...(template.items || [])];
+    let items = [...(template.defaultItems || [])];
     let nextOrder = Math.max(...items.map(i => i.order || 0), 0) + 1;
 
     // Handle room-specific tasks
@@ -410,7 +410,7 @@ export class TemplateEngine {
       }
     }
 
-    mergedTemplate.items = items;
+    mergedTemplate.defaultItems = items;
     mergedTemplate.updatedAt = new Date();
     
     return mergedTemplate;

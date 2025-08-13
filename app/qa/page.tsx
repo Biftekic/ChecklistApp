@@ -47,7 +47,7 @@ export default function QAPage() {
     reset,
   } = useQAStore();
 
-  const { setSelectedTemplate, setCurrentStep } = useCustomizationStore();
+  const { setSelectedTemplate: _setSelectedTemplate, setCurrentStep: _setCurrentStep } = useCustomizationStore();
 
   useEffect(() => {
     // Initialize Q&A session
@@ -70,7 +70,7 @@ export default function QAPage() {
       
       // Check if we have enough answers to generate suggestions
       if (Object.keys(currentSession.answers).length >= 2) {
-        const suggestions = qaEngine.generateRoomSuggestions();
+        const _suggestions = qaEngine.generateRoomSuggestions();
         // Update store with suggestions
         // This would be connected to the store's suggestion management
       }
@@ -92,7 +92,7 @@ export default function QAPage() {
       // Generate final suggestions
       if (qaEngine && currentSession) {
         qaEngine.setAnswers(currentSession.answers);
-        const suggestions = qaEngine.generateRoomSuggestions();
+        const _suggestions = qaEngine.generateRoomSuggestions();
         // Update store with final suggestions
       }
     }
@@ -108,7 +108,7 @@ export default function QAPage() {
 
   const handleComplete = () => {
     // Get the session result
-    const result = getSessionResult();
+    const _result = getSessionResult();
     
     // Find and set the recommended template
     if (qaEngine) {
