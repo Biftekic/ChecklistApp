@@ -106,7 +106,7 @@ export class TemplateEngine {
       const newItems = options.addItems.map((item, index) => ({
         text: item.text || '',
         category: item.category || 'general',
-        completed: false,
+        
         order: items.length + index + 1,
         estimatedTime: item.estimatedTime,
         ...item
@@ -251,7 +251,7 @@ export class TemplateEngine {
           items.push({
             text: `Clean ${roomCategory}`,
             category: room,
-            completed: false,
+            
             order: nextOrder++
           });
           
@@ -260,52 +260,52 @@ export class TemplateEngine {
             items.push({
               text: 'Make bed and change linens',
               category: room,
-              completed: false,
+              
               order: nextOrder++
             });
             items.push({
               text: 'Dust furniture and nightstands',
               category: room,
-              completed: false,
+              
               order: nextOrder++
             });
           } else if (room === 'bathroom') {
             items.push({
               text: 'Clean toilet and sanitize',
               category: room,
-              completed: false,
+              
               order: nextOrder++
             });
             items.push({
               text: 'Scrub shower/tub',
               category: room,
-              completed: false,
+              
               order: nextOrder++
             });
           } else if (room === 'kitchen') {
             items.push({
               text: 'Clean countertops and sink',
               category: room,
-              completed: false,
+              
               order: nextOrder++
             });
             items.push({
               text: 'Wipe down appliances',
               category: room,
-              completed: false,
+              
               order: nextOrder++
             });
           } else if (room === 'living_room') {
             items.push({
               text: 'Vacuum upholstery',
               category: room,
-              completed: false,
+              
               order: nextOrder++
             });
             items.push({
               text: 'Dust entertainment center',
               category: room,
-              completed: false,
+              
               order: nextOrder++
             });
           }
@@ -318,13 +318,13 @@ export class TemplateEngine {
       items.push({
         text: 'Remove pet hair from furniture',
         category: 'general',
-        completed: false,
+        
         order: nextOrder++
       });
       items.push({
         text: 'Clean pet areas and bowls',
         category: 'general',
-        completed: false,
+        
         order: nextOrder++
       });
     }
@@ -335,7 +335,7 @@ export class TemplateEngine {
         items.push({
           text: `Deep clean ${area}`,
           category: area.toLowerCase(),
-          completed: false,
+          
           order: nextOrder++
         });
       }
@@ -346,7 +346,7 @@ export class TemplateEngine {
       items.push({
         text: `Special: ${qaResponses.specialRequests}`,
         category: 'special',
-        completed: false,
+        
         order: nextOrder++
       });
     }
@@ -388,7 +388,7 @@ export class TemplateEngine {
           items.push({
             text: `Clean bedroom #${i}`,
             category: 'bedroom',
-            completed: false,
+            
             order: nextOrder++
           });
         }
