@@ -1,23 +1,11 @@
 {
-  "session_id": "312e149b-8f6d-4180-91a3-e29293855b0c",
-  "transcript_path": "/home/tinpavlic1/.claude/projects/-home-tinpavlic1-claude-projects-ChecklistApp/312e149b-8f6d-4180-91a3-e29293855b0c.jsonl",
+  "session_id": "5bb3d69b-3139-40cc-a7c0-e6e5243c059f",
+  "transcript_path": "/home/tinpavlic1/.claude/projects/-home-tinpavlic1-claude-projects-ChecklistApp/5bb3d69b-3139-40cc-a7c0-e6e5243c059f.jsonl",
   "hook_event_name": "PreToolUse",
-  "tool_name": "MultiEdit",
+  "tool_name": "Edit",
   "tool_input": {
-    "file_path": "/home/tinpavlic1/claude-projects/ChecklistApp/lib/services/auth-service.ts",
-    "edits": [
-      {
-        "old_string": "  async generateToken(payload: { id: string; email: string }, expiresIn: string = '7d'): Promise<string> {\n    return jwt.sign(payload, this.JWT_SECRET, { expiresIn } as jwt.SignOptions);\n  }",
-        "new_string": "  async generateToken(payload: { id: string; email: string }, expiresIn: string = '7d'): Promise<string> {\n    return jwt.sign(payload, this.JWT_SECRET, { expiresIn });\n  }"
-      },
-      {
-        "old_string": "import type { User, AuthCredentials, AuthResult, Session, PasswordResetResult } from '@/lib/types/auth';",
-        "new_string": "import type { User, AuthCredentials, AuthResult, Session, PasswordResetResult, TokenPayload } from '@/lib/types/auth';"
-      },
-      {
-        "old_string": "  async refreshToken(oldToken: string): Promise<string> {\n    try {\n      const decoded = jwt.verify(oldToken, this.JWT_SECRET) as any;\n      return await this.generateToken({ id: decoded.id || decoded.userId, email: decoded.email });\n    } catch {\n      throw new Error('Invalid token');\n    }\n  }",
-        "new_string": "  async refreshToken(oldToken: string): Promise<string> {\n    try {\n      const decoded = jwt.verify(oldToken, this.JWT_SECRET) as TokenPayload;\n      return await this.generateToken({ id: decoded.userId, email: decoded.email });\n    } catch {\n      throw new Error('Invalid token');\n    }\n  }"
-      }
-    ]
+    "file_path": "/home/tinpavlic1/claude-projects/ChecklistApp/lib/services/qa-engine.ts",
+    "old_string": "  generateRoomSuggestions(): any[] {\n    // Generate room suggestions based on answers\n    const suggestions = [];\n    // Add logic here to generate room suggestions\n    return suggestions;\n  }",
+    "new_string": "  generateRoomSuggestions(): any[] {\n    // Generate room suggestions based on answers\n    const suggestions: any[] = [];\n    // Add logic here to generate room suggestions\n    return suggestions;\n  }"
   }
 }

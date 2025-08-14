@@ -192,7 +192,7 @@ export const questionFlows: Record<string, QuestionFlow> = {
 
 export class QAEngine {
   private template: ChecklistTemplate | null = null;
-  private answers: Answer[] = [];
+  private answers: Record<string, Answer> = {};
 
   constructor(templateId?: string) {
     if (templateId) {
@@ -204,7 +204,7 @@ export class QAEngine {
     this.template = templates.find(t => t.id === templateId) || null;
   }
 
-  setAnswers(answers: Answer[]) {
+  setAnswers(answers: Record<string, Answer>) {
     this.answers = answers;
   }
 
@@ -212,9 +212,9 @@ export class QAEngine {
     if (!this.template) return [];
 
     const suggestions: RoomSuggestion[] = [];
-    const serviceTypeAnswer = this.answers.find(a => a.questionId === 'service-type');
-    const priorityAreasAnswer = this.answers.find(a => a.questionId === 'priority-areas');
-    const propertySize = this.answers.find(a => a.questionId === 'property-size');
+    const serviceTypeAnswer = this.answers['service-type'];
+    const priorityAreasAnswer = this.answers['priority-areas'];
+    const propertySize = this.answers['property-size'];
 
     // Iterate through all rooms in the template
     this.template.categories.forEach(category => {
@@ -224,15 +224,15 @@ export class QAEngine {
 
         // Increase confidence based on service type match
         if (serviceTypeAnswer) {
-          if (room.type === serviceTypeAnswer.value) {
+          if (room.type === serviceTypeAnswer) {
             confidence += 0.2;
-            reasons.push(`Matches ${serviceTypeAnswer.value} service type`);
+            reasons.push(`Matches ${serviceTypeAnswer} service type`);
           }
         }
 
         // Increase confidence for priority areas
-        if (priorityAreasAnswer && Array.isArray(priorityAreasAnswer.value)) {
-          const priorities = priorityAreasAnswer.value as string[];
+        if (priorityAreasAnswer && Array.isArray(priorityAreasAnswer)) {
+          const priorities = priorityAreasAnswer as string[];
           if (priorities.some(p => room.name.toLowerCase().includes(p))) {
             confidence += 0.3;
             reasons.push('High priority area');
@@ -241,9 +241,9 @@ export class QAEngine {
 
         // Adjust for property size
         if (propertySize) {
-          if (propertySize.value === 'small' && room.name.includes('Guest')) {
+          if (propertySize === 'small' && room.name.includes('Guest')) {
             confidence -= 0.2;
-          } else if (propertySize.value === 'large') {
+          } else if (propertySize === 'large') {
             confidence += 0.1;
             reasons.push('Suitable for large property');
           }
@@ -267,9 +267,9 @@ export class QAEngine {
 
   generateTaskSuggestions(room: TemplateRoom): TaskSuggestion[] {
     const suggestions: TaskSuggestion[] = [];
-    const frequencyAnswer = this.answers.find(a => a.questionId === 'frequency');
-    const specialRequirements = this.answers.find(a => a.questionId === 'special-requirements');
-    const additionalServices = this.answers.find(a => a.questionId === 'additional-services');
+    const frequencyAnswer = this.answers['frequency'];
+    const specialRequirements = this.answers['special-requirements'];
+    const additionalServices = this.answers['additional-services'];
 
     room.tasks.forEach(task => {
       let confidence = 0.7; // Base confidence for all tasks
@@ -277,17 +277,17 @@ export class QAEngine {
 
       // Adjust confidence based on frequency
       if (frequencyAnswer) {
-        if (frequencyAnswer.value === 'one-time' && task.frequency === 'daily') {
+        if (frequencyAnswer === 'one-time' && task.frequency === 'daily') {
           confidence -= 0.2;
-        } else if (frequencyAnswer.value === 'weekly' && task.frequency === 'weekly') {
+        } else if (frequencyAnswer === 'weekly' && task.frequency === 'weekly') {
           confidence += 0.2;
           reasons.push('Matches service frequency');
         }
       }
 
       // Adjust for special requirements
-      if (specialRequirements && Array.isArray(specialRequirements.value)) {
-        const requirements = specialRequirements.value as string[];
+      if (specialRequirements && Array.isArray(specialRequirements)) {
+        const requirements = specialRequirements as string[];
         if (requirements.includes('deep-clean') && task.priority === 'high') {
           confidence += 0.2;
           reasons.push('Deep cleaning priority');
@@ -299,8 +299,8 @@ export class QAEngine {
       }
 
       // Check additional services
-      if (additionalServices && Array.isArray(additionalServices.value)) {
-        const services = additionalServices.value as string[];
+      if (additionalServices && Array.isArray(additionalServices)) {
+        const services = additionalServices as string[];
         services.forEach(service => {
           if (task.name.toLowerCase().includes(service)) {
             confidence += 0.3;
@@ -325,8 +325,8 @@ export class QAEngine {
     if (!this.template) return 0;
 
     let totalTime = 0;
-    const frequencyAnswer = this.answers.find(a => a.questionId === 'frequency');
-    const frequencyMultiplier = frequencyAnswer?.value === 'one-time' ? 1.3 : 1;
+    const frequencyAnswer = this.answers['frequency'];
+    const frequencyMultiplier = frequencyAnswer === 'one-time' ? 1.3 : 1;
 
     suggestions.forEach(roomSuggestion => {
       if (!roomSuggestion.isSelected) return;
@@ -352,7 +352,7 @@ export class QAEngine {
   }
 
   getRecommendedTemplate(): string | null {
-    const serviceType = this.answers.find(a => a.questionId === 'service-type');
+    const serviceType = this.answers['service-type'];
     if (!serviceType) return null;
 
     // Map service types to template IDs
@@ -362,6 +362,6 @@ export class QAEngine {
       'hospitality': 'hospitality-hotel',
     };
 
-    return templateMap[serviceType.value as string] || null;
+    return templateMap[serviceType as string] || null;
   }
 }

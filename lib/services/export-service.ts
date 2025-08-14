@@ -1,5 +1,5 @@
 import jsPDF from 'jspdf';
-import type { Checklist, ChecklistTask } from '@/lib/types/checklist';
+import type { Checklist, ChecklistItem } from '@/lib/types/checklist';
 
 export interface ExportOptions {
   format?: 'pdf' | 'markdown' | 'json' | 'csv' | 'perfexcrm';
@@ -36,42 +36,31 @@ export class ExportService {
     
     // Add title
     doc.setFontSize(20);
-    doc.text(checklist.title || 'Untitled Checklist', 20, 20);
+    doc.text(checklist.name || 'Untitled Checklist', 20, 20);
     
-    // Add description
-    if (checklist.description) {
+    // Add notes if available
+    if (checklist.notes) {
       doc.setFontSize(12);
-      doc.text(checklist.description, 20, 35);
+      const lines = doc.splitTextToSize(checklist.notes, 170);
+      doc.text(lines, 20, 35);
     }
     
     // Add tasks
-    let yPosition = 50;
+    let yPosition = checklist.notes ? 50 : 35;
     doc.setFontSize(11);
     
-    checklist.tasks?.forEach((task, index) => {
+    checklist.items?.forEach((task) => {
       if (yPosition > 270) {
         doc.addPage();
         yPosition = 20;
       }
       
       const checkbox = task.completed ? '[x]' : '[ ]';
-      const taskText = `${checkbox} ${task.description}`;
-      doc.text(taskText, 20, yPosition);
-      yPosition += 10;
+      const taskText = `${checkbox} ${task.text}`;
+      const lines = doc.splitTextToSize(taskText, 170);
+      doc.text(lines, 20, yPosition);
+      yPosition += lines.length * 5 + 5;
     });
-    
-    // Add images if present
-    if (checklist.images && options?.includeImages !== false) {
-      checklist.images.forEach((image, index) => {
-        if (yPosition > 200) {
-          doc.addPage();
-          yPosition = 20;
-        }
-        // Note: In real implementation, you'd add the image here
-        // doc.addImage(image, 'JPEG', 20, yPosition, 170, 100);
-        yPosition += 110;
-      });
-    }
     
     // Generate blob
     const pdfOutput = doc.output('blob');
@@ -84,50 +73,45 @@ export class ExportService {
     // Add frontmatter if requested
     if (options?.includeFrontmatter) {
       markdown += '---\n';
-      markdown += `title: ${checklist.title}\n`;
-      markdown += `category: ${checklist.category}\n`;
-      if (checklist.tags && checklist.tags.length > 0) {
-        markdown += 'tags:\n';
-        checklist.tags.forEach(tag => {
-          markdown += `  - ${tag}\n`;
-        });
-      }
+      markdown += `title: ${checklist.name}\n`;
+      markdown += `serviceType: ${checklist.serviceType}\n`;
+      markdown += `propertyType: ${checklist.propertyType}\n`;
+      markdown += `createdAt: ${checklist.createdAt}\n`;
       markdown += '---\n\n';
     }
     
     // Add title
-    markdown += `# ${checklist.title}\n\n`;
+    markdown += `# ${checklist.name}\n\n`;
     
-    // Add description
-    if (checklist.description) {
-      markdown += `${checklist.description}\n\n`;
+    // Add notes if available
+    if (checklist.notes) {
+      markdown += `${checklist.notes}\n\n`;
+    }
+    
+    // Add metadata
+    if (options?.includeMetadata) {
+      markdown += '## Metadata\n\n';
+      markdown += `- **Service Type:** ${checklist.serviceType}\n`;
+      markdown += `- **Property Type:** ${checklist.propertyType}\n`;
+      markdown += `- **Created:** ${new Date(checklist.createdAt).toLocaleDateString()}\n`;
+      markdown += `- **Updated:** ${new Date(checklist.updatedAt).toLocaleDateString()}\n`;
+      markdown += '\n';
     }
     
     // Add tasks
-    if (checklist.tasks && checklist.tasks.length > 0) {
+    if (checklist.items && checklist.items.length > 0) {
       markdown += '## Tasks\n\n';
-      checklist.tasks.forEach(task => {
-        const checkbox = task.completed ? '[x]' : '[ ]';
-        markdown += `- ${checkbox} ${this.escapeMarkdown(task.description)}`;
+      checklist.items.forEach(task => {
+        const checkbox = options?.githubFlavored 
+          ? (task.completed ? '- [x]' : '- [ ]')
+          : (task.completed ? '[x]' : '[ ]');
+        markdown += `${checkbox} ${this.escapeMarkdown(task.text)}`;
         
-        if (options?.githubFlavored) {
-          markdown += '\n';
-          if (task.priority) {
-            markdown += `  **Priority:** ${task.priority}\n`;
-          }
-          if (task.category) {
-            markdown += `  **Category:** ${task.category}\n`;
-          }
+        if (options?.includeMetadata && task.category) {
+          markdown += ` _[${task.category}]_`;
         }
         markdown += '\n';
       });
-    }
-    
-    // Add code blocks for GitHub-flavored markdown
-    if (options?.githubFlavored) {
-      markdown += '\n```\n';
-      markdown += `Generated on: ${new Date().toISOString()}\n`;
-      markdown += '```\n';
     }
     
     return markdown;
@@ -138,10 +122,12 @@ export class ExportService {
   }
 
   async generateCSV(checklist: Checklist): Promise<string> {
-    let csv = 'Task,Priority,Category,Completed\n';
+    let csv = 'Task,Category,Completed,Order\n';
     
-    checklist.tasks?.forEach(task => {
-      csv += `"${task.description}","${task.priority || ''}","${task.category || ''}","${task.completed}"\n`;
+    checklist.items?.forEach(task => {
+      const text = task.text.replace(/"/g, '""'); // Escape quotes
+      const category = (task.category || '').replace(/"/g, '""');
+      csv += `"${text}","${category}","${task.completed}","${task.order || ''}"\n`;
     });
     
     return csv;
@@ -164,41 +150,47 @@ export class ExportService {
     `;
     
     const variables = {
-      name: checklist.title,
-      description: checklist.description,
+      name: checklist.name,
+      description: checklist.notes || '',
       status: 'pending',
       priority: 'medium',
-      subtasks: checklist.tasks?.map(task => ({
-        description: task.description,
-        completed: task.completed
+      subtasks: checklist.items?.map(task => ({
+        description: task.text,
+        completed: task.completed,
+        category: task.category
       }))
     };
     
-    const response = await fetch(config.endpoint, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${config.apiKey}`
-      },
-      body: JSON.stringify({
-        query: mutation,
-        variables
-      })
-    });
-    
-    if (!response.ok) {
-      if (response.status === 401) {
-        throw new Error('Authentication failed');
+    try {
+      const response = await fetch(config.endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${config.apiKey}`
+        },
+        body: JSON.stringify({
+          query: mutation,
+          variables
+        })
+      });
+      
+      if (!response.ok) {
+        if (response.status === 401) {
+          throw new Error('Authentication failed');
+        }
+        throw new Error('Network error');
       }
-      throw new Error('Network error');
+      
+      const data = await response.json();
+      
+      return {
+        success: data.data?.createTask?.success || false,
+        crmId: data.data?.createTask?.id
+      };
+    } catch (error) {
+      console.error('Error exporting to Perfex CRM:', error);
+      return { success: false };
     }
-    
-    const data = await response.json();
-    
-    return {
-      success: data.data?.createTask?.success || false,
-      crmId: data.data?.createTask?.id
-    };
   }
 
   async getSupportedFormats(): Promise<string[]> {

@@ -2,7 +2,7 @@ import type {
   QASession,
   Question,
   Answer,
-  QuestionType
+  QuestionType, QuestionOption
 } from '../types/qa';
 import { ChecklistService } from './checklist-service';
 import { TemplateService } from './template-service';
@@ -57,7 +57,7 @@ export class QAEngine {
       {
         id: 'service_type',
         text: 'What type of service do you need?',
-        type: 'single_select',
+        type: 'single-select',
         required: true,
         options: [
           'move_in',
@@ -71,7 +71,7 @@ export class QAEngine {
       {
         id: 'property_type',
         text: 'What type of property is this?',
-        type: 'single_select',
+        type: 'single-select',
         required: true,
         options: [
           'apartment',
@@ -98,7 +98,7 @@ export class QAEngine {
       {
         id: 'rooms',
         text: 'Which rooms need cleaning?',
-        type: 'multi_select',
+        type: 'multi-select',
         required: true,
         options: [] // Will be dynamically set based on property type
       }
@@ -204,17 +204,27 @@ export class QAEngine {
     }
 
     // Validate single select
-    if (question.type === 'single_select' && question.options) {
-      if (!question.options.includes(answer as string)) {
+    if (question.type === 'single-select' && question.options) {
+      // Check if options are string array or QuestionOption array
+      const optionValues = typeof question.options[0] === 'string' 
+        ? question.options as string[]
+        : (question.options as QuestionOption[]).map(opt => opt.value);
+      
+      if (!optionValues.includes(answer as string)) {
         return { success: false, error: 'Invalid option selected' };
       }
     }
 
     // Validate multi select
-    if (question.type === 'multi_select' && question.options) {
+    if (question.type === 'multi-select' && question.options) {
       const answers = answer as string[];
+      // Check if options are string array or QuestionOption array
+      const optionValues = typeof question.options[0] === 'string' 
+        ? question.options as string[]
+        : (question.options as QuestionOption[]).map(opt => opt.value);
+      
       for (const ans of answers) {
-        if (!question.options.includes(ans)) {
+        if (!optionValues.includes(ans)) {
           return { success: false, error: 'Invalid option selected' };
         }
       }

@@ -26,7 +26,7 @@
       "@/hooks/*": ["./hooks/*"],
       "@/types/*": ["./types/*"],
       "@/stores/*": ["./lib/stores/*"],
-      "@/utils/*": ["./lib/utils/*"],
+      "@/utils/*": ["./lib/utils/*"]
     }
   },
   "include": [

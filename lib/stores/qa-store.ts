@@ -46,7 +46,7 @@ interface QAStore {
   // Utility
   evaluateConditionalLogic: () => void;
   generateSuggestions: () => void;
-  calculateConfidence: (answers: Answer[]) => number;
+  calculateConfidence: (answers: Record<string, Answer>) => number;
   getSessionResult: () => any;
   reset: () => void;
 }

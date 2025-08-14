@@ -2,7 +2,8 @@ import type {
   QASession,
   Question,
   Answer,
-  QuestionType
+  QuestionType,
+  QuestionOption
 } from '../types/qa';
 import { ChecklistService } from './checklist-service';
 import { TemplateService } from './template-service';
@@ -214,7 +215,7 @@ export class QAEngine {
 
     // Validate single select
     if (question.type === 'single-select' && question.options) {
-      if (!question.options.includes(answer as string)) {
+      if (!this.getValidOptionValues(question.options).includes(answer as string)) {
         return { success: false, error: 'Invalid option selected' };
       }
     }
@@ -223,7 +224,7 @@ export class QAEngine {
     if (question.type === 'multi-select' && question.options) {
       const answers = answer as string[];
       for (const ans of answers) {
-        if (!question.options.includes(ans)) {
+        if (!this.getValidOptionValues(question.options).includes(ans)) {
           return { success: false, error: 'Invalid option selected' };
         }
       }
@@ -275,7 +276,7 @@ export class QAEngine {
 
   generateRoomSuggestions(): any[] {
     // Generate room suggestions based on answers
-    const suggestions = [];
+    const suggestions: any[] = [];
     // Add logic here to generate room suggestions
     return suggestions;
   }
@@ -378,5 +379,17 @@ export class QAEngine {
       total: totalQuestions,
       percentage
     };
+  }
+
+  private getValidOptionValues(options: string[] | QuestionOption[]): string[] {
+    if (!options || options.length === 0) return [];
+    
+    // Check if it's an array of strings
+    if (typeof options[0] === 'string') {
+      return options as string[];
+    }
+    
+    // It's an array of QuestionOption objects
+    return (options as QuestionOption[]).map(opt => String(opt.value));
   }
 }

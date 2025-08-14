@@ -230,13 +230,13 @@ export class DatabaseService {
   }
 
   async getActiveSessions(): Promise<QASession[]> {
-    return await this.db.sessions.where('isComplete').equals(false).toArray();
+    return await this.db.sessions.where('isComplete').equals(0).toArray();
   }
 
   async cleanupOldSessions(daysToKeep: number): Promise<void> {
     const cutoffDate = new Date(Date.now() - daysToKeep * 24 * 60 * 60 * 1000);
     await this.db.sessions
-      .where('isComplete').equals(true)
+      .where('isComplete').equals(1)
       .and(s => s.completedAt ? s.completedAt < cutoffDate : false)
       .delete();
   }
